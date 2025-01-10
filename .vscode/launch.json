@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-EventiApplication<eventi>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.eventi.eventi.EventiApplication",
+            "projectName": "eventi",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
