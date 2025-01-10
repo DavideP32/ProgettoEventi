@@ -2,13 +2,13 @@
 window.onload = function() {
     setTimeout(function() {
         document.getElementById('titolo').classList.add('visible');
-    }, 1000);
+    }, 10);
 
     setTimeout(function() {
         document.getElementById('testo').classList.add('visible');
-    }, 2000);
+    }, 1000);
 
     setTimeout(function() {
         document.getElementById('bottone').classList.add('visible');
-    }, 3000);
+    }, 1500);
 }
