@@ -8,54 +8,34 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/home.css">
-    <style>
-        .category-icon {
-            border: 1px solid rgba(0, 0, 255, 0.2);
-            border-radius: 50%;
-            width: 120px;
-            height: 120px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: auto;
-        }
-
-        .category-icon i {
-            font-size: 48px;
-        }
-
-        .category-text {
-            margin-top: 10px;
-            font-weight: 600;
-        }
-    </style>
 </head>
 
 <body>
 
     <!-- Navbar -->
-    <header class="p-3 text-bg-dark bg-transparent w-100 nav position-absolute">
+    <header class="text-bg-dark bg-transparent w-100 nav ">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="./index.html">
-                    <img src="path/to/your/logo.png" alt="Logo" width="40" height="32" class="me-2">
+                    <img src="./img/logo.png" alt="Logo" width="80" height="80" class="me-2">
                 </a>
 
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Eventi</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Crea evento</a></li>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 link-nav">
+                    <li><a href="#" class="nav-link px-3 text-secondary">Home</a></li>
+                    <li><a href="#" class="nav-link px-3 text-white">Eventi</a></li>
+                    <li><a href="#" class="nav-link px-3 text-white">Crea evento</a></li>
                 </ul>
 
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+                    <input type="search" class="form-control form-control-dark text-bg-dark bg-transparent" placeholder="Search..." aria-label="Search">
                 </form>
 
                 <div class="text-end">
                     <button type="button" class="btn btn-outline-light me-2">Login</button>
-                    <button type="button" class="btn btn-warning">Registrati</button>
+                    <button type="button" class="btn btn-registrati">Registrati</button>
                 </div>
             </div>
         </div>
@@ -71,42 +51,60 @@
         <div class="text-white">
             <h1 id="titolo" class="display-3 fw-bold animate__animated animate__fadeInDown ">Scopri Eventi Unici</h1>
             <p id="testo" class="lead animate__animated animate__fadeInDown animate__delay-2s">Esplora e prenota gli eventi più esclusivi della Lombardia!</p>
-            <a id="bottone" href="#" class="btn btn-primary btn-lg mt-3 animate__animated animate__fadeInDown animate__delay-3s">Scopri di più</a>
+            <a id="bottone" href="#" class="btn btn-registrati btn-lg mt-3 animate__animated animate__fadeInDown animate__delay-3s">Scopri di più</a>
         </div>
     </section>
 
     <!-- Sezione categorie -->
     <section class="container text-center my-5">
-        <div class="row justify-content-center">
-            <div class="col-2">
-                <div class="category-icon">
-                    <img src="https://source.unsplash.com/100x100/?music" alt="">
-                </div>
-                <p class="category-text">Musica</p>
+        <div class="row justify-content-center icon-container d-flex flex-wrap">
+            <div class="col-6 col-md-3 col-lg-2 col-xxl-2 mb-4">
+                <a href="#" class="category-link">
+                    <div class="category-icon">
+                        <i class="fa-solid fa-music"></i>
+                    </div>
+                    <p class="category-text">Musica</p>
+                </a>
             </div>
-            <div class="col-2">
-                <div class="category-icon">
-                    <img src="https://source.unsplash.com/100x100/?nightlife" alt="">
-                </div>
-                <p class="category-text">Teatro</p>
+            <div class="col-6 col-md-3 col-lg-2 col-xxl-2 mb-4">
+                <a href="#" class="category-link">
+                    <div class="category-icon">
+                        <i class="fa-solid fa-masks-theater"></i>
+                    </div>
+                    <p class="category-text">Teatro</p>
+                </a>
             </div>
-            <div class="col-2">
-                <div class="category-icon">
-                    <img src="https://source.unsplash.com/100x100/?art" alt="">
-                </div>
-                <p class="category-text">Food & drink</p>
+            <div class="col-6 col-md-3 col-lg-2 col-xxl-2 mb-4">
+                <a href="#" class="category-link">
+                    <div class="category-icon">
+                        <i class="fa-solid fa-champagne-glasses"></i>
+                    </div>
+                    <p class="category-text">Food & drink</p>
+                </a>
             </div>
-            <div class="col-2">
-                <div class="category-icon">
-                    <img src="https://source.unsplash.com/100x100/?holiday" alt="">
-                </div>
-                <p class="category-text">Disco</p>
+            <div class="col-6 col-md-3 col-lg-2 col-xxl-2 mb-4">
+                <a href="#" class="category-link">
+                    <div class="category-icon">
+                        <i class="fa-solid fa-shirt"></i>
+                    </div>
+                    <p class="category-text">Feste e Sagre</p>
+                </a>
             </div>
-            <div class="col-2">
-                <div class="category-icon">
-                    <img src="https://source.unsplash.com/100x100/?love" alt="">
-                </div>
-                <p class="category-text">Sport</p>
+            <div class="col-6 col-md-3 col-lg-2 col-xxl-2 mb-4">
+                <a href="#" class="category-link">
+                    <div class="category-icon">
+                        <i class="fa-solid fa-volleyball"></i>
+                    </div>
+                    <p class="category-text">Sport</p>
+                </a>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2 col-xxl-2 mb-4">
+                <a href="#" class="category-link">
+                    <div class="category-icon">
+                        <i class="fa-solid fa-paintbrush"></i>
+                    </div>
+                    <p class="category-text">Arte</p>
+                </a>
             </div>
         </div>
     </section>

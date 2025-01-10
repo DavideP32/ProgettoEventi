@@ -1,8 +1,32 @@
-.btn-warning {
-background-color: #CAB177 !important;
-border-color: #CAB177;
+header {
+	background: rgba(0, 0, 0, 0.7);
+	backdrop-filter: blur(5px);
+	position: fixed;
+	top: 0;
+	width: 100%;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	padding: 0;
+}
+
+.btn-registrati {
+	background-color: #cab177 !important;
+	border-color: #cab177;
+}
+
+.btn-registrati:hover {
+	background-color: inherit !important;
+	color: inherit !important;
+	border-color: inherit !important;
 }
 
 .nav {
-    z-index: 1050
+	z-index: 1050;
+}
+
+.link-nav {
+	font-size: large;
+}
+
+.navbar-scrolled {
+	background-color: rgba(0, 0, 0, 0.9) !important; /* Nero semi-trasparente */
 }

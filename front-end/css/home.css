@@ -1,18 +1,42 @@
 :root {
-    --animate-delay: 0.5s;
-  }
+	--animate-delay: 0.5s;
+}
 
 .hero-section {
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
+	height: 100vh;
+	position: relative;
+	overflow: hidden;
 }
 
 .video-hero {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: -1;
 }
 
+.category-link {
+	text-decoration: none;
+	color: inherit;
+}
+
+.category-icon {
+	border: 1px solid rgba(0, 0, 255, 0.2);
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+}
+
+.category-icon i {
+	font-size: 48px;
+}
+
+.category-text {
+	margin-top: 10px;
+	font-weight: 600;
+}
