@@ -6,6 +6,10 @@
     <title>Hero Section Completa</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/home.css">
     <style>
@@ -31,7 +35,7 @@
 <body>
 
     <!-- Navbar -->
-    <header class="p-3 text-bg-dark bg-transparent w-100 navbaraaa position-absolute">
+    <header class="p-3 text-bg-dark bg-transparent w-100 nav position-absolute">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="./index.html">
@@ -60,13 +64,13 @@
 
     <!-- Hero Section -->
     <section class="hero-section text-center d-flex align-items-center justify-content-center">
-        <video autoplay muted loop playsinline class="video-hero">
-            <source src="./img/hero-video.webm" type="video/mp4">
+        <video preload="none" autoplay muted loop playsinline class="video-hero">
+            <source src="./img/video-hero2.webm" type="video/webm">
         </video>
         <div class="text-white">
-            <h1 id="titolo" class="display-3 fw-bold fade-in">Scopri Eventi Unici</h1>
-            <p id="testo" class="lead fade-in">Esplora e prenota gli eventi più esclusivi della Lombardia!</p>
-            <a id="bottone" href="#" class="btn btn-primary btn-lg mt-3 fade-in">Scopri di più</a>
+            <h1 id="titolo" class="display-3 fw-bold animate__animated animate__fadeInDown ">Scopri Eventi Unici</h1>
+            <p id="testo" class="lead animate__animated animate__fadeInDown animate__delay-2s">Esplora e prenota gli eventi più esclusivi della Lombardia!</p>
+            <a id="bottone" href="#" class="btn btn-primary btn-lg mt-3 animate__animated animate__fadeInDown animate__delay-3s">Scopri di più</a>
         </div>
     </section>
 

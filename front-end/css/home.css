@@ -1,3 +1,7 @@
+:root {
+    --animate-delay: 0.5s;
+  }
+
 .hero-section {
     height: 100vh;
     position: relative;
@@ -12,16 +16,3 @@
     z-index: -1;
 }
 
-
-
-/* Per le scritte nella hero in ritardo */
-        /* Stile base per l'elemento nascosto */
-        .fade-in {
-            opacity: 0;
-            transition: opacity 2s ease-in-out;
-        }
-
-        /* Classe per far apparire l'elemento */
-        .visible {
-            opacity: 1;
-        }
