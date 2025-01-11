@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrati</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="./css/login-registrati.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sezione di registrazione -->
+        <div class="left-section">
+            <div class="w-75">
+
+                <div class="d-flex align-items-center">
+                    <img src="./img/logo.png" alt="Logo Event Horizon" width="80" class="animate__animated animate__fadeInLeft animate__faster">
+                    <h4 class="ms-2 animate__animated animate__fadeInLeft animate__delay-1s animate__faster">Event Horizon</h4>
+                </div>
+                 
+                <h1 class="mb-4 mt-3">Registrati</h1>
+                <input type="text" id="first-name" class="form-control" placeholder="Nome">
+                <input type="text" id="last-name" class="form-control" placeholder="Cognome">
+                <input type="email" id="email" class="form-control" placeholder="Indirizzo email">
+                <input type="password" id="password" class="form-control" placeholder="Password">
+                <input type="password" id="confirm-password" class="form-control" placeholder="Conferma password">
+                <p id="password-error" style="color: red; display: none;">Le password non corrispondono!</p>
+                <button class="btn login-btn w-100 mt-3" onclick="validatePassword()">Registrati</button>
+                <hr>
+                <div class="text-center mt-3">
+                    <p><span>Hai già un account?</span><br><a class="link" href="./login.html">Accedi</a></p>
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174848.png" width="40" class="me-3"></a>
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" width="40" class="me-3"></a>
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" width="40"></a>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Sezione immagine -->
+        <div class="right-section">
+            <img src="./img/sfondo-login-registrazione.jpg" alt="Immagine di sfondo" class="responsive-img">
+        </div>
+    </div>
+
+    <script src="./js.login-registrati.js"></script>
+    
+</body>
+</html>

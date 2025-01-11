@@ -1,3 +1,7 @@
+:root {
+	--animate-delay: 0.5s;
+}
+
 body, html {
     height: 100%;
     margin: 0;
@@ -13,7 +17,7 @@ body, html {
 .left-section {
     width: 50%;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     padding: 20px;
 }
@@ -56,6 +60,28 @@ input {
     color: #207133;
     text-decoration: underline;
 }
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.logo-animation {
+    animation: slideInLeft 2s ease-out forwards;
+}
+
+.text-animation {
+    animation: slideInLeft 2s ease-out forwards;
+    animation-delay: 2s;
+    opacity: 0;
+}
+
 /* Media query per dispositivi con larghezza inferiore a 768px (tablet e smartphone) */
 @media (max-width: 992px) {
     .container {
@@ -76,3 +102,5 @@ input {
         padding: 20px;
     }
 }
+
+
