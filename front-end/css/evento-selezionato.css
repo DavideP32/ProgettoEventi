@@ -1,53 +1,53 @@
 .hero {
-    position: relative;
-    height: 82vh;
-    background: url('immagine-evento.jpg') no-repeat center center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
+	position: relative;
+	height: 82vh;
+	background: url("../img/carosello2.jpg") no-repeat center center/cover;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	color: white;
 }
 
 .hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2;
+	position: relative;
+	z-index: 2;
 }
 
 .cta-section {
-    background-color: #cab177;
-    text-align: center;
-    padding: 20px;
+	background-color: #cab177;
+	text-align: center;
+	padding: 20px;
 }
 
 .btn-prenotati {
-    color: white;
-    background-color: #000000 !important;
-    border-color: #000000;
+	color: white;
+	background-color: #000000 !important;
+	border-color: #000000;
 }
 
 .btn-prenotati:hover {
-    background-color: inherit !important;
-    color: inherit !important;
-    border-color: inherit !important;
+	background-color: inherit !important;
+	color: inherit !important;
+	border-color: inherit !important;
 }
 
 .event-info {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #cab177;
-    padding: 10px 20px;
-    border-radius: 20px;
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: #cab177;
+	padding: 10px 20px;
+	border-radius: 20px;
 }
