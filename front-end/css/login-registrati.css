@@ -61,6 +61,10 @@ input {
     text-decoration: underline;
 }
 
+.arrow-home {
+    color: black;
+}
+
 @keyframes slideInLeft {
     from {
         opacity: 0;
