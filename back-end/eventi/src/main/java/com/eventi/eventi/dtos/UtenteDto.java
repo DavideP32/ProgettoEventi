@@ -14,7 +14,7 @@ public class UtenteDto {
     private long id;
     private String nome;
     private String cognome;
-    private LocalDate data_nascita;
+    private LocalDate dataNascita;
     private String email;
     private Ruolo ruolo;
     
@@ -24,11 +24,11 @@ public class UtenteDto {
     }
 
 
-    public UtenteDto(long id, String nome, String cognome, LocalDate data_nascita, String email, Ruolo ruolo) {
+    public UtenteDto(long id, String nome, String cognome, LocalDate dataNascita, String email, Ruolo ruolo) {
         this.id = id;
         this.nome = nome;
         this.cognome = cognome;
-        this.data_nascita = data_nascita;
+        this.dataNascita = dataNascita;
         this.email = email;
         this.ruolo = ruolo;
     }
@@ -50,11 +50,11 @@ public class UtenteDto {
     public void setCognome(String cognome) {
         this.cognome = cognome;
     }
-    public LocalDate getData_nascita() {
-        return data_nascita;
+    public LocalDate getDataNascita() {
+        return dataNascita;
     }
-    public void setData_nascita(LocalDate data_nascita) {
-        this.data_nascita = data_nascita;
+    public void setDataNascita(LocalDate dataNascita) {
+        this.dataNascita = dataNascita;
     }
     public String getEmail() {
         return email;

@@ -1,4 +1,4 @@
-package com.eventi.eventi.Entity;
+package com.eventi.eventi.entities;
 
 import java.time.LocalDate;
 
@@ -12,8 +12,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name = "utenti")
@@ -30,13 +28,12 @@ public class Utente {
     private String cognome;
 
     @Column(name = "data_nascita")
-    @Temporal(TemporalType.DATE)
     private LocalDate dataNascita;
 
-    @Column(length=50)
+    @Column(length=50, nullable = false, unique = true)
     private String email;
 
-    @Column(length=20)
+    @Column(length = 20, nullable = false)
     private String password;
 
     @Column(columnDefinition = "ENUM('RUOLO_ADMIN', 'RUOLO_UTENTE')")
