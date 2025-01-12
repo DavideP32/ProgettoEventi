@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -68,6 +69,26 @@ public class UtenteCtrl {
 		}
     }
     
+	
+	@PutMapping
+	public ResponseEntity<?> putUtente(@RequestBody Utente utente){
+		try {
+			Utente trovato = utenteService.prendiPerId(utente.getUtente_id());
+			UtenteDto trovatoEmail = utenteService.prendiUtenteByEmail(utente.getEmail());
+			
+			if(trovato != null && trovatoEmail.getId() == trovato.getUtente_id()) {
+				UtenteDto utenteDto = utenteService.aggiornaUtente(utente, trovato);
+				return ResponseEntity.ok(utenteDto);
+			}else if (trovatoEmail.getId() != trovato.getUtente_id()){
+				return ResponseEntity.badRequest().body("Email non corretta!");
+			}else {
+				return ResponseEntity.badRequest().body("Errore, utente non trovato");
+			}
+			
+		} catch (Exception e) {
+			return ResponseEntity.internalServerError().body(new UtenteDto());
+		}
+	}
     
     
 

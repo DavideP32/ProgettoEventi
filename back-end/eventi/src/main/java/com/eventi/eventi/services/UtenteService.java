@@ -16,7 +16,7 @@ public interface UtenteService {
 	UtenteDto prendiUtenteByEmail(String email);
 	
 	UtenteDto aggiungiUtente(Utente utente);
-	// UtenteDto aggiornaUtente(Utente utente, Utente trovato);
+	UtenteDto aggiornaUtente(Utente utente, Utente trovato);
 	// void cancellaUtenteById(long id);
 	
 	
