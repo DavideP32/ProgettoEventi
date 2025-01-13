@@ -69,7 +69,7 @@ public class UtenteServiceImpl implements UtenteService {
     /* -------------------------------------------------------------------------- */
     @Override
     public UtenteDto aggiungiUtente(Utente utente){
-        utente.setUtente_id(0L);
+        utente.setId(0L);
         utenteRepository.save(utente);
         return toUtenteDto(utente);
     }
@@ -100,18 +100,34 @@ public class UtenteServiceImpl implements UtenteService {
 
 
 
+    /* -------------------------------------------------------------------------- */
+    /*                            VERIFICA CREDENZIALI                            */
+    /* -------------------------------------------------------------------------- */
+    public boolean verificaPassword(String passwordInserita, String passwordSalvata){
+        return passwordInserita.equals(passwordSalvata);
+    }
+
+
+    @Override
+    public Utente verificaCredenziali(String email, String password){
+        Utente u = utenteRepository.findByEmail(email);
+
+        if(u != null && verificaPassword(password, u.getPassword())){
+            return u;
+        }
+        return null;
+    }
 
 
 
 
 
-
-
-
-    //-----------------------------------DTO--------------------
+    /* -------------------------------------------------------------------------- */
+    /*                               CONVERSIONE DTO                              */
+    /* -------------------------------------------------------------------------- */
     private UtenteDto toUtenteDto(Utente utente) {
         UtenteDto utenteDto = new UtenteDto(
-                utente.getUtente_id(),
+                utente.getId(),
                 utente.getNome(),
                 utente.getCognome(),
                 utente.getDataNascita(),
