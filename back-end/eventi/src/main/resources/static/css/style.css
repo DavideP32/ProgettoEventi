@@ -1,0 +1,131 @@
+body {
+    background-color: #faf5f5;
+    box-sizing: border-box;
+    font-family: "Inter", serif;
+}
+
+.dm-serif-text-regular {
+	font-family: "DM Serif Text", serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.dm-serif-text-regular-italic {
+	font-family: "DM Serif Text", serif;
+	/* font-weight: 10; */
+	font-style: italic;
+}
+
+/* Navbar inizialmente trasparente */
+header {
+	background: rgba(0, 0, 0, 0.7);
+	backdrop-filter: blur(5px);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1050;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	padding: 0;
+	transition: background-color 0.5s ease-in-out;
+}
+
+/* Navbar completamente trasparente all'inizio */
+header.bg-transparent {
+	background: rgba(0, 0, 0, 0) !important;
+	box-shadow: none;
+}
+
+/* Navbar nera dopo lo scroll */
+header.navbar-scrolled {
+	background: rgba(0, 0, 0, 0.4) !important;
+	backdrop-filter: blur(10px);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1050;
+	background: transparent !important; /* Rende la navbar trasparente */
+}
+
+.btn-registrati {
+	background-color: #cab177 !important;
+	border-color: #cab177;
+}
+
+.btn-registrati:hover {
+	background-color: inherit !important;
+	color: inherit !important;
+	border-color: inherit !important;
+}
+
+.btn-cerca {
+	color: #cab177;
+	font-size: 1.1rem;
+	right: 1rem;
+	transition: transform 0.2s ease-in-out;
+}
+
+.link-nav {
+	font-size: large;
+}
+
+.navbar-scrolled {
+	background-color: rgba(0, 0, 0, 0.9) !important; /* Nero semi-trasparente */
+}
+
+.footer {
+	background: url("../img/sfondo-footer.png") no-repeat center center;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	overflow: hidden;
+	/* margin-top: 10rem; */
+}
+
+.footer-logo {
+	max-width: 200px;
+	height: auto;
+	margin-top: 3rem;
+}
+
+.social-section {
+	text-align: center;
+	align-items: center;
+	margin-top: 18rem;
+}
+
+.social-icons a {
+	margin: 0 10px;
+	color: #ffffffde;
+	font-size: 35px;
+	text-decoration: none;
+}
+
+.social-icons a:hover {
+	color: #cab177;
+}
+
+.footer-link {
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+	list-style: none;
+	padding: 0;
+	margin-top: 5rem;
+	margin-bottom: 2rem;
+}
+
+.footer-link a {
+	color: white;
+	text-decoration: none;
+}
+
+.footer-link a:hover {
+	color: #cab177;
+}

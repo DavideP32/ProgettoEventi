@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="./css/login-registrati.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+        <!-- Freccia per tornare alla home -->
+        <a href="index.html" class="position-absolute top-0 start-0 m-3 arrow-home">
+            <i class="fa fa-arrow-left fa-2x"></i>
+        </a>
+
+    <div class="container">
+        <!-- Sezione di login -->
+        <div class="left-section">
+            <div class="w-75">
+                
+                <div class="d-flex align-items-center">
+                    <a href="index.html"><img src="./img/logo.png" alt="Logo Event Horizon" width="80" class="animate__animated animate__fadeInLeft animate__faster"></a>
+                    <h4 class="ms-2 animate__animated animate__fadeInLeft animate__delay-1s animate__faster">Event Horizon</h4>
+                </div>                           
+    
+                <h1 class="mb-4 mt-3">Accedi</h1>
+
+                <form>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Indirizzo email">
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                </form>
+                <a class="link" href="#">Password dimenticata?</a>
+                <button class="btn login-btn w-100 mt-3">Accedi</button>
+                <hr>
+                <div class="text-center mt-3">
+                    <p><span>Non hai un account?</span><br><a class="link" href="./registrati.html">Registrati</a></p>
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174848.png" width="40" class="me-3"></a>
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" width="40" class="me-3"></a>
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" width="40"></a>
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- Sezione immagine -->
+        <div class="right-section">
+            <img src="./img/sfondo-login-registrati.jpg" alt="Immagine di sfondo" class="responsive-img">
+        </div>
+    </div>
+
+    <script src="./js/login.js"></script>
+
+</body>
+</html>

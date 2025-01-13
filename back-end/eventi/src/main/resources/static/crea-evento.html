@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎶 Crea il Tuo Evento Unico - Serata Jazz</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/crea-evento.css">
+
+</head>
+<body>
+    <style>
+        body{
+            background: url('./img/carosello3.jpg') center/cover no-repeat;
+        }
+    </style>
+
+<!-- Pagina Creazione Evento -->
+<section class="create-event py-5 d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="container text-center bg-light p-5 rounded shadow-lg" style="max-width: 600px;">
+        <h2 class="fw-bold text-center mb-4">Crea il Tuo Evento</h2>
+
+        <!-- Form Creazione Evento -->
+        <form action="salva-evento.html" method="POST" class="needs-validation" novalidate>
+
+            <!-- Nome Evento -->
+            <div class="mb-3">
+                <label for="nomeEvento" class="form-label">Nome Evento *</label>
+                <input type="text" class="form-control" id="nomeEvento" name="nomeEvento" placeholder="Es: Notte di Jazz" required>
+            </div>
+
+            <!-- Descrizione Evento -->
+            <div class="mb-3">
+                <label for="descrizioneEvento" class="form-label">Descrizione *</label>
+                <textarea class="form-control" id="descrizioneEvento" name="descrizioneEvento" placeholder="Descrivi l'atmosfera e i dettagli dell'evento..." rows="3" required></textarea>
+            </div>
+
+            <!-- Data e Ora -->
+            <div class="mb-3">
+                <label for="dataOraEvento" class="form-label">Data e Ora *</label>
+                <input type="datetime-local" class="form-control" id="dataOraEvento" name="dataOraEvento" required>
+            </div>
+
+            <!-- Luogo Evento con Ricerca Dinamica -->
+            <div class="mb-3 position-relative">
+                <label for="luogoEvento" class="form-label">Luogo *</label>
+                <input type="text" class="form-control" id="luogoEvento" name="luogoEvento" placeholder="Cerca un luogo..." required>
+                <ul id="suggestions" class="list-group position-absolute mt-1 d-none"></ul>
+            </div>
+
+            <!-- Prezzo -->
+            <div class="mb-3">
+                <label for="prezzoEvento" class="form-label">Prezzo a Persona (€)*</label>
+                <input type="number" class="form-control" id="prezzoEvento" name="prezzoEvento" min="0" step="0.01" required>
+            </div>
+
+            <!-- Contatti -->
+            <div class="mb-3">
+                <label for="telefonoEvento" class="form-label">Telefono *</label>
+                <input type="tel" class="form-control" id="telefonoEvento" name="telefonoEvento" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="contattiEvento" class="form-label">Email *</label>
+                <input type="email" class="form-control" id="contattiEvento" name="contattiEvento" required>
+            </div>
+
+            <!-- Motto Evento -->
+            <div class="mb-3">
+                <label for="mottoEvento" class="form-label">Mini Motto *</label>
+                <input type="text" class="form-control" id="mottoEvento" name="mottoEvento" placeholder="Es: Un viaggio musicale senza tempo!" required>
+            </div>
+
+            <!-- Pulsante -->
+            <button type="submit" class="btn btn-crea mt-3">🎉 Crea Evento Ora!</button>
+        </form>
+    </div>
+</section>
+
+<script>
+const form = document.querySelector('.needs-validation');
+form.addEventListener('submit', function (event) {
+    if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+    form.classList.add('was-validated');
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prenotazione Serata Jazz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/prenotazione.css">
+</head>
+<body>
+
+            <!-- Freccia per tornare alla home -->
+            <a href="evento-selezionato.html" style="color: black;" class="position-absolute top-0 start-0 m-3 arrow-home">
+                <i class="fa fa-arrow-left fa-2x"></i>
+            </a>
+
+
+<!-- Sezione Prenotazione -->
+<section class=" booking-form d-flex">
+    <!-- Colonna Sinistra: Form -->
+    <div class="container flex-fill p-5">
+        <h2 class="fw-bold text-center mb-4">Completa la tua prenotazione</h2>
+        
+        <div class="event-details mb-4 p-4 bg-light rounded shadow">
+            <h4 class="fw-bold">🎷 Serata Jazz dal Vivo</h4>
+            <p><strong>Data:</strong> Sabato 25 Gennaio 2025</p>
+            <p><strong>Orario:</strong> 19:00 - 00:00</p>
+            <p><strong>Luogo:</strong> Grand Hotel, Via Roma 1, Milano</p>
+        </div>
+
+        <form action="processa-pagamento.html" method="POST" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="numPersone" class="form-label">Numero di Persone</label>
+                <input type="number" class="form-control" id="numPersone" name="numPersone" min="1" max="10" required>
+            </div>
+            <p class="lead"><strong>Prezzo Totale: €<span id="totalPrice">0</span></strong></p>
+            <div class="mb-3">
+                <label for="nomeCompleto" class="form-label">Nome Completo</label>
+                <input type="text" class="form-control" id="nomeCompleto" name="nomeCompleto" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-4">
+                <label for="metodoPagamento" class="form-label">Metodo di Pagamento</label>
+                <select class="form-select" id="metodoPagamento" name="metodoPagamento" required>
+                    <option value="carta">Carta di Credito</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="bonifico">Bonifico Bancario</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Conferma Prenotazione</button>
+        </form>
+    </div>
+
+    <!-- Colonna Destra: Immagine -->
+    <div class="booking-image flex-fill"></div>
+</section>
+
+
+
+
+<script src="./js/style.js"></script>
+<script src="./js/prenotazioni.js"></script>
+
+</body>
+</html>

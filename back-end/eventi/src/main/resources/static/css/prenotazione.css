@@ -1,0 +1,39 @@
+/* Sezione Prenotazione */
+.booking-form {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+.booking-form .container {
+    flex: 1;
+    padding: 2rem;
+    max-width: 700px;
+    margin: auto;
+}
+
+
+.booking-form .form-control {
+    border-radius: 10px;
+}
+
+.booking-form button {
+    background: #cab177;
+    border: none;
+    padding: 12px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.booking-form button:hover {
+    background: #a8925c;
+}
+
+.booking-image {
+    flex: 1;
+    max-width: 50%;
+    background: url('../img/front-view-man-playing-sax-with-geometric-background.jpg') no-repeat center center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
