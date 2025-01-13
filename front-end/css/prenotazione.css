@@ -1,7 +1,12 @@
 /* Sezione Prenotazione */
 .booking-form {
-    max-width: 500px;
-    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 600px;
+    background-color: #faf5f5;
+    margin: auto;
 }
 
 .booking-form .form-control {
