@@ -1,3 +1,8 @@
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), 
+    url('../img/sfondo-crea-evento.jpg') center/cover no-repeat;            
+}
+
 h2 {
     color: #cab177 ;
 }
@@ -55,4 +60,10 @@ h2 {
 /* Attiva il bagliore con hover */
 .btn-crea:hover::before {
     opacity: 1;
+}
+
+.event-list span, .logo, h2 {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
 }
