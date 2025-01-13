@@ -10,6 +10,7 @@ window.addEventListener('scroll', function () {
     }
 });
 
+
 //BARRA DI RICERCA
 const events = [
     "Serata Vintage Party 80's",

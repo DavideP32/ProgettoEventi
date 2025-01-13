@@ -3,6 +3,16 @@ body {
 	font-family: "Inter", serif;
 }
 
+.overlay {
+	position: absolute;
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+	height: 100vh;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+
 h1 {
 	text-shadow: 0 0 3px #131313;
 }
@@ -12,11 +22,14 @@ h1 {
 }
 
 .hero-section {
+	position: relative;
 	height: 100vh;
 }
 
-.hero-section p {
-	text-shadow: 0 0 3px #131313;
+
+.hero-title {
+	position: relative;
+	z-index: 3;
 }
 
 .video-hero {
@@ -24,6 +37,7 @@ h1 {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	z-index: 1;
 }
 
 .category-link {
