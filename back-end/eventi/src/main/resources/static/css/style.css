@@ -1,184 +1,224 @@
+/* Global Styles */
 body {
     background-color: #faf5f5;
     box-sizing: border-box;
     font-family: "Inter", serif;
 }
 
+/* Menu Button */
 .menu {
-	background-color: transparent;
-	border: none;
-	cursor: pointer;
-	display: flex;
-	padding: 0;
-  }
-  .line {
-	fill: none;
-	stroke: black;
-	stroke-width: 6;
-	transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
-	  stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .line1 {
-	stroke-dasharray: 60 207;
-	stroke-width: 6;
-  }
-  .line2 {
-	stroke-dasharray: 60 60;
-	stroke-width: 6;
-  }
-  .line3 {
-	stroke-dasharray: 60 207;
-	stroke-width: 6;
-  }
-  .opened .line1 {
-	stroke-dasharray: 90 207;
-	stroke-dashoffset: -134;
-	stroke-width: 6;
-  }
-  .opened .line2 {
-	stroke-dasharray: 1 60;
-	stroke-dashoffset: -30;
-	stroke-width: 6;
-  }
-  .opened .line3 {
-	stroke-dasharray: 90 207;
-	stroke-dashoffset: -134;
-	stroke-width: 6;
-  }
-  
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    padding: 0;
+}
 
+/* Navbar Toggler Default Button */
+.navbar-toggler {
+    width: 80px;
+    height: 80px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+/* Navbar Toggler Focus Style */
+.navbar-toggler:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Navbar Toggler Shrink Button on Scroll */
+.shrink-button {
+    transform: scale(0.7);
+    transition: all 0.3s ease;
+}
+
+
+
+/* Navbar Lines for Animation */
+.line {
+    fill: none;
+    stroke: black;
+    stroke-width: 6;
+    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+                stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line1 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+}
+
+.line2 {
+    stroke-dasharray: 60 60;
+    stroke-width: 6;
+}
+
+.line3 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+}
+
+/* Navbar Line Animation When Opened */
+.opened .line1 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+}
+
+.opened .line2 {
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+    stroke-width: 6;
+}
+
+.opened .line3 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+}
+
+/* DM Serif Text Font Styling */
 .dm-serif-text-regular {
-	font-family: "DM Serif Text", serif;
-	font-weight: 400;
-	font-style: normal;
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .dm-serif-text-regular-italic {
-	font-family: "DM Serif Text", serif;
-	/* font-weight: 10; */
-	font-style: italic;
+    font-family: "DM Serif Text", serif;
+    font-style: italic;
 }
 
-/* Navbar inizialmente trasparente */
+/* Navbar Styles */
 header {
-	background: rgba(0, 0, 0, 0.7);
-	backdrop-filter: blur(5px);
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	z-index: 1050;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-	padding: 0;
-	transition: background-color 0.5s ease-in-out;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1050;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 0;
+    transition: background-color 0.5s ease-in-out;
 }
 
-/* Navbar completamente trasparente all'inizio */
+/* Transparent Navbar at Start */
 header.bg-transparent {
-	background: rgba(0, 0, 0, 0) !important;
-	box-shadow: none;
+    background: rgba(0, 0, 0, 0) !important;
+    box-shadow: none;
 }
 
-/* Navbar nera dopo lo scroll */
+/* Darker Navbar After Scroll */
 header.navbar-scrolled {
-	background: rgba(0, 0, 0, 0.4) !important;
-	backdrop-filter: blur(10px);
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.4) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
+/* Navbar Styling */
 .navbar {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	z-index: 1050;
-	background: transparent !important; /* Rende la navbar trasparente */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1050;
+    background: transparent !important;
 }
 
+/* Registration Button Styling */
 .btn-registrati {
-	background-color: #cab177 !important;
-	border-color: #cab177;
+    background-color: #cab177 !important;
+    border-color: #cab177;
 }
 
 .btn-registrati:hover {
-	background-color: inherit !important;
-	color: inherit !important;
-	border-color: inherit !important;
+    background-color: inherit !important;
+    color: inherit !important;
+    border-color: inherit !important;
 }
 
+/* Search Button Styling */
 .btn-cerca {
-	color: #cab177;
-	font-size: 1.1rem;
-	right: 1rem;
-	transition: transform 0.2s ease-in-out;
+    color: #cab177;
+    font-size: 1.1rem;
+    right: 1rem;
+    transition: transform 0.2s ease-in-out;
 }
 
+/* Navbar Link Styling */
 .link-nav {
-	font-size: large;
+    font-size: large;
 }
 
-.navbar img {
-	transition: all .2s;
-
+/* Navbar Image and Toggler Animation */
+.navbar img, .navbar-toggler {
+    transition: all .2s;
 }
 
+/* Navbar Scrolled Darker Styling */
 .navbar-scrolled {
-	background-color: rgba(0, 0, 0, 0.9) !important; /* Nero semi-trasparente */
+    background-color: rgba(0, 0, 0, 0.9) !important;
 }
 
-.navbar-scrolled img{
-	width: 60px;
-	height: 60px;
+.navbar-scrolled img {
+    width: 60px;
+    height: 60px;
 }
 
+/* Footer Styling */
 .footer {
-	background: url("../img/sfondo-footer.png") no-repeat center center;
-	background-size: cover;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	overflow: hidden;
-	/* margin-top: 10rem; */
+    background: url("../img/sfondo-footer.png") no-repeat center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
 }
 
 .footer-logo {
-	max-width: 200px;
-	height: auto;
-	margin-top: 3rem;
+    max-width: 200px;
+    height: auto;
+    margin-top: 3rem;
 }
 
+/* Social Section Styling */
 .social-section {
-	text-align: center;
-	align-items: center;
-	margin-top: 18rem;
+    text-align: center;
+    align-items: center;
+    margin-top: 18rem;
 }
 
+/* Social Icons Styling */
 .social-icons a {
-	margin: 0 10px;
-	color: #ffffffde;
-	font-size: 35px;
-	text-decoration: none;
+    margin: 0 10px;
+    color: #ffffffde;
+    font-size: 35px;
+    text-decoration: none;
 }
 
 .social-icons a:hover {
-	color: #cab177;
+    color: #cab177;
 }
 
+/* Footer Links Styling */
 .footer-link {
-	display: flex;
-	justify-content: center;
-	gap: 15px;
-	list-style: none;
-	padding: 0;
-	margin-top: 5rem;
-	margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
 }
 
 .footer-link a {
-	color: white;
-	text-decoration: none;
+    color: white;
+    text-decoration: none;
 }
 
 .footer-link a:hover {
-	color: #cab177;
+    color: #cab177;
 }
