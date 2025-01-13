@@ -17,7 +17,7 @@ public interface UtenteService {
 	
 	UtenteDto aggiungiUtente(Utente utente);
 	UtenteDto aggiornaUtente(Utente utente, Utente trovato);
-	// void cancellaUtenteById(long id);
+	void cancellaUtenteById(long id);
 	
 	
 	// public Utente verificaCredenziali(String email, String password);

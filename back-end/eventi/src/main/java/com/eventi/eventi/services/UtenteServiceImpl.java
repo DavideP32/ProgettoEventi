@@ -90,6 +90,13 @@ public class UtenteServiceImpl implements UtenteService {
     }
 
 
+    /* -------------------------------------------------------------------------- */
+    /*                               CANCELLA UTENTE                              */
+    /* -------------------------------------------------------------------------- */
+    @Override
+    public void cancellaUtenteById(long id){
+        utenteRepository.deleteById(id);
+    }
 
 
 
