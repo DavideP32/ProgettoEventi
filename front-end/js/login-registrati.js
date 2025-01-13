@@ -10,3 +10,4 @@ function validatePassword() {
         alert('Registrazione completata!');
     }
 }
+
