@@ -29,14 +29,20 @@
                 </div>
                  
                 <h1 class="mb-4 mt-3">Registrati</h1>
-                <input type="text" id="first-name" class="form-control" placeholder="Nome">
-                <input type="text" id="last-name" class="form-control" placeholder="Cognome">
-                <input type="date" id="birthdate" class="form-control" style="color: #656d75;" aria-label="Data di nascita" placeholder="Data di nascita">
-                <input type="email" id="email" class="form-control" placeholder="Indirizzo email">
-                <input type="password" id="password" class="form-control" placeholder="Password">
-                <input type="password" id="confirm-password" class="form-control" placeholder="Conferma password">
-                <p id="password-error" style="color: red; display: none;">Le password non corrispondono!</p>
-                <button type="submit" class="btn login-btn w-100 mt-3" onclick="validatePassword()">Registrati</button>
+
+                <form>
+                    <input type="text" id="first-name" name="nome" class="form-control" placeholder="Nome">
+                    <input type="text" id="last-name" name="cognome" class="form-control" placeholder="Cognome">
+                    <input type="date" id="birthdate" name="birthdate" class="form-control" style="color: #656d75;" aria-label="Data di nascita" placeholder="Data di nascita">
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Indirizzo email">
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                    <input type="password" id="confirm-password" name="confirm-password" class="form-control" placeholder="Conferma password">
+                    
+                    <p id="password-error" style="color: red; display: none;">Le password non corrispondono!</p>
+                    <button type="submit" class="btn login-btn w-100 mt-3">Registrati</button>
+
+                </form>
+
                 <hr>
                 <div class="text-center mt-3">
                     <p><span>Hai già un account?</span><br><a class="link" href="./login.html">Accedi</a></p>
