@@ -1,3 +1,4 @@
+//Navbar che quando scende cambia colore
 window.addEventListener('scroll', function () {
     let navbar = document.querySelector('header');
     if (window.scrollY > 50) {

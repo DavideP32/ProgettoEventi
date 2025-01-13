@@ -1,0 +1,21 @@
+/* Sezione Prenotazione */
+.booking-form {
+    max-width: 500px;
+    background-color: #f8f9fa;
+}
+
+.booking-form .form-control {
+    border-radius: 10px;
+}
+
+.booking-form button {
+    background: #cab177;
+    border: none;
+    padding: 12px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.booking-form button:hover {
+    background: #a8925c;
+}

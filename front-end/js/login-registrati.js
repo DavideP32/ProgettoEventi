@@ -1,3 +1,4 @@
+//Messaggio di errore per password non confermata
 function validatePassword() {
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirm-password').value;
