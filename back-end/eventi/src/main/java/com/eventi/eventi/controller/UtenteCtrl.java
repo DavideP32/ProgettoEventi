@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -91,8 +92,21 @@ public class UtenteCtrl {
 		}
 	}
     
-    @DeleteMapping
-    
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteUtenteById(@PathVariable long id){
+        try {
+            UtenteDto trovato = utenteService.getUtenteDtoById(id);
+
+            if(trovato != null){
+                utenteService.cancellaUtenteById(id);
+                return ResponseEntity.ok("Cancellato l'utente con id: " + id);
+            }else{
+                return ResponseEntity.badRequest().body("L'utente non esiste");
+            }
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body(new UtenteDto());
+        }
+    }
     
 
 }
