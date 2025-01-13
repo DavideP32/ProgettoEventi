@@ -1,16 +1,23 @@
 .btn-gen {
 	background-color: #cab177 !important;
+	/* transition: opacity 0.5s ease-in-out; */
+	/* z-index: -1; */
 }
 
 .evento {
-	background: #faf5f5;
+	background: #f5ebeb;
 	padding: 20px;
 	border-radius: 10px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	margin-bottom: 30px;
+	transition: all 0.2s;
 }
 .evento img {
 	border-radius: 10px;
+}
+
+.evento:hover {
+	transform: scale(1.01);
 }
 
 .scopri {
@@ -23,4 +30,11 @@
 
 .event-img {
 	max-height: 250px;
+	max-width: 370px;
+}
+
+.btn-gen:hover {
+	border-color: #cab177;
+	transform: scale(1.1);
+	box-shadow: 0 0 40px rgba(255, 215, 0, 1);
 }
