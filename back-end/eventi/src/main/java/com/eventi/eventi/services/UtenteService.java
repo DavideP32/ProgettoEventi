@@ -20,5 +20,5 @@ public interface UtenteService {
 	void cancellaUtenteById(long id);
 	
 	
-	// public Utente verificaCredenziali(String email, String password);
+	public Utente verificaCredenziali(String email, String password);
 }
