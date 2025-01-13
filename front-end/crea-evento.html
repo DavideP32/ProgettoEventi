@@ -3,31 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prenotazione Serata Jazz</title>
+    <title>🎶 Crea il Tuo Evento Unico - Serata Jazz</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/prenotazione.css">
+    <link rel="stylesheet" href="./css/crea-evento.css">
+
 </head>
 <body>
-
+    <style>
+        body{
+            background: url('./img/carosello3.jpg') center/cover no-repeat;
+        }
+    </style>
 
 <!-- Pagina Creazione Evento -->
 <section class="create-event py-5 d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-    <div class="container text-center" style="max-width: 600px;">
-        <h2 class="fw-bold text-center mb-4">Crea il tuo Evento</h2>
+    <div class="container text-center bg-light p-5 rounded shadow-lg" style="max-width: 600px;">
+        <h2 class="fw-bold text-center mb-4">Crea il Tuo Evento</h2>
 
         <!-- Form Creazione Evento -->
         <form action="salva-evento.html" method="POST" class="needs-validation" novalidate>
+
             <!-- Nome Evento -->
             <div class="mb-3">
                 <label for="nomeEvento" class="form-label">Nome Evento *</label>
-                <input type="text" class="form-control" id="nomeEvento" name="nomeEvento" required>
+                <input type="text" class="form-control" id="nomeEvento" name="nomeEvento" placeholder="Es: Notte di Jazz" required>
             </div>
 
             <!-- Descrizione Evento -->
             <div class="mb-3">
-                <label for="descrizioneEvento" class="form-label">Descrizione Evento *</label>
-                <textarea class="form-control" id="descrizioneEvento" name="descrizioneEvento" rows="3" required></textarea>
+                <label for="descrizioneEvento" class="form-label">Descrizione *</label>
+                <textarea class="form-control" id="descrizioneEvento" name="descrizioneEvento" placeholder="Descrivi l'atmosfera e i dettagli dell'evento..." rows="3" required></textarea>
             </div>
 
             <!-- Data e Ora -->
@@ -36,20 +42,20 @@
                 <input type="datetime-local" class="form-control" id="dataOraEvento" name="dataOraEvento" required>
             </div>
 
-            <!-- Luogo Evento con Ricerca Dinamica OpenStreetMap -->
+            <!-- Luogo Evento con Ricerca Dinamica -->
             <div class="mb-3 position-relative">
                 <label for="luogoEvento" class="form-label">Luogo *</label>
-                <input type="text" class="form-control" id="luogoEvento" name="luogoEvento" required>
+                <input type="text" class="form-control" id="luogoEvento" name="luogoEvento" placeholder="Cerca un luogo..." required>
                 <ul id="suggestions" class="list-group position-absolute mt-1 d-none"></ul>
             </div>
 
-            <!-- Prezzo a Persona -->
+            <!-- Prezzo -->
             <div class="mb-3">
                 <label for="prezzoEvento" class="form-label">Prezzo a Persona (€)*</label>
                 <input type="number" class="form-control" id="prezzoEvento" name="prezzoEvento" min="0" step="0.01" required>
             </div>
 
-            <!-- Contatti: Cellulare e Email -->
+            <!-- Contatti -->
             <div class="mb-3">
                 <label for="telefonoEvento" class="form-label">Telefono *</label>
                 <input type="tel" class="form-control" id="telefonoEvento" name="telefonoEvento" required>
@@ -60,26 +66,19 @@
                 <input type="email" class="form-control" id="contattiEvento" name="contattiEvento" required>
             </div>
 
-            <!-- Mini Motto -->
+            <!-- Motto Evento -->
             <div class="mb-3">
                 <label for="mottoEvento" class="form-label">Mini Motto *</label>
-                <input type="text" class="form-control" id="mottoEvento" name="mottoEvento" required>
+                <input type="text" class="form-control" id="mottoEvento" name="mottoEvento" placeholder="Es: Un viaggio musicale senza tempo!" required>
             </div>
 
-            <!-- Dettagli Opzionali -->
-            <div class="mb-3">
-                <label for="dettagliOpzionali" class="form-label">Dettagli Opzionali (es: 🎶 Esibizione di un trio jazz dal vivo)</label>
-                <textarea class="form-control" id="dettagliOpzionali" name="dettagliOpzionali" rows="3"></textarea>
-            </div>
-
-            <!-- Pulsante di Creazione -->
-            <button type="submit" class="btn btn-success w-100">Crea Evento</button>
+            <!-- Pulsante -->
+            <button type="submit" class="btn btn-crea mt-3">🎉 Crea Evento Ora!</button>
         </form>
     </div>
 </section>
 
 <script>
-// Validazione lato client
 const form = document.querySelector('.needs-validation');
 form.addEventListener('submit', function (event) {
     if (!form.checkValidity()) {
@@ -88,40 +87,7 @@ form.addEventListener('submit', function (event) {
     }
     form.classList.add('was-validated');
 });
-
-// Ricerca dinamica con OpenStreetMap Nominatim
-const luogoInput = document.getElementById('luogoEvento');
-const suggestionsBox = document.getElementById('suggestions');
-
-luogoInput.addEventListener('input', async function () {
-    const query = luogoInput.value;
-    if (query.length < 3) {
-        suggestionsBox.classList.add('d-none');
-        return;
-    }
-
-    const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`);
-    const data = await response.json();
-
-    suggestionsBox.innerHTML = '';
-    suggestionsBox.classList.toggle('d-none', data.length === 0);
-
-    data.forEach(place => {
-        const li = document.createElement('li');
-        li.textContent = place.display_name;
-        li.classList.add('list-group-item');
-        li.style.cursor = 'pointer';
-        li.onclick = () => {
-            luogoInput.value = place.display_name;
-            suggestionsBox.classList.add('d-none');
-        };
-        suggestionsBox.appendChild(li);
-    });
-});
 </script>
-
-<script src="./js/style.js"></script>
-<script src="./js/prenotazioni.js"></script>
 
 </body>
 </html>

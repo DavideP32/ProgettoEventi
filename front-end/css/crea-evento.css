@@ -1,0 +1,58 @@
+h2 {
+    color: #cab177 ;
+}
+.form-control:focus {
+    border-color: #6c3483;
+    box-shadow: 0 0 10px rgba(108, 52, 131, 0.5);
+}
+.btn-success {
+    background: #cab177 ;
+    border: none;
+}
+.btn-success:hover {
+    background: none;
+}
+
+
+
+/* Stile di base: Nero con testo bianco */
+.btn-crea {
+    color: rgb(34, 32, 32);
+    background-color: #cab177 !important;
+    padding: 8px 20px;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: box-shadow 0.5s ease-in-out, transform 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Effetto Glow dorato: leggero bagliore pulsante */
+.btn-crea::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: -1;
+}
+
+/* Effetto al passaggio del mouse */
+.btn-crea:hover {
+    border-color: #FFD700;
+    transform: scale(1.1);
+    box-shadow: 0 0 40px rgba(255, 215, 0, 1);
+}
+
+/* Attiva il bagliore con hover */
+.btn-crea:hover::before {
+    opacity: 1;
+}
