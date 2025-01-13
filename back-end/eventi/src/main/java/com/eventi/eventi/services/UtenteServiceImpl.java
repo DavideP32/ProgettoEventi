@@ -107,8 +107,9 @@ public class UtenteServiceImpl implements UtenteService {
 
 
 
-
-    //-----------------------------------DTO--------------------
+    /* -------------------------------------------------------------------------- */
+    /*                               CONVERSIONE DTO                              */
+    /* -------------------------------------------------------------------------- */
     private UtenteDto toUtenteDto(Utente utente) {
         UtenteDto utenteDto = new UtenteDto(
                 utente.getUtente_id(),
