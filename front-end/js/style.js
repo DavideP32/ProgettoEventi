@@ -58,3 +58,5 @@ function cercaEventi() {
         searchResults.style.display = "block"; // Mostra comunque il contenitore
     }
 }
+
+

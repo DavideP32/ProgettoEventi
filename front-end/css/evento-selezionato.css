@@ -10,27 +10,29 @@
 }
 
 .hero {
-    position: relative;
-    background: url('../img/front-view-man-playing-sax-with-geometric-background.jpg') center/cover no-repeat;
-    height: 75vh;
-    z-index: 1;
+	position: relative;
+	height: 82vh;
+	background: url("../img/carosello2.jpg") no-repeat center center/cover;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	color: white;
 }
 
 .hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 1;
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
 }
 
-.hero-content, .event-info {
-    position: relative;
-    z-index: 2;
-    color: white;
+.hero-content {
+	position: relative;
+	z-index: 2;
 }
 
 
@@ -79,23 +81,14 @@
 .cta-section {
 	background-color: #cab177;
 	text-align: center;
-	padding: 40px;
+	padding: 20px;
 }
 
 /* Stile di base: Nero con testo bianco */
 .btn-prenotati {
-    color: white;
-    background-color: #000000 !important;
-    border: 2px solid #000000;
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: box-shadow 0.5s ease-in-out, transform 0.3s ease-in-out;
-    position: relative;
-    overflow: hidden;
+	color: white;
+	background-color: #000000 !important;
+	border-color: #000000;
 }
 
 /* Effetto Glow dorato: leggero bagliore pulsante */
@@ -115,10 +108,9 @@
 
 /* Effetto al passaggio del mouse */
 .btn-prenotati:hover {
-    color: white !important;
-    border-color: #FFD700;
-    transform: scale(1.1);
-    box-shadow: 0 0 40px rgba(255, 215, 0, 1);
+	background-color: inherit !important;
+	color: inherit !important;
+	border-color: inherit !important;
 }
 
 /* Attiva il bagliore con hover */
@@ -129,33 +121,11 @@
 
 /* Contenitore principale dell'event info con layout flessibile */
 .event-info {
-    position: absolute;
-    top: 10%; /* Spostato verso l'alto, ma non troppo */
-    left: 15%; /* Spostato a sinistra, ma centrato */
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    z-index: 3;
-}
-
-/* Ovale per la data: dritto a sinistra, curvo a destra */
-.event-date {
-    padding: 8px 18px;
-    background: #cab177;
-    color: white;
-    font-weight: bold;
-    border-radius: 5px 50px 50px 5px; /* Curvatura solo a destra */
-    font-size: 1rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Ovale per l'ora: curvo a sinistra, dritto a destra */
-.event-time {
-    padding: 8px 18px;
-    background: #cab177;
-    color: white;
-    font-weight: bold;
-    border-radius: 50px 5px 5px 50px; /* Curvatura solo a sinistra */
-    font-size: 1rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: #cab177;
+	padding: 10px 20px;
+	border-radius: 20px;
 }
