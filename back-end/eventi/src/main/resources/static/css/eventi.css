@@ -38,3 +38,10 @@
 	transform: scale(1.1);
 	box-shadow: 0 0 40px rgba(255, 215, 0, 1);
 }
+
+
+@media (min-width: 768px) and (max-width: 1440px) {
+	.evento {
+		gap: 5rem;
+	}
+}
