@@ -22,7 +22,7 @@ public class PrenotazioniServiceImpl implements PrenotazioniService{
     }
 
     @Override
-    public Prenotazione aggiungiPrenotazioni(Prenotazione prenotazione){
+    public Prenotazione aggiungiPrenotazione(Prenotazione prenotazione){
 
     }
 }
