@@ -44,20 +44,20 @@ function verificaSessione() {
 
 //aggiorniamo l'ui in base all'autenticazione
 function updateUI(utenteLoggato) {
-    // const bollino = document.getElementById("bollino-profilo");
-    // const loginText = document.getElementById("login-text");
-    // const inizialeNome = document.getElementById("userBadge");
-    // // const inizialeNomeProfilo = document.getElementById("userBadgeProfilo");
+    const bollino = document.getElementById("bollino-profilo");
+    const loginText = document.getElementById("login-text");
+    const inizialeNome = document.getElementById("userBadge");
+    // const inizialeNomeProfilo = document.getElementById("userBadgeProfilo");
 
-    // if(utenteLoggato){
-    //     loginText.classList.add("d-none");
-    //     bollino.classList.remove("d-none");
-    //     inizialeNome.textContent = `${utenteLoggato.nome[0].toUpperCase()}`;
-    //     // inizialeNomeProfilo.textContent = `${utenteLoggato.nome[0].toUpperCase()}`;
-    // }else{
-    //     loginText.classList.remove("d-none");
-    //     bollino.classList.add("d-none");
-    // }
+    if(utenteLoggato){
+        loginText.classList.add("d-none");
+        bollino.classList.remove("d-none");
+        inizialeNome.textContent = `${utenteLoggato.nome[0].toUpperCase()}`;
+        // inizialeNomeProfilo.textContent = `${utenteLoggato.nome[0].toUpperCase()}`;
+    }else{
+        loginText.classList.remove("d-none");
+        bollino.classList.add("d-none");
+    }
 }
 
 //funzione per il pulsante logout
