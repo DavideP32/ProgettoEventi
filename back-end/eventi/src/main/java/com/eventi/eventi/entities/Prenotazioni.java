@@ -37,6 +37,54 @@ public class Prenotazioni {
     @Column(name="createdAt", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Utente getUtente() {
+        return utente;
+    }
+
+    public void setUtente(Utente utente) {
+        this.utente = utente;
+    }
+
+    public Evento getEvento() {
+        return evento;
+    }
+
+    public void setEvento(Evento evento) {
+        this.evento = evento;
+    }
+
+    public boolean isPagato() {
+        return pagato;
+    }
+
+    public void setPagato(boolean pagato) {
+        this.pagato = pagato;
+    }
+
+    public int getNumeroPersone() {
+        return numeroPersone;
+    }
+
+    public void setNumeroPersone(int numeroPersone) {
+        this.numeroPersone = numeroPersone;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
    
     
 }

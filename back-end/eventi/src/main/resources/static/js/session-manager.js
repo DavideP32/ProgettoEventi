@@ -69,14 +69,14 @@ function updateUI(utenteLoggato) {
 function logout() {
     return fetch('http://localhost:8080/api/utente/logout', {
         method: 'POST',
-        credentials: 'include'
+        // credentials: 'include'
     })
     .then(response => {
         if (!response.ok) {
             throw new Error('Errore durante il logout');
         }
         updateUI(null);
-        window.location.replace('http://localhost:5500/front-end/login.html');
+        window.location.replace('http://localhost:8080/login.html');
     })
     .catch(error => {
         console.error('Errore durante il logout:', error);

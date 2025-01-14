@@ -1,9 +1,4 @@
 let form = document.querySelector("form");
-// let loginButton = document.querySelector(".login-btn"); 
-
-// loginButton.addEventListener("click", () => {
-//     form.submit();  // Invia il form quando il pulsante viene cliccato
-// });
 
 
 form.addEventListener("submit", e =>{
@@ -18,9 +13,6 @@ form.addEventListener("submit", e =>{
     };
 
     console.log(utente);
-
-
-    
 
     fetch("http://localhost:8080/api/utente/login", {
         method: "POST",
@@ -39,14 +31,11 @@ form.addEventListener("submit", e =>{
     })
     .then(utenteData => {  
         console.log('Login riuscito:', utenteData);
-
-        localStorage.setItem('utente', JSON.stringify(utenteData));
-
         window.location.replace('http://localhost:8080/index.html');
     })
     .catch(error => {
         console.error('Errore durante il login:', error);
-        alert('Login fallito. Controlla le credenziali.');
+        // alert('Login fallito. Controlla le credenziali.');
     });
 })
 
