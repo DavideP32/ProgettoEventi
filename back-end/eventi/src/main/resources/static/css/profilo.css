@@ -1,115 +1,27 @@
-h2 {
-    text-align: left;
-}
-
-.profile-container {
-    width: 400px;
+.card {
     background-color: #f5ebeb;
-    border-radius: 10px;
-    margin: 50px auto;
-    overflow: hidden;
-    padding-bottom: 20px;
-    margin-top: 7rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: none;
 }
 
-/* Transizioni fluide per una migliore esperienza utente */
-.profile-container {
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
+a {
+    color: black !important;
 }
 
 
-.profile-content {
-    margin-top: 50px;
-    padding: 20px;
-    text-align: left;
+.gestione {
+    position: sticky !important;
+    top: 90px !important;
+    height: 370px;
+    
 }
 
-.form-control {
-    background: none;
-    border: none;
-    border-bottom: 1px solid gray;
-    border-radius: 0;
-    color: rgb(71, 70, 70);
+.gestione-account {
+    right: -20px !important;
 }
 
-.form-control:focus {
-    box-shadow: none;
-    border-bottom: 1px solid white;
+aside {
+    display: block;
+    unicode-bidi: isolate;
 }
-
-.btn-save {
-    background-color: #cab177 !important;
-    border-color: #cab177;
-}
-
-.btn-save:hover {
-    background-color: inherit !important;
-    color: inherit !important;
-    border-color: inherit !important;
-}
-
-.btn-cancel {
-    border: 2px solid #ffffff;
-    color: #ffffff;
-    background: none;
-}
-
-.btn-custom {
-    width: 180px;
-    font-weight: bold;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-/* Cambia il colore del testo all'interno degli input */
-.form-control {
-    color: #4c4949 !important; /* Grigio chiaro */
-}
-
-
-
-
-/* Centrare verticalmente e orizzontalmente */
-.profile-content-non-modificabile {
-    display: flex;
-    flex-direction: column; /* Disposizione verticale */
-    align-items: center; /* Centra orizzontalmente */
-    justify-content: center; /* Centra verticalmente */
-    text-align: center;
-}
-
-/* Stile per i campi statici */
-.form-static-non-modificabile {
-    text-align: center;
-    color: #555;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    padding: 10px;
-    width: 200px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    font-size: 1rem;
-    pointer-events: none; /* Non cliccabile */
-    user-select: none; /* Non selezionabile */
-}
-
-/* Label stilizzato */
-.form-label-non-modificabile {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-
-
-
-
-
-
-
-
-
-
 
 
