@@ -13,6 +13,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/pop-up.css">
     <link rel="stylesheet" href="./css/profilo.css">
     <link rel="stylesheet" href="./css/eventi.css">
 
@@ -41,7 +42,7 @@
 </style>
 
     <!-- Navbar -->
-    <header class="navbar navbar-expand-lg text-bg-dark bg-transparent w-100">
+    <header class="navbar navbar-scrolled navbar-expand-lg text-bg-dark bg-transparent w-100">
       <div class="container">
           <a href="./index.html">
               <img src="./img/logo.png" alt="Logo" width="80" height="80" class="me-2">
@@ -150,73 +151,30 @@
         </div>
 
         
-
-<!-- Contenuto del profilo non modificabile -->
-<div class="profile-content-non-modificabile mt-3">
-    <label class="form-label-non-modificabile">Nome</label>
-    <div class="form-static-non-modificabile">Nunzio</div>
-
-    <label class="form-label-non-modificabile">Cognome</label>
-    <div class="form-static-non-modificabile">Merone</div>
-
-    <label class="form-label-non-modificabile">E-mail</label>
-    <div class="form-static-non-modificabile">nunzmero@live.it</div>
-
-    <label class="form-label-non-modificabile">Password</label>
-    <div class="form-static-non-modificabile">*********</div> <!-- Password oscurata per sicurezza -->
-</div>
-
-
-
+        
+        <!-- Contenuto del profilo non modificabile -->
+        <div class="profile-content-non-modificabile mt-3">
+          <label class="form-label-non-modificabile">Nome</label>
+          <div class="form-static-non-modificabile">Nunzio</div>
+          
+          <label class="form-label-non-modificabile">Cognome</label>
+          <div class="form-static-non-modificabile">Merone</div>
+          
+          <label class="form-label-non-modificabile">E-mail</label>
+          <div class="form-static-non-modificabile">nunzmero@live.it</div>
+          
+          <label class="form-label-non-modificabile">Password</label>
+          <div class="form-static-non-modificabile">*********</div> <!-- Password oscurata per sicurezza -->
+        </div>
         <!-- Pulsanti -->
         <div class="d-flex justify-content-center gap-3 mt-3">
-            <button class="btn btn-custom btn-save">Modifica profilo</button>
+          <button class="btn btn-custom btn-save">Modifica profilo</button>
         </div>
     </div>
 
 
 
-     
-    <!-- Pop-up -->
-    <div class="card d-none">
-      <div class="header">
-        <div class="image">
-          <svg
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
-            ></path>
-          </svg>
-        </div>
-        <div class="content">
-          <span class="title">MODIFICHE</span>
-          <p class="message">
-            Sei sicuro di voler modificare il tuo account? 
-          </p>
-        </div>
-        <div class="actions">
-          <button type="button" class="desactivate">Salva</button>
-          <button type="button" class="cancel">Annulla</button>
-        </div>
-      </div>
-    </div>
     
-    
-    
-
-
-
-
-
-
-
     <div class="profile-container d-none">
         <!-- Sfondo della copertura -->
 
@@ -230,8 +188,6 @@
             P
           </div>
         </div>
-
-        
 
         <!-- Contenuto del profilo -->
         <div class="profile-content">
@@ -248,7 +204,6 @@
             <input type="text" class="form-control" value="55678">
         </div>
 
-
         <!-- Pulsanti -->
         <div class="d-flex justify-content-center gap-3 mt-3">
             <button class="btn btn-custom btn-save">SALVA</button>
@@ -263,13 +218,12 @@
 
 
 
-        <!-- sezione eventi -->
+        <!-- Prenotazioni -->
         <div class="container py-3">
             <div class="scopri d-flex">
-                <h2>Arte & Cultura</h2>
-                <a href="#" class="btn btn-scopri btn-gen">Scopri di più</a>
+                <h2>Prenotazioni effettuate</h2>
             </div>
-            <!-- Evento 1 - Artistico -->
+            <!-- Evento  -->
             <div class="row evento align-items-center">
                 <div class="col-lg-4 col-md-12 mb-3 mb-lg-0">
                     <img src="./img/arte1.jpg" class="img-fluid event-img" alt="Evento Artistico 1">
@@ -279,20 +233,6 @@
                     <p><strong>Data:</strong> 1-30 Giugno 2025</p>
                     <p><strong>Luogo:</strong> Museo del Novecento, Milano</p>
                     <p>Un'esposizione di artisti contemporanei con opere che esplorano temi sociali e culturali, in uno degli spazi più prestigiosi di Milano.</p>
-                    <a href="./evento-selezionato.html" class="btn btn-gen">Info</a>
-                </div>
-            </div>
-    
-            <!-- Evento 2 - Artistico -->
-            <div class="row evento align-items-center">
-                <div class="col-lg-4 col-md-12 mb-3 mb-lg-0">
-                    <img src="./img/arte2.jpg" class="img-fluid event-img" alt="Evento Artistico 2">
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <h4>Festival della Fotografia</h4>
-                    <p><strong>Data:</strong> 10-18 Luglio 2025</p>
-                    <p><strong>Luogo:</strong> Museo di Santa Giulia, Brescia</p>
-                    <p>Un evento che celebra la fotografia con mostre di fotografi locali e internazionali, workshop e incontri con i protagonisti del settore.</p>
                     <a href="./evento-selezionato.html" class="btn btn-gen">Info</a>
                 </div>
             </div>
