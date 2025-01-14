@@ -22,7 +22,31 @@ public class PrenotazioniServiceImpl implements PrenotazioniService{
     }
 
     @Override
-    public Prenotazione aggiungiPrenotazione(Prenotazione prenotazione){
+     public Prenotazione aggiungiPrenotazione(Prenotazione prenotazione){
+        prenotazione.setId(0L);
+        prenotazioniRepository.save(prenotazione);
+
+        return prenotazione;
+    }
+
+    @Override
+    public Prenotazione aggiornaPrenotazione(Prenotazione prenotazione, Prenotazione trovata){
+        trovata.setNumeroPersone(prenotazione.getNumeroPersone());
+        prenotazioniRepository.save(trovata);
+        
+        return trovata;
+    }
+    
+    @Override
+    public void cancellaPrenotazione(long id){
+        prenotazioniRepository.deleteById(id);
 
     }
+        
+     
+
+
+
+
 }
+
