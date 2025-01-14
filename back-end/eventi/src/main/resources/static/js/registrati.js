@@ -1,5 +1,6 @@
 // Richiamo il form
 const form = document.querySelector('form');
+const emailError = document.getElementById('email-error');
 
 form.addEventListener('submit',  e => {
 
@@ -26,7 +27,7 @@ form.addEventListener('submit',  e => {
         ruolo: "RUOLO_UTENTE"
     };
 
-    console.log(utente);
+    emailError.style.display = 'none';
     
 
     fetch("http://localhost:8080/api/utente", {
@@ -37,9 +38,25 @@ form.addEventListener('submit',  e => {
         body: JSON.stringify(utente)
 
     })
-    .then(response =>{
-        // window.location.replace('http://localhost:5500/front-end/index.html');
-        return response.json();
+    .then(response => {
+        if (response.status === 409) {
+            emailError.style.display = 'block';
+            emailError.textContent = "L'email è già registrata. Prova con un'altra.";
+        } else if (response.ok) {
+
+            localStorage.setItem('registrationSuccess', 'true');
+
+            window.location.replace('http://localhost:8080/index.html');
+        } else {
+            return response.json().then(data => {
+                throw new Error(data.message || "Errore durante la registrazione")
+            });
+        }
+        
     })
+    .catch(error => {
+        document.getElementById("email-error").style.display = "block";
+        console.log("Errore:", error);
+    });
 
 });

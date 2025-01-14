@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.eventi.eventi.entities.Evento;
@@ -73,6 +74,23 @@ public class EventoCtrl {
             return ResponseEntity.ok(e);
         } catch (DataIntegrityViolationException e) {
             return ResponseEntity.badRequest().body("Errore nell'inserimento di dati. Controllare le proprietà dell'oggetto");
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body(new Evento());
+        }
+    }
+
+
+    @PutMapping
+    public ResponseEntity<?> putEvento(Evento evento){
+        try {
+            Evento trovato = eventoService.getEventoById(evento.getId());
+            if(trovato != null){
+                Evento e = eventoService.aggiornaEvento(evento, trovato);
+                return ResponseEntity.ok(e);
+            }else{
+                return ResponseEntity.badRequest().body("Errore! Evento non trovato");
+            }
+            
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body(new Evento());
         }
