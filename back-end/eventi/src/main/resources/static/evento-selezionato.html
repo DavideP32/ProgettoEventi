@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/evento-selezionato.css">
 </head>
+
 <body>
 
     <div class="justify-content-center align-items-center d-flex p-2">
@@ -21,17 +23,17 @@
     <style>
         /* Input Placeholder Styling */
         input::placeholder {
-        color: rgb(255, 255, 255) !important;
-        opacity: 1;
-    }
-    
+            color: rgb(255, 255, 255) !important;
+            opacity: 1;
+        }
+
         /* Input Text Styling */
         input {
-        color: rgb(255, 255, 255) !important;
-        font-weight: bold;
-    }
-        </style>
-    
+            color: rgb(255, 255, 255) !important;
+            font-weight: bold;
+        }
+    </style>
+
     <!-- Navbar -->
     <header class="navbar d-none navbar-expand-lg text-bg-dark bg-transparent w-100" id="myNavbar">
         <div class="container">
@@ -39,15 +41,15 @@
                 <img src="./img/logo.png" alt="Logo" width="80" height="80" class="me-2">
             </a>
 
-                
-                    <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">
-                        <svg width="80" height="80" viewBox="0 0 100 100">
-                          <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
-                          <path class="line line2" d="M 20,50 H 80" />
-                          <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
-                        </svg>
-                      </button>
-                
+
+            <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">
+                <svg width="80" height="80" viewBox="0 0 100 100">
+                    <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                    <path class="line line2" d="M 20,50 H 80" />
+                    <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                </svg>
+            </button>
+
 
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -59,17 +61,15 @@
 
 
                 <form class="d-flex col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 position-relative" role="search">
-                    <input type="search" class="form-control bg-transparent pe-5"
-                           placeholder="Cerca un evento..." aria-label="Search" oninput="cercaEventi()">
+                    <input type="search" class="form-control bg-transparent pe-5" placeholder="Cerca un evento..." aria-label="Search" oninput="cercaEventi()">
                     <button type="button" class="btn btn-transparent position-absolute end-0 top-50 translate-middle-y px-2">
-                        <i class="bi bi-search text-white"></i> 
+                        <i class="bi bi-search text-white"></i>
                     </button>
-                    <div id="searchResults" class="position-absolute bg-white text-dark w-100 shadow rounded p-2" 
-                         style="top: 100%; left: 0; display: none;"></div>
+                    <div id="searchResults" class="position-absolute bg-white text-dark w-100 shadow rounded p-2" style="top: 100%; left: 0; display: none;"></div>
                 </form>
-                
-            
-                
+
+
+
 
 
 
@@ -79,58 +79,55 @@
                 </div>
 
                 <div class="template d-none" id="bollino-profilo">
-                    <div
-                      tabindex="0"
-                      class="popup button"
-                      style="padding:0 0.225rem  0; border-top-right-radius: 1.2rem;
+                    <div tabindex="0" class="popup button" style="padding:0 0.225rem  0; border-top-right-radius: 1.2rem;
                       border-bottom-right-radius: 1.2rem;">
-                      <div class="popup-header">
+                        <div class="popup-header">
 
 
 
 
-                        <div class="" >&#9662;</div>
+                            <div class="">&#9662;</div>
 
-                        
-                  
-                        <!-- Replaced SVG avatar with initial letter -->
-                        <div id="nomeUtente"
-                          style="height: 32px; width: 32px; display: flex; justify-content: center; align-items: center; 
+
+
+                            <!-- Replaced SVG avatar with initial letter -->
+                            <div id="nomeUtente" style="height: 32px; width: 32px; display: flex; justify-content: center; align-items: center; 
                           background-color: #cab177; border-radius: 50%; font-weight: bold; color: #221b1b;">
-                          P
+                                P
+                            </div>
                         </div>
-                      </div>
-                  
-                      <div class="popup-main">
-                        <ul class="list-box">
-                          <a href="profilo.html">
-                              <li class="button item">Profilo</li>
-                          </a>
-                          <a href="gestione-prenotazioni.html">
-                              <li class="button item">Prenotazioni</li>
-                          </a>
-                          <a href="impostazioni.html">
-                              <li class="button item">Impostazioni</li>
-                          </a>
-                          <li class="button item" id="logout">Logout</li>
-                          <ul></ul>
-                        </ul>
-                      </div>
+
+                        <div class="popup-main">
+                            <ul class="list-box">
+                                <a href="profilo.html">
+                                    <li class="button item">Profilo</li>
+                                </a>
+                                <a href="gestione-prenotazioni.html">
+                                    <li class="button item">Prenotazioni</li>
+                                </a>
+                                <a href="impostazioni.html">
+                                    <li class="button item">Impostazioni</li>
+                                </a>
+                                <li class="button item" id="logout">Logout</li>
+                                <ul></ul>
+                            </ul>
+                        </div>
                     </div>
-                  </div>
-                
+                </div>
+
             </div>
         </div>
     </header>
 
-        
+
     </head>
+
     <body>
         <div class="hero d-flex justify-content-center align-items-center text-center position-relative">
             <!-- Overlay scuro usando Bootstrap -->
             <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50 z-0"></div>
 
-            
+
             <!-- Contenuto principale della Hero -->
             <div class="hero-content position-relative z-3 text-white">
                 <h1 class="fw-bold mb-5">🎷 Serata Jazz dal Vivo – "Jazz sotto le Stelle" 🎶</h1>
@@ -138,105 +135,106 @@
 
                 </p>
             </div>
-        
+
             <!-- Info Evento: Separazione data e orario -->
             <div class="event-info">
                 <div class="event-date">SAB 15 GENNAIO</div>
                 <div class="event-time">19:00 - 00:00</div>
             </div>
-        
+
             <!-- Contenitore per le scintille -->
             <div class="sparkle-container"></div>
         </div>
-        
+
         <!-- Sezione CTA -->
         <div class="cta-section text-center">
             <a href="#prenotati-ora" class="btn btn-prenotati">PRENOTATI</a>
         </div>
-        
-
-<!-- Sezione About the Event -->
-<section class="about-event py-5 bg-light">
-    <div class="container text-center">
-        <h2 class="fw-bold">Cosa Ti Aspetta</h2>
-        <p class="lead">Un'esperienza jazz unica con musicisti di talento in un'atmosfera elegante e coinvolgente.</p>
-        <ul class="list-unstyled mt-4">
-            <li>🎶 Esibizione di un trio jazz dal vivo</li>
-            <li>🥂 Calice di benvenuto incluso</li>
-            <li>🌟 Ambientazione elegante con luci soffuse</li>
-        </ul>
-    </div>
-</section>
 
 
-<!-- Sezione Luogo -->
-<section class="location py-5 bg-secondary text-white">
-    <div class="container text-center">
-        <h2 class="fw-bold">Dove Trovarci</h2>
-        <p class="lead">📍 Grand Hotel, Via Roma 1, Milano</p>
-        <a href="https://www.google.com/maps?q=Grand+Hotel,+Via+Roma+1,+Milano" target="_blank" class="btn btn-outline-light">Apri su Google Maps</a>
-    </div>
-    <div id="prenotati-ora"></div>
-</section>
-
-
-<!-- Sezione Biglietti e Prezzi -->
-<section class="tickets py-5 bg-dark text-white text-center">
-    <div class="container">
-        <h2 class="fw-bold">Prenota il tuo posto</h2>
-        <p class="lead">Posti limitati, affrettati!</p>
-        <p class="lead mt-3">Prezzo: €50 a persona - €90 per coppia (con calice di benvenuto incluso).</p>
-        <a href="./prenotazione.html" class="btn btn-prenotati mt-3">PRENOTATI ORA</a>
-    </div>
-</section>
-
-
-<!-- Sezione Contatti -->
-<section class="contact py-5 bg-light">
-    <div class="container text-center">
-        <h2 class="fw-bold">Contattaci</h2>
-        <p class="lead">Per maggiori informazioni, puoi contattarci direttamente.</p>
-        <p class="lead">📧 Email: <a href="mailto:info@eventijazz.it" class="text-dark">info@eventijazz.it</a></p>
-        <p class="lead">📞 Telefono: <a href="tel:+391234567890" class="text-dark">+39 123 456 7890</a></p>
-    </div>
-</section>
-
-
-
-
-        
-        
-        
-
-
-
-    <!-- Footer -->
-    <footer class="footer" style="background-color: #faf5f5;">
-        <div class="social-section text-center">
-            <div class="social-icons">
-                <a href="https://www.facebook.com" class="facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.x.com" class="twitter" target="_blank"><i class="fab fa-x-twitter"></i></a>
-                <a href="https://www.instagram.com" class="instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+        <!-- Sezione About the Event -->
+        <section class="about-event py-5 bg-light">
+            <div class="container text-center">
+                <h2 class="fw-bold">Cosa Ti Aspetta</h2>
+                <p class="lead">Un'esperienza jazz unica con musicisti di talento in un'atmosfera elegante e coinvolgente.</p>
+                <ul class="list-unstyled mt-4">
+                    <li>🎶 Esibizione di un trio jazz dal vivo</li>
+                    <li>🥂 Calice di benvenuto incluso</li>
+                    <li>🌟 Ambientazione elegante con luci soffuse</li>
+                </ul>
             </div>
-        </div>
-        <div class="text-center">
-            <a href="#"><img src="./img/logo.png" alt="Company Logo" class="footer-logo"></a>
-            <p class="text-center h5" style="color: #cab177;"><strong>Event Horizon</strong></p>
-        </div>
-        <ul class="text-center footer-link">
-            <li><a href="">Chi Siamo</a></li>
-            <li><a href="">Servizi</a></li>
-            <li><a href="">Contatti</a></li>
-        </ul>
-    </footer>
-    
-    
+        </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script src="./js/style.js"></script>
-    <script src="./js/evento-selezionato.js"></script>
-    <script src="./js/session-manager.js"></script>
-    
-</body>
+
+        <!-- Sezione Luogo -->
+        <section class="location py-5 bg-secondary text-white">
+            <div class="container text-center">
+                <h2 class="fw-bold">Dove Trovarci</h2>
+                <p class="lead">📍 Grand Hotel, Via Roma 1, Milano</p>
+                <a href="https://www.google.com/maps?q=Grand+Hotel,+Via+Roma+1,+Milano" target="_blank" class="btn btn-outline-light">Apri su Google Maps</a>
+            </div>
+            <div id="prenotati-ora"></div>
+        </section>
+
+
+        <!-- Sezione Biglietti e Prezzi -->
+        <section class="tickets py-5 bg-dark text-white text-center">
+            <div class="container">
+                <h2 class="fw-bold">Prenota il tuo posto</h2>
+                <p class="lead">Posti limitati, affrettati!</p>
+                <p class="lead mt-3">Prezzo: €50 a persona - €90 per coppia (con calice di benvenuto incluso).</p>
+                <a href="./prenotazione.html" class="btn btn-prenotati mt-3">PRENOTATI ORA</a>
+            </div>
+        </section>
+
+
+        <!-- Sezione Contatti -->
+        <section class="contact py-5 bg-light">
+            <div class="container text-center">
+                <h2 class="fw-bold">Contattaci</h2>
+                <p class="lead">Per maggiori informazioni, puoi contattarci direttamente.</p>
+                <p class="lead">📧 Email: <a href="mailto:info@eventijazz.it" class="text-dark">info@eventijazz.it</a></p>
+                <p class="lead">📞 Telefono: <a href="tel:+391234567890" class="text-dark">+39 123 456 7890</a></p>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+        <!-- Footer -->
+        <footer class="footer" style="background-color: #faf5f5;">
+            <div class="social-section text-center">
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" class="facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.x.com" class="twitter" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://www.instagram.com" class="instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="#"><img src="./img/logo.png" alt="Company Logo" class="footer-logo"></a>
+                <p class="text-center h5" style="color: #cab177;"><strong>Event Horizon</strong></p>
+            </div>
+            <ul class="text-center footer-link">
+                <li><a href="">Chi Siamo</a></li>
+                <li><a href="">Servizi</a></li>
+                <li><a href="">Contatti</a></li>
+            </ul>
+        </footer>
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+        <script src="./js/style.js"></script>
+        <script src="./js/evento-selezionato.js"></script>
+        <script src="./js/session-manager.js"></script>
+
+    </body>
+
 </html>

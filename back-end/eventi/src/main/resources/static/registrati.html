@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="./css/login-registrati.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/pop-up.css">
 
 </head>
 <body>
@@ -36,13 +37,17 @@
                     <input type="date" id="birthdate" name="birthdate" class="form-control" style="color: #656d75;" aria-label="Data di nascita" placeholder="Data di nascita">
 
                     <input type="email" id="email" name="email" class="form-control" placeholder="Indirizzo email">
-                    <p id="email-error" style="color: red; display: none;">L'email è già registrata. Prova con un'altra.</p>
+                    <p id="email-error" style="color: rgb(173, 1, 1); display: none;">L'email è già registrata. Prova con un'altra.</p>
 
 
                     <input type="password" id="password" name="password" class="form-control" placeholder="Password">
                     <input type="password" id="confirm-password" name="confirm-password" class="form-control" placeholder="Conferma password">
                     
-                    <p id="password-error" style="color: red; display: none;">Le password non corrispondono!</p>
+                    <p id="password-error" style="color: rgb(173, 1, 1); display: none;">Le password non corrispondono!</p>
+
+                    <p id="field-error" style="color: rgb(173, 1, 1); display: none;">Per favore compila tutti i campi richiesti.</p>
+
+
                     <button type="submit" class="btn login-btn w-100 mt-3">Registrati</button>
 
                 </form>
@@ -72,6 +77,35 @@
             <img src="./img/sfondo-login-registrati.jpg" alt="Immagine di sfondo" class="responsive-img">
         </div>
     </div>
+
+                <!-- Pop-up -->
+                <div class="card d-none" id="confirmation-popup">
+                    <div class="header">
+                      <div class="image">
+                        <svg
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+                          ></path>
+                        </svg>
+                      </div>
+                      <div class="content">
+                        <span class="title">Conferma</span>
+                        <p class="message">
+                         Registrazione effettuata con successo!
+                        </p>
+                      </div>
+
+                      </div>
+                    </div>
+                  </div>
 
     <script src="js/registrati.js"></script>
     <script src="./js/session-manager.js"></script>
