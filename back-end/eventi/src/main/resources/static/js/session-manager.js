@@ -29,17 +29,16 @@ function verificaSessione() {
     })
     .then(response => {
         if (!response.ok) {
-            // const storedUser = localStorage.getItem('utente');
-            // if (storedUser) {
-            //     return JSON.parse(storedUser);
-            // }
+            const storedUser = localStorage.getItem('utente');
+            if (storedUser) {
+                return JSON.parse(storedUser);
+            }
             throw new Error('Utente non autenticato');
         }
         return response.json().then(data =>{
             console.log(data);
             return data;
-        }
-        );
+        });
     });
 }
 

@@ -52,7 +52,7 @@ form.addEventListener('submit',  e => {
         
     })
     .catch(error => {
-        document.getElementById("email-error").style.display="block";
+        document.getElementById("email-error").style.display = "block";
         console.log("Errore:", error);
     });
 
