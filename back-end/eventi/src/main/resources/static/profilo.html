@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/pop-up.css">
     <link rel="stylesheet" href="./css/profilo.css">
-    <link rel="stylesheet" href="./css/eventi.css">
+    <link rel="stylesheet" href="./css/eventi-prenotati.css">
+
 
 
 
@@ -134,149 +135,145 @@
 
 
 
-
-
-    <div class="profile-container">
-        <!-- Sfondo della copertura -->
-
-
-        <!-- Immagine del profilo con l'icona di modifica all'interno -->
-        <div class="position-relative mt-3 justify-content-center align-items-center d-flex">
-            <!-- Badge utente -->
-            <div id="nomeUtente"
-            style="height: 150px; width: 150px; display: flex; justify-content: center; align-items: center; 
-            background-color: #cab177; border-radius: 50%;color: #221b1b; font-size: 80px;" class="logo-utente">
-            P
-          </div>
-        </div>
-
-        
-        
-        <!-- Contenuto del profilo non modificabile -->
-        <div class="profile-content-non-modificabile mt-3">
-          <label class="form-label-non-modificabile">Nome</label>
-          <div class="form-static-non-modificabile">Nunzio</div>
-          
-          <label class="form-label-non-modificabile">Cognome</label>
-          <div class="form-static-non-modificabile">Merone</div>
-          
-          <label class="form-label-non-modificabile">E-mail</label>
-          <div class="form-static-non-modificabile">nunzmero@live.it</div>
-          
-          <label class="form-label-non-modificabile">Password</label>
-          <div class="form-static-non-modificabile">*********</div> <!-- Password oscurata per sicurezza -->
-        </div>
-        <!-- Pulsanti -->
-        <div class="d-flex justify-content-center gap-3 mt-3">
-          <button class="btn btn-custom btn-save">Modifica profilo</button>
-        </div>
-    </div>
-
-
-
-    
-    <div class="profile-container d-none">
-        <!-- Sfondo della copertura -->
-
-
-        <!-- Immagine del profilo con l'icona di modifica all'interno -->
-        <div class="position-relative mt-3 justify-content-center align-items-center d-flex">
-            <!-- Badge utente -->
-            <div id="nomeUtente"
-            style="height: 150px; width: 150px; display: flex; justify-content: center; align-items: center; 
-            background-color: #cab177; border-radius: 50%;color: #221b1b; font-size: 80px;" class="logo-utente">
-            P
-          </div>
-        </div>
-
-        <!-- Contenuto del profilo -->
-        <div class="profile-content">
-            <label class="form-label">Nome</label>
-            <input type="text" class="form-control" value="Nunzio">
-
-            <label class="form-label">Cognome</label>
-            <input type="text" class="form-control" value="Merone">
-
-            <label class="form-label">E-mail</label>
-            <input type="text" class="form-control" value="nunzmero@live.it">
-
-            <label class="form-label">Password</label>
-            <input type="text" class="form-control" value="55678">
-        </div>
-
-        <!-- Pulsanti -->
-        <div class="d-flex justify-content-center gap-3 mt-3">
-            <button class="btn btn-custom btn-save">SALVA</button>
-            <button class="btn btn-custom btn-cancel">ANNULLA</button>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
-        <!-- Prenotazioni -->
-        <div class="container py-3">
-            <div class="scopri d-flex">
-                <h2>Prenotazioni effettuate</h2>
+  <div class="container">
+    <section class="d-flex justify-content-center align-items-center vh-100 py-5 mb-4">
+      <div class="container">
+          <div class="row">
+              <aside class="col-3 gestione">
+                  <div class="card p-3 h-100">
+                      <nav class="nav flex-column nav-pills" id="tab-priv" role="tablist" aria-orientation="vertical">
+                          <a class="nav-link active" href="#" id="priv-account-tab" data-bs-toggle="pill" data-bs-target="#priv-account" role="tab" aria-controls="priv-account" aria-selected="true" title="Informazioni account">
+                              Account
+                          </a>
+                          <a class="nav-link" href="#" id="priv-ordini-tab" data-bs-toggle="pill" data-bs-target="#priv-ordini" role="tab" aria-controls="priv-ordini" aria-selected="false" title="Ordini in corso">
+                              Prenotazioni attive
+                          </a>
+                          <a class="nav-link" href="#" id="priv-storico-tab" data-bs-toggle="pill" data-bs-target="#priv-storico" role="tab" aria-controls="priv-storico" aria-selected="false" title="Storico ordini">
+                              Prenotazioni salvate
+                          </a>
+                          <a class="nav-link" href="#" id="priv-wishlist-tab" data-bs-toggle="pill" data-bs-target="#priv-wishlist" role="tab" aria-controls="priv-wishlist" aria-selected="false" title="Lista dei desideri">
+                              Cronologia prenotazioni
+                          </a>
+                          <a class="nav-link" href="#" id="priv-transactions-tab" data-bs-toggle="pill" data-bs-target="#priv-transactions" role="tab" aria-controls="priv-transactions" aria-selected="false" title="Storico transazioni">
+                              Impostazioni profilo
+                          </a>
+                      </nav>
+                  </div>
+              </aside>
+              <div class="col-9 tab-content gestione-account" id="tab-priv-content">
+                  <div id="priv-account" class="tab-pane fade active show" role="tabpanel" aria-labelledby="priv-account-tab">
+                      <div class="card">
+                          <div class="card-body">
+                              <div class="itemside align-items-center">
+                                  <div class="aside">
+                                    <div id="nomeUtente"
+                                    style="height: 40px; width: 40px; display: flex; justify-content: center; align-items: center;
+                                    background-color: #cab177; border-radius: 50%; font-weight: bold; color: #221b1b;">
+                                    P
+                                  </div>
+                                  </div>
+                                  <div class="info">
+                                      <h6 class="title">Paola Votano</h6>
+                                      <p>
+                                          Email: esempio@gmail.com <i class="dot"></i> <a href="#!" class="px-2" title="Modifica informazioni"></a>
+                                      </p>
+                                      <p>
+                                        Data di nascita: 23 Febbraio 2004 <i class="dot"></i> <a href="#!" class="px-2" title="Modifica informazioni"></a>
+                                      </p>
+                                  </div>
+                              </div>
+                              <hr>
+                              <p class="text-muted">
+                                  Metodi di pagamento
+                              </p>
+                              <div class="row g-2 mb-3">
+                                  <div class="col-md-6">
+                                      <div class="box">
+                                          <b class="mx-2 text-muted">
+                                              <i class="fa-solid fa-credit-card"></i>
+                                          </b>
+                                          Visa •••• 9905, Scad: 12/21
+                                      </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                      <div class="box">
+                                          <b class="mx-2 text-muted">
+                                              <i class="fa-brands fa-cc-paypal"></i>
+                                          </b>
+                                          PayPal di Paola Votano
+                                      </div>
+                                  </div>
+                              </div>
+                              <a href="#!" class="btn btn-outline-primary" title="Aggiungi un metodo di pagamento">
+                                  <i class="me-2 fa-solid fa-plus"></i> Aggiungi metodo di pagamento
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+                  <div id="priv-ordini" class="tab-pane fade" role="tabpanel" aria-labelledby="priv-ordini-tab">
+                            <!-- Evento 1 -->
+          <div class="row evento align-items-center">
+            <div class="col-lg-4 col-md-12 mb-3 mb-lg-0">
+                <img src="./img/musica1.jpg" class="img-fluid event-img" alt="Evento 1">
             </div>
-            <!-- Evento  -->
-            <div class="row evento align-items-center">
-                <div class="col-lg-4 col-md-12 mb-3 mb-lg-0">
-                    <img src="./img/arte1.jpg" class="img-fluid event-img" alt="Evento Artistico 1">
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <h4>Mostra di Arte Contemporanea</h4>
-                    <p><strong>Data:</strong> 1-30 Giugno 2025</p>
-                    <p><strong>Luogo:</strong> Museo del Novecento, Milano</p>
-                    <p>Un'esposizione di artisti contemporanei con opere che esplorano temi sociali e culturali, in uno degli spazi più prestigiosi di Milano.</p>
-                    <a href="./evento-selezionato.html" class="btn btn-gen">Info</a>
-                </div>
+            <div class="col-lg-6 col-md-12">
+                <a href="">
+                  <h4>Concerto di Musica Classica</h4>
+                </a>
+                <p><strong>Data:</strong> 15 Marzo 2025</p>
+                <p><strong>Luogo:</strong> Teatro alla Scala, Milano</p>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-            <!-- Pop-up -->
-    <div class="card">
-        <div class="header">
-          <div class="image">
-            <svg
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
-              ></path>
-            </svg>
-          </div>
-          <div class="content">
-            <span class="title">MODIFICHE</span>
-            <p class="message">
-              Sei sicuro di voler modificare il tuo account? 
-            </p>
-          </div>
-          <div class="actions">
-            <button type="button" class="desactivate">Salva</button>
-            <button type="button" class="cancel">Annulla</button>
-          </div>
+        <!-- Evento 2 -->
+        <div class="row evento align-items-center">
+            <div class="col-lg-4 col-md-12 mb-3 mb-lg-0">
+                <img src="./img/musica2.jpg" class="img-fluid event-img" alt="Evento 2">
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <a href="">
+                  <h4>Brescia Rock Night</h4>
+                </a>
+                <p><strong>Data:</strong> 5 Settembre 2025</p>
+                <p><strong>Luogo:</strong> Piazza della Loggia, Brescia</p>
+            </div>
         </div>
+                  </div>
+                  <div id="priv-storico" class="tab-pane fade" role="tabpanel" aria-labelledby="priv-storico-tab">
+                    <div class="row evento align-items-center">
+                      <div class="col-lg-4 col-md-12 mb-3 mb-lg-0">
+                          <img src="./img/musica1.jpg" class="img-fluid event-img" alt="Evento 1">
+                      </div>
+                      <div class="col-lg-6 col-md-12">
+                          <a href="">
+                            <h4>Concerto di Musica Classica</h4>
+                          </a>
+                          <p><strong>Data:</strong> 15 Marzo 2025</p>
+                          <p><strong>Luogo:</strong> Teatro alla Scala, Milano</p>
+                      </div>
+                  </div>
+                  </div>
+                  <div id="priv-wishlist" class="tab-pane fade" role="tabpanel" aria-labelledby="priv-wishlist-tab">
+                    <div class="row evento align-items-center">
+                      <div class="col-lg-4 col-md-12 mb-3 mb-lg-0">
+                          <img src="./img/musica1.jpg" class="img-fluid event-img" alt="Evento 1">
+                      </div>
+                      <div class="col-lg-6 col-md-12">
+                          <a href="">
+                            <h4>Concerto di Musica Classica</h4>
+                          </a>
+                          <p><strong>Data:</strong> 15 Marzo 2025</p>
+                          <p><strong>Luogo:</strong> Teatro alla Scala, Milano</p>
+                      </div>
+                  </div>
+                  </div>
+                  <div id="priv-transactions" class="tab-pane fade" role="tabpanel" aria-labelledby="priv-transactions-tab">
+                    Impostazioni
+                  </div>
+              </div>
+          </div>
       </div>
-
+    </section>
+  </div>
 
 
 
