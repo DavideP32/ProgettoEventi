@@ -47,7 +47,7 @@ function updateUI(utenteLoggato) {
     const bollino = document.getElementById("bollino-profilo");
     const loginText = document.getElementById("login-text");
     const registrazioneText = document.getElementById("registrazione-text");
-    const inizialeNome = document.getElementById("userBadge");
+    const inizialeNome = document.getElementById("nomeUtente");
     // const inizialeNomeProfilo = document.getElementById("userBadgeProfilo");
 
     if(utenteLoggato) {
