@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(utenteData => {
             // Se l'utente è autenticato, reindirizza alla homepage
             if (utenteData) {
-                window.location.replace('http://localhost:5500/front-end/index.html');
+                window.location.replace('http://localhost:8080/index.html');
                 console.log("utente già autenticato. Reindirizzato alla homepage");
             }
         })
