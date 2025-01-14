@@ -235,7 +235,6 @@ header.navbar-scrolled {
     /* fill */
     --fill: #0000;
     --fill-hover: hsla(0, 0%, 45%, 0.1);
-    --fill-active: hsl(0, 0%, 10%);
     /* txt */
     --txt: #eee;
     /*-------------------------*/
@@ -313,4 +312,8 @@ header.navbar-scrolled {
   .list-box {
     display: flex;
     flex-direction: column;
+  }
+
+  ul {
+    padding: 0;
   }
