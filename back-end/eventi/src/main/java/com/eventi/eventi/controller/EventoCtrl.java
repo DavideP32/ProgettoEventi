@@ -8,10 +8,12 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.eventi.eventi.entities.Evento;
@@ -81,7 +83,7 @@ public class EventoCtrl {
 
 
     @PutMapping
-    public ResponseEntity<?> putEvento(Evento evento){
+    public ResponseEntity<?> putEvento(@RequestBody Evento evento){
         try {
             Evento trovato = eventoService.getEventoById(evento.getId());
             if(trovato != null){
@@ -91,6 +93,20 @@ public class EventoCtrl {
                 return ResponseEntity.badRequest().body("Errore! Evento non trovato");
             }
             
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body(new Evento());
+        }
+    }
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteById(@PathVariable long id){
+        try {
+            Evento e = eventoService.getEventoById(id);
+            if(e != null){
+                eventoService.cancellaEvento(id);
+                return ResponseEntity.ok("Evento cancellato");
+            }else return ResponseEntity.badRequest().body("Evento inesistente");
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body(new Evento());
         }

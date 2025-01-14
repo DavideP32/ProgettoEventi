@@ -18,5 +18,7 @@ public interface EventoService{
     public Evento aggiungiEvento(Evento evento);
 
     public Evento aggiornaEvento(Evento evento, Evento trovato);
+
+    public void cancellaEvento(long id);
     
 } 

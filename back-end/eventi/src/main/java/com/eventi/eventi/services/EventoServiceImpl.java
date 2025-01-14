@@ -90,4 +90,15 @@ public class EventoServiceImpl implements EventoService{
 
         return evento;
     }
+
+
+    /* -------------------------------------------------------------------------- */
+    /*                               CANCELLA EVENTO                              */
+    /* -------------------------------------------------------------------------- */
+    @Override
+    public void cancellaEvento(long id){
+        eventoRepository.deleteById(id);
+
+    }
+
 }
