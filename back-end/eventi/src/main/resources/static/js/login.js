@@ -1,4 +1,5 @@
 let form = document.querySelector("form");
+const loginError = document.getElementById("login-error");
 
 
 form.addEventListener("submit", e =>{
@@ -25,12 +26,18 @@ form.addEventListener("submit", e =>{
     })
     .then(response =>{
         if (!response.ok) {
+
+            loginError.style.display = 'block';
+            loginError.textContent = 'Email o password errata. Riprova.'
             throw new Error("Login fallito");
         }
         return response.json()
     })
     .then(utenteData => {  
         console.log('Login riuscito:', utenteData);
+
+        loginError.style.display = "none";
+
         window.location.replace('http://localhost:8080/index.html');
     })
     .catch(error => {
