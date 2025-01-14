@@ -46,7 +46,7 @@ form.addEventListener('submit',  e => {
 
             localStorage.setItem('registrationSuccess', 'true');
 
-            window.location.replace('http://localhost:8080/index.html');
+            window.location.replace('http://localhost:8080/login.html');
         } else {
             return response.json().then(data => {
                 throw new Error(data.message || "Errore durante la registrazione")
