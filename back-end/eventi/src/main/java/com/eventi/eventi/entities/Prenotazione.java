@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="prenotazioni")
-public class Prenotazioni {
+public class Prenotazione {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)

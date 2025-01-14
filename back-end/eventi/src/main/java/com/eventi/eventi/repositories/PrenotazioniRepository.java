@@ -8,9 +8,9 @@ package com.eventi.eventi.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.eventi.eventi.entities.Prenotazioni;
+import com.eventi.eventi.entities.Prenotazione;
 
 @Repository
-public interface PrenotazioniRepository extends JpaRepository<Prenotazioni, Long> {
+public interface PrenotazioniRepository extends JpaRepository<Prenotazione, Long> {
 
 }
