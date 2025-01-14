@@ -43,6 +43,9 @@ form.addEventListener('submit',  e => {
             emailError.style.display = 'block';
             emailError.textContent = "L'email è già registrata. Prova con un'altra.";
         } else if (response.ok) {
+
+            localStorage.setItem('registrationSuccess', 'true');
+
             window.location.replace('http://localhost:8080/index.html');
         } else {
             return response.json().then(data => {
