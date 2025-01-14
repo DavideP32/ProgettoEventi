@@ -222,3 +222,39 @@ header.navbar-scrolled {
 .footer-link a:hover {
     color: #cab177;
 }
+
+
+
+
+/* Stile per il bollino (badge) */
+.badge-circle {
+	width: 40px;
+	height: 40px;
+	background-color: #cab177d2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	font-size: 1.1rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: white; /* Fissa il colore del testo */
+	transition: transform 0.3s, background-color 0.3s ease-in-out;
+}
+
+.badge-circle:hover {
+    border: none !important;
+    transform: scale(1.1);
+    background-color: #cab177d2 !important; /* Mantiene il colore di sfondo */
+    color: white !important; /* Mantiene il colore del testo */
+}
+
+/* Correzione per la freccia della dropdown centrata verticalmente */
+#userDropdown::after {
+    vertical-align: middle !important;
+    position: relative;
+    top: 0;
+    margin-left: 5px;
+}
+
+
