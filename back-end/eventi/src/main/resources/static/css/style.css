@@ -317,12 +317,17 @@ header.navbar-scrolled {
     padding: 0;
   }
 
+  a {
+    text-decoration: none !important;
+    color: white;
+  }
+
 
 
 
 
   /* From Uiverse.io by Yaya12085 */ 
-.card {
+  .card {
     overflow: hidden;
     position: relative;
     background-color: #ffffff;

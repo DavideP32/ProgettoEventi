@@ -85,7 +85,6 @@ function nascondiConAnimazione(element) {
 
 // Evento per il bottone "Modifica profilo"
 btnModifica.addEventListener('click', () => {
-    showPopup();
     nascondiConAnimazione(formNonModificabile);
     setTimeout(() => mostraConAnimazione(formModificabile), 500); 
 });
