@@ -3,6 +3,9 @@ const form = document.querySelector('form');
 const emailError = document.getElementById('email-error');
 const popup = document.getElementById('confirmation-popup');
 const popupMessage = popup.querySelector('.message');
+const fieldError = document.getElementById('field-error');
+const passwordError = document.getElementById('password-error');
+const confirmPassword = form.confirm-password.value.trim();
 
 form.addEventListener('submit',  e => {
 
@@ -17,6 +20,28 @@ form.addEventListener('submit',  e => {
     const password = form.password.value.trim();
    
     console.log(surname);
+
+    if (!firstName || !surname || !dateOfBirth || !email || !password || !confirmPassword) {
+        // Messaggio di errore
+        fieldError.style.display = 'block';
+        fieldError.textContent = "Per favore compila tutti i campi richiesti.";
+        return; 
+    }
+
+    fieldError.style.display = 'none';
+    passwordError.style.display = 'none';
+    emailError.style.display = 'none';
+
+     // Controllo se le password corrispondono
+     if (password !== confirmPassword) {
+        passwordError.style.display = 'block';
+        passwordError.textContent = "Le password non corrispondono!";
+        return; // Ferma l'esecuzione del codice
+    }
+
+    // Nascondi il messaggio di errore per la password
+    passwordError.style.display = 'none';
+
     
 
     //creazione oggetto utente
@@ -29,7 +54,7 @@ form.addEventListener('submit',  e => {
         ruolo: "RUOLO_UTENTE"
     };
 
-    emailError.style.display = 'none';
+    // emailError.style.display = 'none';
     
 
     fetch("http://localhost:8080/api/utente", {
