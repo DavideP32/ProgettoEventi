@@ -1,6 +1,8 @@
 // Richiamo il form
 const form = document.querySelector('form');
 const emailError = document.getElementById('email-error');
+const popup = document.getElementById('confirmation-popup');
+const popupMessage = popup.querySelector('.message');
 
 form.addEventListener('submit',  e => {
 
@@ -44,9 +46,16 @@ form.addEventListener('submit',  e => {
             emailError.textContent = "L'email è già registrata. Prova con un'altra.";
         } else if (response.ok) {
 
-            localStorage.setItem('registrationSuccess', 'true');
+            popupMessage.textContent = 'Registrazione effettuata con successo!';
+            popup.classList.remove('d-none');
 
-            window.location.replace('http://localhost:8080/login.html');
+            setTimeout(() => {
+                window.location.replace('http://localhost:8080/login.html');
+            }, 1000);
+
+            // localStorage.setItem('registrationSuccess', 'true');
+
+            // window.location.replace('http://localhost:8080/login.html');
         } else {
             return response.json().then(data => {
                 throw new Error(data.message || "Errore durante la registrazione")
