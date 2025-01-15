@@ -2,6 +2,7 @@ package com.eventi.eventi.services;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,18 @@ public class PrenotazioniServiceImpl implements PrenotazioniService{
     public List<Prenotazione> getAllPreno(){
         List<Prenotazione> prenotazioni = prenotazioniRepository.findAll();
         return prenotazioni;
+    }
+
+    @Override
+    public Prenotazione prendiPerId(long id){
+        Optional <Prenotazione> p = prenotazioniRepository.findById(id);
+        
+        if(p.isPresent()){
+            Prenotazione prenotazione = p.get();
+            return prenotazione;
+        }else{
+            return null;
+        }
     }
 
     @Override

@@ -11,4 +11,5 @@ public interface PrenotazioniService {
     public Prenotazione aggiungiPrenotazione(Prenotazione prenotazione);
     public Prenotazione aggiornaPrenotazione(Prenotazione prenotazione, Prenotazione trovata);
     public void cancellaPrenotazione(long id);
+    public Prenotazione prendiPerId(long id);
 }
