@@ -47,9 +47,11 @@ function updateUI(utenteLoggato) {
     const bollino = document.getElementById("bollino-profilo");
     const loginText = document.querySelector(".text-end");
     const inizialeNome = document.querySelectorAll(".idUtente");
-    // const inizialeNomeProfilo = document.getElementById("userBadgeProfilo");
     const nomeUtente = document.querySelectorAll(".nome");
     const cognomeUtente = document.querySelectorAll(".cognome");
+    const emailUtente = document.querySelectorAll(".email");
+    const dataDiNascita = document.querySelectorAll(".dataNascita");
+
 
     console.log(inizialeNome);
 
@@ -60,7 +62,6 @@ function updateUI(utenteLoggato) {
         inizialeNome.forEach(element => {
             element.textContent = `${utenteLoggato.nome[0].toUpperCase()}`;
         });
-        // inizialeNomeProfilo.textContent = `${utenteLoggato.nome[0].toUpperCase()}`;
 
         nomeUtente.forEach(element => {
             element.textContent = `${utenteLoggato.nome}`;
@@ -70,8 +71,18 @@ function updateUI(utenteLoggato) {
             element.textContent = `${utenteLoggato.cognome}`;
         });
 
+        emailUtente.forEach(element => {
+            element.textContent = `${utenteLoggato.email}`;
+        });
+
+        dataDiNascita.forEach(element => {
+            element.textContent = `${utenteLoggato.dataNascita}`;
+        });
+
         document.getElementById ('nomeInput').value = `${utenteLoggato.nome}`;
         document.getElementById ('cognomeInput').value = `${utenteLoggato.cognome}`;
+        document.getElementById ('emailUtente').value = `${utenteLoggato.email}`;
+        document.getElementById ('data-nascita').value = `${utenteLoggato.dataNascita}`;
         
     }else {
         loginText.classList.remove("d-none");
