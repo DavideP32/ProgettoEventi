@@ -116,6 +116,56 @@ function logout() {
     });
 }
 
+/*--------------------------------------------------------------------------------*/
+/*                            GESTIONE EVENTI                                     */
+/*--------------------------------------------------------------------------------*/
 
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const eventoId = urlParams.get('id'); 
+
+    if (eventoId) {
+        getEventoDetails(eventoId)  // Recupera i dettagli dell'evento
+            .then(eventoData => {
+                updateEventoUI(eventoData);  // Aggiorna l'UI con i dettagli
+            })
+            .catch(error => {
+                console.log('Errore nel recupero dei dettagli dell\'evento:', error);
+            });
+    } else {
+        console.log('ID evento mancante');
+    }
+});
+
+function getEventoDetails(id) {
+    return fetch(`http://localhost:8080/api/evento/${id}`, {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Errore nel recupero dei dettagli dell\'evento');
+        }
+        return response.json();
+    });
+}
+
+function updateEventoUI(eventoData) {
+    // Aggiorna l'interfaccia con i dettagli dell'evento
+    const titoloEvento = document.getElementById('titolo-evento');
+    const descrizioneEvento = document.getElementById('descrizione-evento');
+    const dataEvento = document.getElementById('data-evento');
+    const luogoEvento = document.getElementById('luogo-evento');
+    const immagineEvento = document.getElementById('immagine-evento');
+
+    titoloEvento.textContent = eventoData.titolo;
+    descrizioneEvento.textContent = eventoData.descrizione;
+    dataEvento.textContent = eventoData.data;
+    luogoEvento.textContent = eventoData.luogo;
+    immagineEvento.src = eventoData.immagine;
+}
 
 
