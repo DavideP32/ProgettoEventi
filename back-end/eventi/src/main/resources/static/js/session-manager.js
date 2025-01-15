@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
             updateUI(utenteData);
         })
         .catch(error => {
-            console.log('Utente non autenticato');
+            console.log('Utente non autenticato', error);
             updateUI(null);
         });
 
@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
             logout();
         });
     }
-});
-
+})
+console.log(window.location.pathname);
 //Prendiamo la sessione dell'utente se è autenticato
 function verificaSessione() {
     return fetch('http://localhost:8080/api/utente/isLogged', {
@@ -53,6 +53,7 @@ function updateUI(utenteLoggato) {
     const dataDiNascita = document.querySelectorAll(".dataNascita");
 
 
+    
     console.log(inizialeNome);
 
     if(utenteLoggato) {
@@ -63,6 +64,9 @@ function updateUI(utenteLoggato) {
             element.textContent = `${utenteLoggato.nome[0].toUpperCase()}`;
         });
 
+        if (window.location.pathname == "/profilo.html"){
+
+        
         nomeUtente.forEach(element => {
             element.textContent = `${utenteLoggato.nome}`;
         });
@@ -83,13 +87,14 @@ function updateUI(utenteLoggato) {
         document.getElementById ('cognomeInput').value = `${utenteLoggato.cognome}`;
         document.getElementById ('emailUtente').value = `${utenteLoggato.email}`;
         document.getElementById ('data-nascita').value = `${utenteLoggato.dataNascita}`;
+    }
         
     }else {
         loginText.classList.remove("d-none");
         bollino.classList.add("d-none");
     }
 
-};
+}
 
 
 

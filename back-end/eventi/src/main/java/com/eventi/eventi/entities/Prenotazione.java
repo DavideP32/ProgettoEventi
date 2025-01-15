@@ -2,6 +2,8 @@ package com.eventi.eventi.entities;
 
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,14 +29,14 @@ public class Prenotazione {
     @JoinColumn(name="evento_id", nullable=false)
     private Evento evento;
 
-    @Column(nullable = false)
+    @Column
     private boolean pagato;
 
     @Column(name="numero_persone",  nullable = false)
     private int numeroPersone;
 
-    
-    @Column(name="createdAt", nullable = false, updatable = false)
+    @CreationTimestamp
+    @Column(name="created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
     public long getId() {

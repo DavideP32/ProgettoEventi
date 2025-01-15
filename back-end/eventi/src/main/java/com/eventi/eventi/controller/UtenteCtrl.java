@@ -116,7 +116,7 @@ public class UtenteCtrl {
             Utente utente = utenteService.verificaCredenziali(loginRequest.getEmail(), loginRequest.getPassword());
 
             if (utente != null) {
-                SessioneUtente sessioneUtente = new SessioneUtente(utente.getId(), utente.getNome(), utente.getEmail(), utente.getRuolo());
+                SessioneUtente sessioneUtente = new SessioneUtente(utente.getId(), utente.getNome(), utente.getCognome(), utente.getEmail(), utente.getDataNascita(), utente.getRuolo());
 
                 session.setAttribute("utente", sessioneUtente);
                 return ResponseEntity.ok(sessioneUtente);
