@@ -85,6 +85,7 @@ public class EventoServiceImpl implements EventoService{
         trovato.setDisponibilita(evento.isDisponibilita());
         trovato.setDataEvento(evento.getDataEvento());
         trovato.setPrezzo(evento.getPrezzo());
+        trovato.setEmail(evento.getEmail());
 
         eventoRepository.save(trovato);
 

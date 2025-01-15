@@ -69,7 +69,7 @@ public class EventoCtrl {
     }
 
     @PostMapping
-    public ResponseEntity<?> postEvento(Evento evento) {
+    public ResponseEntity<?> postEvento(@RequestBody Evento evento) {
         try {
             Evento e = eventoService.aggiungiEvento(evento);
 

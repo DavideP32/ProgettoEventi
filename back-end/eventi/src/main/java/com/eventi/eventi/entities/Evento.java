@@ -56,18 +56,29 @@ public class Evento {
     private int posti;
     
     @Column(nullable=false)
-    private boolean disponibilita;
+    private boolean disponibilita = true;
 
     @Column(name="data_evento", nullable=false)
     private LocalDate dataEvento;
+    
+    @Column(name="email")
+    private String email;
+
+
 
     @Column(name="prezzo_listino")
     @ColumnDefault("null")
     private Double prezzo;
 
+
+
     @JsonIgnore
     @OneToMany(mappedBy="evento")
     private List<Prenotazione> prenotazioni;
+
+
+
+    
 
     public List<Prenotazione> getPrenotazioni() {
         return prenotazioni;
@@ -163,6 +174,14 @@ public class Evento {
 
     public String getNome() {
         return nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 
