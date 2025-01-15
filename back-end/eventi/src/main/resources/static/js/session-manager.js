@@ -46,20 +46,39 @@ function verificaSessione() {
 function updateUI(utenteLoggato) {
     const bollino = document.getElementById("bollino-profilo");
     const loginText = document.querySelector(".text-end");
-    const inizialeNome = document.getElementById("nomeUtente");
+    const inizialeNome = document.querySelectorAll(".idUtente");
     // const inizialeNomeProfilo = document.getElementById("userBadgeProfilo");
+    const nomeUtente = document.querySelectorAll(".nome");
+    const cognomeUtente = document.querySelectorAll(".cognome");
+
+    console.log(inizialeNome);
 
     if(utenteLoggato) {
         loginText.classList.add("d-none");
         bollino.classList.remove("d-none");
-        inizialeNome.textContent = `${utenteLoggato.nome[0].toUpperCase()}`;
+
+        inizialeNome.forEach(element => {
+            element.textContent = `${utenteLoggato.nome[0].toUpperCase()}`;
+        });
         // inizialeNomeProfilo.textContent = `${utenteLoggato.nome[0].toUpperCase()}`;
+
+        nomeUtente.forEach(element => {
+            element.textContent = `${utenteLoggato.nome}`;
+        });
+
+        cognomeUtente.forEach(element => {
+            element.textContent = `${utenteLoggato.cognome}`;
+        });
+
+        document.getElementById ('nomeInput').value = `${utenteLoggato.nome}`;
+        document.getElementById ('cognomeInput').value = `${utenteLoggato.cognome}`;
+        
     }else {
         loginText.classList.remove("d-none");
         bollino.classList.add("d-none");
     }
 
-}
+};
 
 
 

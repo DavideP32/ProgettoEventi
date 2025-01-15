@@ -321,3 +321,15 @@ header.navbar-scrolled {
     text-decoration: none !important;
     color: white;
   }
+
+      /* Input Placeholder Styling */
+      header input::placeholder {
+        color: rgb(255, 255, 255) !important;
+        opacity: 1;
+    }
+    
+        /* Input Text Styling */
+        header input {
+        color: rgb(255, 255, 255) !important;
+        font-weight: bold;
+    }

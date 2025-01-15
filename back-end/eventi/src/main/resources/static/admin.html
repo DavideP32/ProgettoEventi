@@ -27,20 +27,7 @@
 
 </head>
 
-<style>
-    /* Input Placeholder Styling */
-    input::placeholder {
-    color: rgb(255, 255, 255) !important;
-    opacity: 1;
-}
 
-    /* Input Text Styling */
-    input {
-    color: rgb(255, 255, 255) !important;
-    font-weight: bold;
-}
-
-</style>
 
     <!-- Navbar -->
     <header class="navbar navbar-scrolled navbar-expand-lg text-bg-dark bg-transparent w-100">
@@ -104,7 +91,7 @@
                       
                 
                       <!-- Replaced SVG avatar with initial letter -->
-                      <div id="nomeUtente"
+                      <div class="idUtente"
                         style="height: 32px; width: 32px; display: flex; justify-content: center; align-items: center; 
                         background-color: #cab177; border-radius: 50%; font-weight: bold; color: #221b1b;">
                         P
@@ -140,51 +127,55 @@
       <div class="container">
           <div class="row">
               <aside class="col-3 gestione">
-                  <div class="card p-3 h-100 ">
+                  <div class="card p-3 h-100 border-0">
                       <nav class="nav flex-column nav-pills gap-4" id="tab-priv" role="tablist" aria-orientation="vertical">
                         <a class="nav-link active" href="#" id="priv-account-tab" data-bs-toggle="pill" data-bs-target="#priv-account" role="tab" aria-controls="priv-account" aria-selected="true" title="Informazioni account">
                             <i class="fas fa-user d-lg-none"></i> 
                             <span class="d-none d-lg-inline">Account</span>
                         </a>
                         <a class="nav-link" href="#" id="priv-ordini-tab" data-bs-toggle="pill" data-bs-target="#priv-ordini" role="tab" aria-controls="priv-ordini" aria-selected="false" title="Ordini in corso">
-                            <i class="fas fa-calendar-check d-lg-none"></i> 
-                            <span class="d-none d-lg-inline">Prenotazioni attive</span>
+                            <i class="fas fa-bullhorn"></i>
+                            <span class="d-none d-lg-inline">Richieste di annuncio</span>
                         </a>
                         <a class="nav-link" href="#" id="priv-storico-tab" data-bs-toggle="pill" data-bs-target="#priv-storico" role="tab" aria-controls="priv-storico" aria-selected="false" title="Storico ordini">
-                            <i class="fas fa-history d-lg-none"></i> 
-                            <span class="d-none d-lg-inline">Prenotazioni salvate</span>
+                            <i class="fas fa-trash"></i>
+                            <span class="d-none d-lg-inline">Annunci scartati</span>
                         </a>
                         <a class="nav-link" href="#" id="priv-wishlist-tab" data-bs-toggle="pill" data-bs-target="#priv-wishlist" role="tab" aria-controls="priv-wishlist" aria-selected="false" title="Lista dei desideri">
-                            <i class="fas fa-heart d-lg-none"></i> 
-                            <span class="d-none d-lg-inline">Cronologia prenotazioni</span>
+                            <i class="fas fa-history d-lg-none"></i> 
+                            <span class="d-none d-lg-inline">Cronologia</span>
                         </a>
                         <a class="nav-link" href="#" id="priv-transactions-tab" data-bs-toggle="pill" data-bs-target="#priv-transactions" role="tab" aria-controls="priv-transactions" aria-selected="false" title="Storico transazioni">
                             <i class="fas fa-cog d-lg-none"></i> 
                             <span class="d-none d-lg-inline">Impostazioni profilo</span>
                         </a>
                         
+
                         
                       </nav>
                   </div>
               </aside>
-              <div class="col-9 tab-content gestione-account" id="tab-priv-content" style="min-height: 500px; max-height: 500px; overflow-y: auto;">
+              <div class="col-9 tab-content gestione-account " id="tab-priv-content" style="min-height: 500px; max-height: 500px; overflow-y: auto;">
                   <div id="priv-account" class="tab-pane fade active show" role="tabpanel" aria-labelledby="priv-account-tab">
-                      <div class="card">
+                      <div class="card border-0">
                           <div class="card-body">
                               <div class="itemside align-items-center">
                                   <div class="aside">
-                                    <div id="nomeUtente"
+                                    <div class="idUtente"
                                     style="height: 40px; width: 40px; display: flex; justify-content: center; align-items: center;
                                     background-color: #cab177; border-radius: 50%; font-weight: bold; color: #221b1b;">
                                     P
                                   </div>
                                   </div>
                                   <div class="info">
-                                      <h6 class="title">Paola Votano</h6>
-                                      <p>
+                                    <div class="d-flex gap-2">
+                                        <p class="nome title h6">Paola</p>
+                                        <p class="cognome title h6">Votano</p>
+                                    </div>
+                                      <p id="email">
                                           Email: esempio@gmail.com <i class="dot"></i> <a href="#!" class="px-2" title="Modifica informazioni"></a>
                                       </p>
-                                      <p>
+                                      <p id="data-nascita">
                                         Data di nascita: 23 Febbraio 2004 <i class="dot"></i> <a href="#!" class="px-2" title="Modifica informazioni"></a>
                                       </p>
                                   </div>
@@ -222,13 +213,21 @@
           <div class="row evento align-items-center">
             <div class="col-lg-4 col-md-12 mb-3 mb-lg-0">
                 <img src="./img/musica1.jpg" class="img-fluid event-img" alt="Evento 1">
+
+                
             </div>
             <div class="col-lg-6 col-md-12">
-                <a href="">
-                  <h4>Concerto di Musica Classica</h4>
-                </a>
+
+
+                        <a href="">
+                          <h4>Concerto di Musica Classica</h4>
+                        </a>
+
+
                 <p><strong>Data:</strong> 15 Marzo 2025</p>
                 <p><strong>Luogo:</strong> Teatro alla Scala, Milano</p>
+                
+
             </div>
         </div>
         <!-- Evento 2 -->
@@ -237,9 +236,48 @@
                 <img src="./img/musica2.jpg" class="img-fluid event-img" alt="Evento 2">
             </div>
             <div class="col-lg-6 col-md-12">
-                <a href="">
-                  <h4>Brescia Rock Night</h4>
-                </a>
+                <div class="d-flex gap-5">
+                    <a href="">
+                      <h4>Concerto di Musica Classica</h4>
+                    </a>
+                    <button class="bin-button">
+                        <svg
+                          class="bin-top"
+                          viewBox="0 0 39 7"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <line y1="5" x2="39" y2="5" stroke="white" stroke-width="4"></line>
+                          <line
+                            x1="12"
+                            y1="1.5"
+                            x2="26.0357"
+                            y2="1.5"
+                            stroke="white"
+                            stroke-width="3"
+                          ></line>
+                        </svg>
+                        <svg
+                          class="bin-bottom"
+                          viewBox="0 0 33 39"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <mask id="path-1-inside-1_8_19" fill="white">
+                            <path
+                              d="M0 0H33V35C33 37.2091 31.2091 39 29 39H4C1.79086 39 0 37.2091 0 35V0Z"
+                            ></path>
+                          </mask>
+                          <path
+                            d="M0 0H33H0ZM37 35C37 39.4183 33.4183 43 29 43H4C-0.418278 43 -4 39.4183 -4 35H4H29H37ZM4 43C-0.418278 43 -4 39.4183 -4 35V0H4V35V43ZM37 0V35C37 39.4183 33.4183 43 29 43V35V0H37Z"
+                            fill="white"
+                            mask="url(#path-1-inside-1_8_19)"
+                          ></path>
+                          <path d="M12 6L12 29" stroke="white" stroke-width="4"></path>
+                          <path d="M21 6V29" stroke="white" stroke-width="4"></path>
+                        </svg>
+                    </button>
+                </div>
                 <p><strong>Data:</strong> 5 Settembre 2025</p>
                 <p><strong>Luogo:</strong> Piazza della Loggia, Brescia</p>
             </div>
@@ -265,9 +303,48 @@
                           <img src="./img/musica1.jpg" class="img-fluid event-img" alt="Evento 1">
                       </div>
                       <div class="col-lg-6 col-md-12">
-                          <a href="">
-                            <h4>Concerto di Musica Classica</h4>
-                          </a>
+                        <div class="d-flex gap-5">
+                            <a href="">
+                              <h4>Concerto di Musica Classica</h4>
+                            </a>
+                            <button class="bin-button">
+                                <svg
+                                  class="bin-top"
+                                  viewBox="0 0 39 7"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <line y1="5" x2="39" y2="5" stroke="white" stroke-width="4"></line>
+                                  <line
+                                    x1="12"
+                                    y1="1.5"
+                                    x2="26.0357"
+                                    y2="1.5"
+                                    stroke="white"
+                                    stroke-width="3"
+                                  ></line>
+                                </svg>
+                                <svg
+                                  class="bin-bottom"
+                                  viewBox="0 0 33 39"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <mask id="path-1-inside-1_8_19" fill="white">
+                                    <path
+                                      d="M0 0H33V35C33 37.2091 31.2091 39 29 39H4C1.79086 39 0 37.2091 0 35V0Z"
+                                    ></path>
+                                  </mask>
+                                  <path
+                                    d="M0 0H33H0ZM37 35C37 39.4183 33.4183 43 29 43H4C-0.418278 43 -4 39.4183 -4 35H4H29H37ZM4 43C-0.418278 43 -4 39.4183 -4 35V0H4V35V43ZM37 0V35C37 39.4183 33.4183 43 29 43V35V0H37Z"
+                                    fill="white"
+                                    mask="url(#path-1-inside-1_8_19)"
+                                  ></path>
+                                  <path d="M12 6L12 29" stroke="white" stroke-width="4"></path>
+                                  <path d="M21 6V29" stroke="white" stroke-width="4"></path>
+                                </svg>
+                            </button>
+                        </div>
                           <p><strong>Data:</strong> 15 Marzo 2025</p>
                           <p><strong>Luogo:</strong> Teatro alla Scala, Milano</p>
                       </div>
@@ -279,21 +356,22 @@
                             <!-- Sezione Immagine e Nome Utente -->
                             <div class="itemside align-items-center mb-3">
                                 <div class="aside">
-                                    <div id="nomeUtente"
+                                    <div class="idUtente"
                                         style="height: 40px; width: 40px; display: flex; justify-content: center; align-items: center;
                                         background-color: #cab177; border-radius: 50%; font-weight: bold; color: #221b1b; margin-bottom: 1rem;">
                                         P
                                     </div>
                                 </div>
                                 
-                                <div class="d-flex gap-5">
-                                    <label class="form-label">Nome</label>
-                                    <label class="form-label">Cognome</label>
-                                </div>
-                                <div class="d-flex gap-5">
-                                    <input type="text" class="form-control " id="nomeInput" value="Paola">
-                                    
-                                    <input type="text" class="form-control " id="cognomeInput" value="Votano">
+                                <div class="d-flex gap-2">
+                                    <div>
+                                        <label class="form-label">Nome</label>
+                                        <input type="text" class="form-control nome" id="nomeInput" value="Paola">
+                                    </div>
+                                    <div>
+                                        <label class="form-label">Cognome</label>
+                                        <input type="text" class="form-control cognome" id="cognomeInput" value="Votano">
+                                    </div>
                                 </div>
                                 
                                 
@@ -309,7 +387,7 @@
                     
                             <!-- Sezione Password -->
                             <label class="form-label mt-2">Password</label>
-                            <input type="password" class="form-control " id="passwordUtente" placeholder="Inserisci nuova password">
+                            <input type="password" class="form-control impostazioni" id="passwordUtente" placeholder="Inserisci nuova password">
                     
                             <hr>
                     
@@ -327,6 +405,8 @@
       </div>
     </section>
   </div>
+
+
 
 
 

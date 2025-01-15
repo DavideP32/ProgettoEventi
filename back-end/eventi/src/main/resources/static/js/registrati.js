@@ -2,7 +2,6 @@
 const form = document.querySelector('form');
 const emailError = document.getElementById('email-error');
 const popup = document.getElementById('confirmation-popup');
-const popupMessage = popup.querySelector('.message');
 const fieldError = document.getElementById('field-error');
 const passwordError = document.getElementById('password-error');
 
@@ -70,12 +69,12 @@ form.addEventListener('submit', e => {
             fieldError.style.display = 'none';
         } else if (response.ok) {
             // Se la registrazione ha successo, mostra il messaggio di conferma
-            popupMessage.textContent = 'Registrazione effettuata con successo!';
             popup.classList.remove('d-none');
+            popup.style.display = 'block';
 
             setTimeout(() => {
                 window.location.replace('http://localhost:8080/login.html');
-            }, 1000);
+            }, 5000);
         } else {
             // Gestione di errori non previsti (es. errore del server)
             return response.json().then(data => {
@@ -84,9 +83,9 @@ form.addEventListener('submit', e => {
         }
     })
     .catch(error => {
-        // Gestione dell'errore generico
+        // Errore email
         emailError.style.display = 'block';
-        emailError.textContent = "Errore durante la registrazione. Riprova.";
+        emailError.textContent = "L'email è già registrata. Prova con un'altra.";
         // Nascondi gli altri messaggi di errore
         passwordError.style.display = 'none';
         fieldError.style.display = 'none';
