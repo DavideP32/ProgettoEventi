@@ -1,8 +1,10 @@
 package com.eventi.eventi.entities;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import com.eventi.eventi.enums.Ruolo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,6 +13,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -43,17 +46,17 @@ public class Utente {
 	@Enumerated(EnumType.STRING)
     private Ruolo ruolo;
 
-    // @JsonIgnore
-    // @OneToMany(mappedBy="utenteId")
-    // private List<Prenotazioni> prenotazioni;
+    @JsonIgnore
+    @OneToMany(mappedBy="utente")
+    private List<Prenotazione> prenotazioni;
 
-    // public List<Prenotazioni> getPrenotazioni() {
-    //     return prenotazioni;
-    // }
+    public List<Prenotazione> getPrenotazioni() {
+        return prenotazioni;
+    }
 
-    // public void setPrenotazioni(List<Prenotazioni> prenotazioni) {
-    //     this.prenotazioni = prenotazioni;
-    // }
+    public void setPrenotazioni(List<Prenotazione> prenotazioni) {
+        this.prenotazioni = prenotazioni;
+    }
 
     public long getId() {
         return id;

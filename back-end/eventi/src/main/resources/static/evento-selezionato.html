@@ -16,6 +16,11 @@
 
 <body>
 
+
+
+
+
+    
     <div class="justify-content-center align-items-center d-flex p-2">
         <h1 class="h3 fw-bold animate__fadeInLeft animate__animated"><span>Event Horizon</span></h1>
     </div>
@@ -130,15 +135,15 @@
 
             <!-- Contenuto principale della Hero -->
             <div class="hero-content position-relative z-3 text-white">
-                <h1 class="fw-bold mb-5">🎷 Serata Jazz dal Vivo – "Jazz sotto le Stelle" 🎶</h1>
-                <p class="lead" style="max-width: 850px;">Un'elegante serata dedicata alla musica jazz dal vivo sotto un cielo stellato, perfetta per gli amanti delle sonorità raffinate e dell'atmosfera intima. Un viaggio musicale con artisti di talento in una location suggestiva.
+                <h1 id="titolo-evento" class="fw-bold mb-5">🎷 Serata Jazz dal Vivo – "Jazz sotto le Stelle" 🎶</h1>
+                <p id="descrizione-evento" class="lead" style="max-width: 850px;">Un'elegante serata dedicata alla musica jazz dal vivo sotto un cielo stellato, perfetta per gli amanti delle sonorità raffinate e dell'atmosfera intima. Un viaggio musicale con artisti di talento in una location suggestiva.
 
                 </p>
             </div>
 
             <!-- Info Evento: Separazione data e orario -->
             <div class="event-info">
-                <div class="event-date">SAB 15 GENNAIO</div>
+                <div class="event-date" id="data-evento">SAB 15 GENNAIO</div>
                 <div class="event-time">19:00 - 00:00</div>
             </div>
 
@@ -170,8 +175,11 @@
         <section class="location py-5 bg-secondary text-white">
             <div class="container text-center">
                 <h2 class="fw-bold">Dove Trovarci</h2>
-                <p class="lead">📍 Grand Hotel, Via Roma 1, Milano</p>
+                <p id="luogo-evento" class="lead">📍 Grand Hotel, Via Roma 1, Milano</p>
                 <a href="https://www.google.com/maps?q=Grand+Hotel,+Via+Roma+1,+Milano" target="_blank" class="btn btn-outline-light">Apri su Google Maps</a>
+            </div>
+            <div id="immagine-evento-container" class="text-center">
+                <img id="immagine-evento" src="" alt="Immagine Evento" class="img-fluid"> <!-- Aggiorna dinamicamente con JS -->
             </div>
             <div id="prenotati-ora"></div>
         </section>
