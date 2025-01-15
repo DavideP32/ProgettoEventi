@@ -21,7 +21,6 @@
     overflow-y: auto;  /* Scorrimento interno se il contenuto è troppo lungo */
 }
 
-
 aside {
     display: block;
     unicode-bidi: isolate;
@@ -48,7 +47,7 @@ input {
     color: #cab177 !important;
 }
 
-input::placeholder {
+.impostazioni::placeholder {
     color: #cab177 !important;
 }
 
@@ -80,6 +79,10 @@ input::placeholder {
     --bs-btn-disabled-bg: #fff !important;
     --bs-btn-disabled-border-color: #ffffff !important;
     --bs-gradient: none !important;
+}
+
+a {
+    color: #000000;
 }
 
 

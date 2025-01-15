@@ -46,7 +46,7 @@ function verificaSessione() {
 function updateUI(utenteLoggato) {
     const bollino = document.getElementById("bollino-profilo");
     const loginText = document.querySelector(".text-end");
-    const inizialeNome = document.getElementById("nomeUtente");
+    const inizialeNome = document.querySelectorAll(".idUtente");
     // const inizialeNomeProfilo = document.getElementById("userBadgeProfilo");
 
     if(utenteLoggato) {
