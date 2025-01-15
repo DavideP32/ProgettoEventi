@@ -49,10 +49,14 @@ function updateUI(utenteLoggato) {
     const inizialeNome = document.querySelectorAll(".idUtente");
     // const inizialeNomeProfilo = document.getElementById("userBadgeProfilo");
 
+    console.log(inizialeNome);
+
     if(utenteLoggato) {
         loginText.classList.add("d-none");
         bollino.classList.remove("d-none");
-        inizialeNome.textContent = `${utenteLoggato.nome[0].toUpperCase()}`;
+        inizialeNome.forEach(element => {
+            element.textContent = `${utenteLoggato.nome[0].toUpperCase()}`;
+        });
         // inizialeNomeProfilo.textContent = `${utenteLoggato.nome[0].toUpperCase()}`;
     }else {
         loginText.classList.remove("d-none");
