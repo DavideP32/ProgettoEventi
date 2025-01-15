@@ -18,7 +18,6 @@
 <section class="create-event py-5 d-flex justify-content-center align-items-center" style="min-height: 100vh;">
     <a href="index.html" class=" border-0  position-absolute top-0 start-0 m-4" style="color: black;">
         <i class="fa fa-arrow-left fa-2x"></i>
-
     </a>
     <div class="container text-center bg-light p-5 rounded shadow-lg" style="max-width: 600px;">
         <div class="d-flex justify-content-center align-items-center">
@@ -41,6 +40,20 @@
             <div class="mb-3">
                 <label for="descrizioneEvento" class="form-label">Descrizione *</label>
                 <textarea class="form-control" id="descrizioneEvento" name="descrizioneEvento" placeholder="Descrivi l'atmosfera e i dettagli dell'evento..." rows="3" required></textarea>
+            </div>
+
+            <!-- Categoria Evento -->
+            <div class="mb-3">
+                <label for="categoriaEvento" class="form-label">Categoria *</label>
+                <select class="form-control" id="categoriaEvento" name="categoriaEvento" required>
+                    <option value="">Seleziona una categoria...</option>
+                    <option value="Arte">Musica</option>
+                    <option value="Musica">Cinema & Teatro</option>
+                    <option value="Food">Food & Drink</option>
+                    <option value="Food">Eventi & Sagre</option>
+                    <option value="Sport">Sport</option>
+                    <option value="Sport">Arte & Cultura</option>
+                </select>
             </div>
 
             <!-- Immagine Evento -->
@@ -90,6 +103,7 @@
         </form>
     </div>
 </section>
+
 
 <script>
 const form = document.querySelector('.needs-validation');
