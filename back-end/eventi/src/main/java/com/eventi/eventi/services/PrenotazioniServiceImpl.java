@@ -38,7 +38,6 @@ public class PrenotazioniServiceImpl implements PrenotazioniService{
      public Prenotazione aggiungiPrenotazione(Prenotazione prenotazione){
         prenotazione.setId(0L);
         prenotazioniRepository.save(prenotazione);
-
         return prenotazione;
     }
 

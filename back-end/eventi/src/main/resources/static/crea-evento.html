@@ -18,7 +18,6 @@
 <section class="create-event py-5 d-flex justify-content-center align-items-center" style="min-height: 100vh;">
     <a href="index.html" class=" border-0  position-absolute top-0 start-0 m-4" style="color: black;">
         <i class="fa fa-arrow-left fa-2x"></i>
-
     </a>
     <div class="container text-center bg-light p-5 rounded shadow-lg" style="max-width: 600px;">
         <div class="d-flex justify-content-center align-items-center">
@@ -29,60 +28,74 @@
         </div>
 
         <!-- Form Creazione Evento -->
-        <form action="salva-evento.html" method="POST" class="needs-validation" novalidate>
+        <form>
 
             <!-- Nome Evento -->
             <div class="mb-3">
                 <label for="nomeEvento" class="form-label">Nome Evento *</label>
-                <input type="text" class="form-control" id="nomeEvento" name="nomeEvento" placeholder="Es: Notte di Jazz" required>
+                <input type="text" class="form-control" id="nomeEvento" name="nomeEvento" placeholder="Es: Notte di Jazz" >
             </div>
 
             <!-- Descrizione Evento -->
             <div class="mb-3">
                 <label for="descrizioneEvento" class="form-label">Descrizione *</label>
-                <textarea class="form-control" id="descrizioneEvento" name="descrizioneEvento" placeholder="Descrivi l'atmosfera e i dettagli dell'evento..." rows="3" required></textarea>
+                <textarea class="form-control" id="descrizioneEvento" name="descrizioneEvento" placeholder="Descrivi l'atmosfera e i dettagli dell'evento..." rows="3" ></textarea>
+            </div>
+
+            <!-- Categoria Evento -->
+            <div class="mb-3">
+                <label for="categoriaEvento" class="form-label">Categoria *</label>
+                <select class="form-control" id="categoriaEvento" name="categoriaEvento" >
+                    <option value="">Seleziona una categoria...</option>
+                    <option value="MUSICA">Musica</option>
+                    <option value="TEATRO_CINEMA">Cinema & Teatro</option>
+                    <option value="CIBO">Food & Drink</option>
+                    <option value="FESTE_SAGRE">Eventi & Sagre</option>
+                    <option value="SPORT">Sport</option>
+                    <option value="ARTE">Arte & Cultura</option>
+                </select>
             </div>
 
             <!-- Immagine Evento -->
             <div class="mb-3">
                 <label for="immagineEvento" class="form-label">Carica un'Immagine per l'Evento *</label>
-                <input type="file" class="form-control" id="immagineEvento" name="immagineEvento" accept="image/*" required>
+                <input type="file" class="form-control" id="immagineEvento" name="immagineEvento" accept="image/*" >
             </div>
 
             <!-- Data e Ora -->
             <div class="mb-3">
-                <label for="dataOraEvento" class="form-label">Data e Ora *</label>
-                <input type="datetime-local" class="form-control" id="dataOraEvento" name="dataOraEvento" required>
+                <label for="dataOraEvento" class="form-label">Data *</label>
+                <input type="date" class="form-control" id="dataOraEvento" name="dataOraEvento" >
             </div>
 
             <!-- Luogo Evento con Ricerca Dinamica -->
             <div class="mb-3 position-relative">
                 <label for="luogoEvento" class="form-label">Luogo *</label>
-                <input type="text" class="form-control" id="luogoEvento" name="luogoEvento" placeholder="Cerca un luogo..." required>
+                <input type="text" class="form-control" id="luogoEvento" name="luogoEvento" placeholder="Cerca un luogo..." >
                 <ul id="suggestions" class="list-group position-absolute mt-1 d-none"></ul>
             </div>
 
             <!-- Prezzo -->
             <div class="mb-3">
                 <label for="prezzoEvento" class="form-label">Prezzo a Persona (€)*</label>
-                <input type="number" class="form-control" id="prezzoEvento" name="prezzoEvento" min="0" step="0.01" required>
+                <input type="number" class="form-control" id="prezzoEvento" name="prezzoEvento" min="0" step="0.01" >
             </div>
 
             <!-- Contatti -->
             <div class="mb-3">
                 <label for="telefonoEvento" class="form-label">Telefono *</label>
-                <input type="tel" class="form-control" id="telefonoEvento" name="telefonoEvento" required>
+                <input type="tel" class="form-control" id="telefonoEvento" name="telefonoEvento" >
             </div>
 
             <div class="mb-3">
-                <label for="contattiEvento" class="form-label">Email *</label>
-                <input type="email" class="form-control" id="contattiEvento" name="contattiEvento" required>
+                <label for="emailEvento" class="form-label">Email *</label>
+                <input type="email" class="form-control" id="emailEvento" name="emailEvento" >
             </div>
 
             <!-- Motto Evento -->
             <div class="mb-3">
                 <label for="mottoEvento" class="form-label">Mini Motto *</label>
-                <input type="text" class="form-control" id="mottoEvento" name="mottoEvento" placeholder="Es: Un viaggio musicale senza tempo!" required>
+                <input type="text" class="form-control" id="mottoEvento" name="mottoEvento" placeholder="Es: Un viaggio musicale senza tempo!" >
             </div>
 
             <!-- Pulsante -->
@@ -91,7 +104,8 @@
     </div>
 </section>
 
-<script>
+
+<!-- <script>
 const form = document.querySelector('.needs-validation');
 form.addEventListener('submit', function (event) {
     if (!form.checkValidity()) {
@@ -100,8 +114,9 @@ form.addEventListener('submit', function (event) {
     }
     form.classList.add('was-validated');
 });
-</script>
+</script> -->
 
 <script src="./js/session-manager.js"></script>
+<script src="./js/crea-evento.js"></script>
 </body>
 </html>

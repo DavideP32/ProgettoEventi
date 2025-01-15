@@ -132,7 +132,8 @@ public class UtenteServiceImpl implements UtenteService {
                 utente.getCognome(),
                 utente.getDataNascita(),
                 utente.getEmail(),
-                utente.getRuolo()
+                utente.getRuolo(),
+                utente.getPrenotazioni()
         );
 
         return utenteDto;

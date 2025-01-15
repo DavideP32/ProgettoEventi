@@ -6,11 +6,13 @@
 package com.eventi.eventi.entities;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.hibernate.annotations.ColumnDefault;
 
 import com.eventi.eventi.enums.Caratteristiche;
 import com.eventi.eventi.enums.Tipologia;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,6 +21,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -53,26 +56,37 @@ public class Evento {
     private int posti;
     
     @Column(nullable=false)
-    private boolean disponibilita;
+    private boolean disponibilita = true;
 
     @Column(name="data_evento", nullable=false)
     private LocalDate dataEvento;
+    
+    @Column(name="email")
+    private String email;
+
+
 
     @Column(name="prezzo_listino")
     @ColumnDefault("null")
     private Double prezzo;
 
-    // @JsonIgnore
-    // @OneToMany(mappedBy="eventoId")
-    // private List<Prenotazioni> prenotazioni;
 
-    // public List<Prenotazioni> getPrenotazioni() {
-    //     return prenotazioni;
-    // }
 
-    // public void setPrenotazioni(List<Prenotazioni> prenotazioni) {
-    //     this.prenotazioni = prenotazioni;
-    // }
+    @JsonIgnore
+    @OneToMany(mappedBy="evento")
+    private List<Prenotazione> prenotazioni;
+
+
+
+    
+
+    public List<Prenotazione> getPrenotazioni() {
+        return prenotazioni;
+    }
+
+    public void setPrenotazioni(List<Prenotazione> prenotazioni) {
+        this.prenotazioni = prenotazioni;
+    }
 
     public long getId() {
         return id;
@@ -160,6 +174,14 @@ public class Evento {
 
     public String getNome() {
         return nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 

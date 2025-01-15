@@ -42,13 +42,13 @@ public class PrenotazioneCtrl {
     }
 
     @PostMapping()
-    public ResponseEntity<?> postPrenotazione (Prenotazione prenotazione) {
+    public ResponseEntity<?> postPrenotazione (@RequestBody Prenotazione prenotazione) {
         try {
             Prenotazione p = prenotazioneService.aggiungiPrenotazione(prenotazione);
-                return ResponseEntity.ok(p);
+            return ResponseEntity.ok(p);
 
         } catch (DataIntegrityViolationException e) {
-            return ResponseEntity.badRequest().body("Errore nell'inserimento dei dati controllare le proprietà dell'oggetto");
+            return ResponseEntity.badRequest().body("Errore nell'inserimento dei dati controllare le proprietà dell'oggetto: " + e.getMessage());
 
         }catch(Exception e){
             return ResponseEntity.internalServerError().body(new Prenotazione());

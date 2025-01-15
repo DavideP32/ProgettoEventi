@@ -6,7 +6,9 @@
 package com.eventi.eventi.dtos;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import com.eventi.eventi.entities.Prenotazione;
 import com.eventi.eventi.enums.Ruolo;
 
 public class UtenteDto {
@@ -17,6 +19,7 @@ public class UtenteDto {
     private LocalDate dataNascita;
     private String email;
     private Ruolo ruolo;
+    private List<Prenotazione> prenotazioni;
     
 
     public UtenteDto(){
@@ -24,13 +27,14 @@ public class UtenteDto {
     }
 
 
-    public UtenteDto(long id, String nome, String cognome, LocalDate dataNascita, String email, Ruolo ruolo) {
+    public UtenteDto(long id, String nome, String cognome, LocalDate dataNascita, String email, Ruolo ruolo, List<Prenotazione> prenotazioni) {
         this.id = id;
         this.nome = nome;
         this.cognome = cognome;
         this.dataNascita = dataNascita;
         this.email = email;
         this.ruolo = ruolo;
+        this.prenotazioni = prenotazioni;
     }
     public long getId() {
         return id;
@@ -67,6 +71,14 @@ public class UtenteDto {
     }
     public void setRuolo(Ruolo ruolo) {
         this.ruolo = ruolo;
+    }
+
+    public List<Prenotazione> getPrenotazioni() {
+        return prenotazioni;
+    }
+
+    public void setPrenotazioni(List<Prenotazione> prenotazioni) {
+        this.prenotazioni = prenotazioni;
     }
 
 
