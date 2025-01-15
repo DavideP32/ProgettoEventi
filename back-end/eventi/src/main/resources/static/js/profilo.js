@@ -94,3 +94,7 @@ btnAnnulla.addEventListener('click', () => {
     nascondiConAnimazione(formModificabile);
     setTimeout(() => mostraConAnimazione(formNonModificabile), 500); 
 });
+
+
+
+

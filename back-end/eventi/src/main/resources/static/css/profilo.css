@@ -3,25 +3,110 @@
     max-width: none;
 }
 
-a {
-    color: black !important;
+.evento {
+    max-width: 800px;
+    gap: 2rem;
 }
-
 
 .gestione {
     position: sticky !important;
     top: 90px !important;
-    height: 370px;
+    height: 500px;
     
 }
 
 .gestione-account {
-    right: -20px !important;
+    min-height: 500px; /* Altezza minima per mantenere la sezione ferma */
+    max-height: 500px; /* Altezza massima per evitare spostamenti */
+    overflow-y: auto;  /* Scorrimento interno se il contenuto è troppo lungo */
 }
+
 
 aside {
     display: block;
     unicode-bidi: isolate;
 }
 
+.nav-pills {
+    --bs-nav-pills-link-active-bg: #cab177;
+}
 
+.nav-pills .nav-link {
+    color: rgb(0, 0, 0) !important; /* Rende le scritte bianche */
+}
+
+.nav-pills .nav-link.active {
+    background-color: #cab177; /* Colore di sfondo per il link attivo */
+    color: white !important; /* Mantieni bianco anche il testo attivo */
+}
+
+.nav-pills .nav-link:hover {
+    color: white !important; /* Anche al passaggio del mouse */
+}
+
+input {
+    color: #cab177 !important;
+}
+
+input::placeholder {
+    color: #cab177 !important;
+}
+
+
+.btn-save {
+    background-color: #cab177 !important;
+    border-color: #cab177;
+}
+
+.btn-save:hover {
+    background-color: inherit !important;
+    color: inherit !important;
+    border-color: inherit !important;
+}
+
+
+.btn-cancel {
+    --bs-btn-color: #000000 !important;
+    --bs-btn-border-color: #000000 !important;
+    --bs-btn-hover-color: #000 !important;
+    --bs-btn-hover-bg: #ffffff !important;
+    --bs-btn-hover-border-color: #ffffff !important;
+    --bs-btn-focus-shadow-rgb: 248, 249, 250 !important;
+    --bs-btn-active-color: #000 !important;
+    --bs-btn-active-bg: #ffffff !important;
+    --bs-btn-active-border-color: #ffffff !important;
+    --bs-btn-active-shadow: inset 0 3px 2px rgb(0, 0, 0) !important;
+    --bs-btn-disabled-color: #ffffff !important;
+    --bs-btn-disabled-bg: #fff !important;
+    --bs-btn-disabled-border-color: #ffffff !important;
+    --bs-gradient: none !important;
+}
+
+
+
+@media (min-width: 768px) and (max-width: 1440px) {
+	.evento {
+		gap: 3rem;
+	}
+}
+
+
+/* Nasconde il testo e mostra le icone a partire da 992px (tablet più grandi e PC ristretti) */
+@media (max-width: 992px) {
+    .nav-link span {
+        display: none;
+    }
+    .nav-link i {
+        display: inline-block;
+    }
+}
+
+/* Mostra il testo e nasconde le icone sopra i 992px */
+@media (min-width: 993px) {
+    .nav-link span {
+        display: inline;
+    }
+    .nav-link i {
+        display: none;
+    }
+}
