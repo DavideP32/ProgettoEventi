@@ -1,299 +1,295 @@
 <!DOCTYPE html>
 <html lang="it">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Event Horizon</title>
 
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="./css/style.css" />
-		<link rel="stylesheet" href="./css/home.css" />
-	</head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Horizon</title>
 
-	<body>
-		<style>
-			/* Input Placeholder Styling */
-			input::placeholder {
-				color: rgb(255, 255, 255) !important;
-				opacity: 1;
-			}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/home.css" />
+</head>
 
-			/* Input Text Styling */
-			input {
-				color: rgb(255, 255, 255) !important;
-				font-weight: bold;
-			}
-		</style>
+<body>
+    <style>
+        /* Input Placeholder Styling */
+        input::placeholder {
+            color: rgb(255, 255, 255) !important;
+            opacity: 1;
+        }
 
-		<!-- Navbar -->
-        <header class="navbar navbar-expand-lg text-bg-dark bg-transparent w-100">
-            <div class="container">
-                <a href="./index.html">
-                    <img src="./img/logo.png" alt="Logo" width="80" height="80" class="me-2">
-                </a>
-    
-                    
-                        <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">
-                            <svg width="80" height="80" viewBox="0 0 100 100">
-                              <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
-                              <path class="line line2" d="M 20,50 H 80" />
-                              <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
-                            </svg>
-                          </button>
-                    
-    
-    
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 link-nav">
-                        <li class="nav-item"><a href="index.html" class="nav-link px-3 text-white">Home</a></li>
-                        <li class="nav-item"><a href="eventi-generici.html" class="nav-link px-3 text-white">Eventi</a></li>
-                        <li class="nav-item"><a href="crea-evento.html" class="nav-link px-3 text-white">Crea evento</a></li>
-                    </ul>
-    
-    
-                    <form class="d-flex col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 position-relative" role="search">
-                        <input type="search" class="form-control bg-transparent pe-5"
-                               placeholder="Cerca un evento..." aria-label="Search" oninput="cercaEventi()">
-                        <button type="button" class="btn btn-transparent position-absolute end-0 top-50 translate-middle-y px-2">
-                            <i class="bi bi-search text-white"></i> 
-                        </button>
-                        <div id="searchResults" class="position-absolute bg-white text-dark w-100 shadow rounded p-2" 
-                             style="top: 100%; left: 0; display: none;"></div>
-                    </form>
-                    
-                
-                    
-    
-    
-    
-                    <div class="text-end">
-                        <a href="./login.html" class="btn btn-outline-light me-2">Login</a>
-                        <a href="./registrati.html" class="btn btn-registrati">Registrati</a>
-                    </div>
-    
-                    <div class="template d-none" id="bollino-profilo">
-                        <div
-                          tabindex="0"
-                          class="popup button"
-                          style="padding:0 0.225rem  0; border-top-right-radius: 1.2rem;
+        /* Input Text Styling */
+        input {
+            color: rgb(255, 255, 255) !important;
+            font-weight: bold;
+        }
+    </style>
+
+    <!-- Navbar -->
+    <header class="navbar navbar-expand-lg text-bg-dark bg-transparent w-100">
+        <div class="container">
+            <a href="./index.html">
+                <img src="./img/logo.png" alt="Logo" width="80" height="80" class="me-2">
+            </a>
+
+
+            <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">
+                <svg width="80" height="80" viewBox="0 0 100 100">
+                    <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                    <path class="line line2" d="M 20,50 H 80" />
+                    <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                </svg>
+            </button>
+
+
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 link-nav">
+                    <li class="nav-item"><a href="index.html" class="nav-link px-3 text-white">Home</a></li>
+                    <li class="nav-item"><a href="eventi-generici.html" class="nav-link px-3 text-white">Eventi</a></li>
+                    <li class="nav-item"><a href="crea-evento.html" class="nav-link px-3 text-white">Crea evento</a></li>
+                </ul>
+
+
+                <form class="d-flex col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 position-relative" role="search">
+                    <input type="search" class="form-control bg-transparent pe-5" placeholder="Cerca un evento..." aria-label="Search" oninput="cercaEventi()">
+                    <button type="button" class="btn btn-transparent position-absolute end-0 top-50 translate-middle-y px-2">
+                        <i class="bi bi-search text-white"></i>
+                    </button>
+                    <div id="searchResults" class="position-absolute bg-white text-dark w-100 shadow rounded p-2" style="top: 100%; left: 0; display: none;"></div>
+                </form>
+
+
+
+
+
+
+                <div class="text-end">
+                    <a href="./login.html" class="btn btn-outline-light me-2">Login</a>
+                    <a href="./registrati.html" class="btn btn-registrati">Registrati</a>
+                </div>
+
+                <div class="template d-none" id="bollino-profilo">
+                    <div tabindex="0" class="popup button" style="padding:0 0.225rem  0; border-top-right-radius: 1.2rem;
                           border-bottom-right-radius: 1.2rem;">
-                          <div class="popup-header">
-    
-    
-    
-    
-                            <div class="" >&#9662;</div>
-    
-                            
-                      
+                        <div class="popup-header">
+
+
+
+
+                            <div class="">&#9662;</div>
+
+
+
                             <!-- Replaced SVG avatar with initial letter -->
-                            <div class="idUtente"
-                              style="height: 32px; width: 32px; display: flex; justify-content: center; align-items: center; 
+                            <div class="idUtente" style="height: 32px; width: 32px; display: flex; justify-content: center; align-items: center; 
                               background-color: #cab177; border-radius: 50%; font-weight: bold; color: #221b1b;">
-                              P
+                                P
                             </div>
-                          </div>
-                      
-                          <div class="popup-main">
-                            <ul class="list-box">
-                              <a href="profilo.html">
-                                  <li class="button item">Profilo</li>
-                              </a>
-                              <a href="profilo.html#priv-ordini-tab">
-                                  <li class="button item">Prenotazioni</li>
-                              </a>
-                              <a href="profilo.html#priv-transactions-tab">
-                                  <li class="button item">Impostazioni</li>
-                              </a>
-                              <li class="button item" id="logout">Logout</li>
-                              <ul></ul>
-                            </ul>
-                          </div>
                         </div>
-                      </div>
-                    
+
+                        <div class="popup-main">
+                            <ul class="list-box">
+                                <a href="profilo.html">
+                                    <li class="button item">Profilo</li>
+                                </a>
+                                <a href="profilo.html#priv-ordini-tab">
+                                    <li class="button item">Prenotazioni</li>
+                                </a>
+                                <a href="profilo.html#priv-transactions-tab">
+                                    <li class="button item">Impostazioni</li>
+                                </a>
+                                <li class="button item" id="logout">Logout</li>
+                                <ul></ul>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center d-flex align-items-center justify-content-center">
+        <div class="overlay"></div>
+        <video preload="none" autoplay muted loop playsinline class="video-hero">
+            <source src="./img/video-hero2.webm" type="video/webm" />
+        </video>
+        <div class="text-white hero-title">
+            <h1 class="display-3 fw-bold animate__animated animate__fadeInDown dm-serif-text-regular-italic">Event Horizon</h1>
+            <p class="lead animate__animated animate__fadeInDown animate__delay-2s">Esplora e prenota gli eventi più esclusivi della Lombardia!</p>
+            <a href="#descrizione" class="btn btn-registrati btn-lg mt-3 animate__animated animate__fadeInDown animate__delay-3s">Scopri di più</a>
+        </div>
+    </section>
+
+    <!-- Sezione categorie -->
+    <section class="container text-center sezione-categorie">
+        <div class="row justify-content-center icon-container d-flex flex-wrap">
+            <div class="col-6 col-md-3 col-lg-2 col-xxl-2 mb-4">
+                <a href="./musica.html" class="category-link">
+                    <div class="category-icon">
+                        <i class="fa-solid fa-music"></i>
+                    </div>
+                    <p class="category-text">Musica</p>
+                </a>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2 col-xxl-2 mb-4">
+                <a href="./cinemaTeatro.html" class="category-link">
+                    <div class="category-icon">
+                        <i class="fa-solid fa-masks-theater"></i>
+                    </div>
+                    <p class="category-text">Teatro & Cinema</p>
+                </a>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2 col-xxl-2 mb-4">
+                <a href="./foodDrink.html" class="category-link">
+                    <div class="category-icon">
+                        <i class="fa-solid fa-champagne-glasses"></i>
+                    </div>
+                    <p class="category-text">Food & drink</p>
+                </a>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2 col-xxl-2 mb-4">
+                <a href="./festeSagre.html" class="category-link">
+                    <div class="category-icon">
+                        <i class="bi-balloon-fill"></i>
+                    </div>
+                    <p class="category-text">Feste e Sagre</p>
+                </a>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2 col-xxl-2 mb-4">
+                <a href="./sport.html" class="category-link">
+                    <div class="category-icon">
+                        <i class="fa-solid fa-volleyball"></i>
+                    </div>
+                    <p class="category-text">Sport</p>
+                </a>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2 col-xxl-2 mb-4">
+                <a href="./arteCultura.html" class="category-link">
+                    <div class="category-icon">
+                        <i class="fa-solid fa-paintbrush"></i>
+                    </div>
+                    <p class="category-text">Arte & Cultura</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Descrizione e Carosello -->
+    <section id="descrizione" class="container-xxl d-felx justify-content-center align-items-center">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="./img/carosello1.jpg" alt="" class="d-block w-100" />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./img/carosello2.jpg" alt="" class="d-block w-100" />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./img/carosello3.jpg" alt="" class="d-block w-100" />
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
                 </div>
             </div>
-        </header>
 
-		<!-- Hero Section -->
-		<section class="hero-section text-center d-flex align-items-center justify-content-center">
-			<div class="overlay"></div>
-			<video preload="none" autoplay muted loop playsinline class="video-hero">
-				<source src="./img/video-hero2.webm" type="video/webm" />
-			</video>
-			<div class="text-white hero-title">
-				<h1 class="display-3 fw-bold animate__animated animate__fadeInDown dm-serif-text-regular-italic">Event Horizon</h1>
-				<p class="lead animate__animated animate__fadeInDown animate__delay-2s">Esplora e prenota gli eventi più esclusivi della Lombardia!</p>
-				<a href="#descrizione" class="btn btn-registrati btn-lg mt-3 animate__animated animate__fadeInDown animate__delay-3s">Scopri di più</a>
-			</div>
-		</section>
+            <div class="col-md-6">
+                <h2>
+                    Event Horizon: <br />
+                    Dove l'evento prende vita
+                </h2>
+                <br />
+                <p class="text-justify" style="max-width: 600px">
+                    Ti diamo il benvenuto nel nostro esclusivo e completo portale eventi, <br />
+                    il punto di riferimento perfetto per chi desidera esplorare, scoprire e prenotare un'ampia gamma di esperienze straordinarie e coinvolgenti, <br />
+                    pensate per arricchire il tempo libero con attività uniche, culturali, enogastronomiche, sportive e di intrattenimento,<br />
+                    adatte a tutte le età e interessi, in ogni angolo della meravigliosa regione della Lombardia, rendendo ogni momento un'occasione speciale da ricordare
+                </p>
+            </div>
+        </div>
+    </section>
 
-		<!-- Sezione categorie -->
-		<section class="container text-center sezione-categorie">
-			<div class="row justify-content-center icon-container d-flex flex-wrap">
-				<div class="col-6 col-md-3 col-lg-2 col-xxl-2 mb-4">
-					<a href="#" class="category-link">
-						<div class="category-icon">
-							<i class="fa-solid fa-music"></i>
-						</div>
-						<p class="category-text">Musica</p>
-					</a>
-				</div>
-				<div class="col-6 col-md-3 col-lg-2 col-xxl-2 mb-4">
-					<a href="#" class="category-link">
-						<div class="category-icon">
-							<i class="fa-solid fa-masks-theater"></i>
-						</div>
-						<p class="category-text">Teatro & Cinema</p>
-					</a>
-				</div>
-				<div class="col-6 col-md-3 col-lg-2 col-xxl-2 mb-4">
-					<a href="#" class="category-link">
-						<div class="category-icon">
-							<i class="fa-solid fa-champagne-glasses"></i>
-						</div>
-						<p class="category-text">Food & drink</p>
-					</a>
-				</div>
-				<div class="col-6 col-md-3 col-lg-2 col-xxl-2 mb-4">
-					<a href="#" class="category-link">
-						<div class="category-icon">
-							<i class="fa-solid fa-shirt"></i>
-						</div>
-						<p class="category-text">Feste e Sagre</p>
-					</a>
-				</div>
-				<div class="col-6 col-md-3 col-lg-2 col-xxl-2 mb-4">
-					<a href="#" class="category-link">
-						<div class="category-icon">
-							<i class="fa-solid fa-volleyball"></i>
-						</div>
-						<p class="category-text">Sport</p>
-					</a>
-				</div>
-				<div class="col-6 col-md-3 col-lg-2 col-xxl-2 mb-4">
-					<a href="#" class="category-link">
-						<div class="category-icon">
-							<i class="fa-solid fa-paintbrush"></i>
-						</div>
-						<p class="category-text">Arte & Cultura</p>
-					</a>
-				</div>
-			</div>
-		</section>
+    <!-- Top Trending -->
+    <h2 class="text-center">Top Trending</h2>
+    <div class="container mt-3">
+        <div class="row justify-content-center">
+            <div class="card" style="background-color: #faf5f5">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="./img/evento1.webp" alt="Evento 1" />
+                    </div>
+                    <div class="card-back card-body bg-light text-center">
+                        <h5 class="card-title">Serata Vintage Party 80's</h5>
+                        <p class="card-text">12 Maggio 2025</p>
+                        <button class="btn btn-scopri">Scopri di più</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="background-color: #faf5f5">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="./img/evento2.webp" alt="Evento 2" />
+                    </div>
+                    <div class="card-back card-body bg-light text-center">
+                        <h5 class="card-title">Festival del Cinema Indipendente 2025</h5>
+                        <p class="card-text">Febbraio 23 2025</p>
+                        <button class="btn btn-scopri">Scopri di più</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="background-color: #faf5f5">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="./img/evento3.webp" alt="Evento 3" />
+                    </div>
+                    <div class="card-back card-body bg-light text-center">
+                        <h5 class="card-title">Food & Wine Experience</h5>
+                        <p class="card-text">Aprile 5 2025</p>
+                        <button class="btn btn-scopri">Scopri di più</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-		<!-- Descrizione e Carosello -->
-		<section id="descrizione" class="container-xxl d-felx justify-content-center align-items-center">
-			<div class="row justify-content-center">
-				<div class="col-md-6">
-					<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-						<div class="carousel-inner">
-							<div class="carousel-item active">
-								<img src="./img/carosello1.jpg" alt="" class="d-block w-100" />
-							</div>
-							<div class="carousel-item">
-								<img src="./img/carosello2.jpg" alt="" class="d-block w-100" />
-							</div>
-							<div class="carousel-item">
-								<img src="./img/carosello3.jpg" alt="" class="d-block w-100" />
-							</div>
-						</div>
-						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-							<span class="carousel-control-prev-icon"></span>
-						</button>
-						<button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-							<span class="carousel-control-next-icon"></span>
-						</button>
-					</div>
-				</div>
+    <!-- Footer -->
+    <footer class="footer" style="background-color: #faf5f5">
+        <div class="social-section text-center">
+            <div class="social-icons">
+                <a href="https://www.facebook.com" class="facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.x.com" class="twitter" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com" class="instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="#"><img src="./img/logo.png" alt="Company Logo" class="footer-logo" /></a>
+            <p class="text-center h5" style="color: #cab177"><strong>Event Horizon</strong></p>
+        </div>
+        <ul class="text-center footer-link">
+            <li><a href="">Chi Siamo</a></li>
+            <li><a href="">Contatti</a></li>
+        </ul>
+    </footer>
 
-				<div class="col-md-6">
-					<h2>
-						Event Horizon: <br />
-						Dove l'evento prende vita
-					</h2>
-					<br />
-					<p class="text-justify" style="max-width: 600px">
-						Ti diamo il benvenuto nel nostro esclusivo e completo portale eventi, <br />
-						il punto di riferimento perfetto per chi desidera esplorare, scoprire e prenotare un'ampia gamma di esperienze straordinarie e coinvolgenti, <br />
-						pensate per arricchire il tempo libero con attività uniche, culturali, enogastronomiche, sportive e di intrattenimento,<br />
-						adatte a tutte le età e interessi, in ogni angolo della meravigliosa regione della Lombardia, rendendo ogni momento un'occasione speciale da ricordare
-					</p>
-				</div>
-			</div>
-		</section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="./js/style.js"></script>
+    <script src="./js/home.js"></script>
+    <script src="./js/session-manager.js"></script>
+</body>
 
-		<!-- Top Trending -->
-		<h2 class="text-center">Top Trending</h2>
-		<div class="container mt-3">
-			<div class="row justify-content-center">
-				<div class="card" style="background-color: #faf5f5">
-					<div class="card-inner">
-						<div class="card-front">
-							<img src="./img/evento1.webp" alt="Evento 1" />
-						</div>
-						<div class="card-back card-body bg-light text-center">
-							<h5 class="card-title">Serata Vintage Party 80's</h5>
-							<p class="card-text">12 Maggio 2025</p>
-							<button class="btn btn-scopri">Scopri di più</button>
-						</div>
-					</div>
-				</div>
-				<div class="card" style="background-color: #faf5f5">
-					<div class="card-inner">
-						<div class="card-front">
-							<img src="./img/evento2.webp" alt="Evento 2" />
-						</div>
-						<div class="card-back card-body bg-light text-center">
-							<h5 class="card-title">Festival del Cinema Indipendente 2025</h5>
-							<p class="card-text">Febbraio 23 2025</p>
-							<button class="btn btn-scopri">Scopri di più</button>
-						</div>
-					</div>
-				</div>
-				<div class="card" style="background-color: #faf5f5">
-					<div class="card-inner">
-						<div class="card-front">
-							<img src="./img/evento3.webp" alt="Evento 3" />
-						</div>
-						<div class="card-back card-body bg-light text-center">
-							<h5 class="card-title">Food & Wine Experience</h5>
-							<p class="card-text">Aprile 5 2025</p>
-							<button class="btn btn-scopri">Scopri di più</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Footer -->
-		<footer class="footer" style="background-color: #faf5f5">
-			<div class="social-section text-center">
-				<div class="social-icons">
-					<a href="https://www.facebook.com" class="facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
-					<a href="https://www.x.com" class="twitter" target="_blank"><i class="fab fa-x-twitter"></i></a>
-					<a href="https://www.instagram.com" class="instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-				</div>
-			</div>
-			<div class="text-center">
-				<a href="#"><img src="./img/logo.png" alt="Company Logo" class="footer-logo" /></a>
-				<p class="text-center h5" style="color: #cab177"><strong>Event Horizon</strong></p>
-			</div>
-			<ul class="text-center footer-link">
-				<li><a href="">Chi Siamo</a></li>
-				<li><a href="">Contatti</a></li>
-			</ul>
-		</footer>
-
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-		<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-		<script src="./js/style.js"></script>
-		<script src="./js/home.js"></script>
-		<script src="./js/session-manager.js"></script>
-	</body>
 </html>

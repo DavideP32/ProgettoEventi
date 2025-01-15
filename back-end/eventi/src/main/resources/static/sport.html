@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sport</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/eventi.css">
+</head>
+
+<body>
+
+
+    <!-- Navbar -->
+    <header class="d-none navbar navbar-expand-lg text-bg-dark bg-transparent w-100" id="myNavbar">
+        <div class="container">
+            <a href="./index.html">
+                <img src="./img/logo.png" alt="Logo" width="80" height="80" class="me-2">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 link-nav">
+                    <li class="nav-item"><a href="#" class="nav-link px-3 text-white">Home</a></li>
+                    <li class="nav-item"><a href="./eventi-generici.html" class="nav-link px-3 text-white">Food & Drink</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-3 text-white">Crea evento</a></li>
+                </ul>
+
+                <form class="d-flex col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 position-relative" role="search">
+                    <input type="search" class="form-control form-control-dark text-bg-dark bg-transparent pe-5" placeholder="Search..." aria-label="Search">
+                    <button type="submit" class="position-absolute end-0 top-50 translate-middle-y border-0 bg-transparent btn-cerca">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+
+
+                <div class="text-end">
+                    <a href="./login.html" class="btn btn-outline-light me-2">Login</a>
+                    <a href="./registrati.html" class="btn btn-registrati">Registrati</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- hero section  -->
+    <section class="hero-section text-center d-flex align-items-center justify-content-center mb-4">
+        <div class="overlay"></div>
+        <img class="img-hero" src="./img/banner-sport.jpg" alt="">
+        <div class="text-white hero-title">
+            <h1 class="display-3 fw-bold animate__animated animate__fadeInDown dm-serif-text-regular-italic">Sport</h1>
+            <a href="./index.html" class="btn-lg mt-3 animate__animated animate__fadeInDown animate__delay-1s h6">Torna alla home</a>
+            <span class="animate__animated animate__fadeInDown animate__delay-1s">|</span>
+            <a href="./eventi-generici.html" class="btn-lg mt-3 animate__animated animate__fadeInDown animate__delay-1s h6">Torna agli eventi</a>
+        </div>
+    </section>
+
+    <!-- sezione eventi -->
+    <div class="container py-3">
+        <div class="row evento align-items-center">
+            <div class="col-lg-4 col-md-12 mb-3 mb-lg-0">
+                <img src="./img/sport1.jpg" class="img-fluid event-img" alt="Evento Sportivo 1">
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <h4>Maratona di Milano</h4>
+                <p><strong>Data:</strong> 5 Aprile 2025</p>
+                <p><strong>Luogo:</strong> Milano</p>
+                <p>Un evento imperdibile per i corridori, con un percorso che attraversa i luoghi più iconici della città, da Piazza del Duomo al Castello Sforzesco.</p>
+                <a href="./evento-selezionato.html" class="btn btn-gen">Info</a>
+            </div>
+        </div>
+
+        <!-- Evento 2 -->
+        <div class="row evento align-items-center">
+            <div class="col-lg-4 col-md-12 mb-3 mb-lg-0">
+                <img src="./img/sport2.jpg" class="img-fluid event-img" alt="Evento Sportivo 2">
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <h4>Giro d'Italia - Tappa Lombardia</h4>
+                <p><strong>Data:</strong> 17 Maggio 2025</p>
+                <p><strong>Luogo:</strong> Lombardia (Tappa Finale)</p>
+                <p>Assisti alla spettacolare conclusione della famosa gara ciclistica, con i ciclisti più forti del mondo che competono per la vittoria finale.</p>
+                <a href="./evento-selezionato.html" class="btn btn-gen">Info</a>
+            </div>
+        </div>
+
+        <div class="row evento align-items-center">
+            <div class="col-lg-4 col-md-12 mb-3 mb-lg-0">
+                <img src="./img/sport3.jpg" class="img-fluid event-img" alt="Evento 3">
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <h4>Finale Coppa Italia di Basket</h4>
+                <p><strong>Data:</strong> 15 Marzo 2025</p>
+                <p><strong>Luogo:</strong> Mediolanum Forum, Assago</p>
+                <p>Le migliori squadre italiane si sfidano per conquistare il titolo della Coppa Italia in una serata di grande sport e spettacolo.</p>
+                <a href="./evento-selezionato.html" class="btn btn-gen">Info</a>
+            </div>
+        </div>
+
+        <div class="row evento align-items-center">
+            <div class="col-lg-4 col-md-12 mb-3 mb-lg-0">
+                <img src="./img/sport4.jpg" class="img-fluid event-img" alt="Evento 4">
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <h4>Internazionali di Tennis</h4>
+                <p><strong>Data:</strong> 10-17 Maggio 2025</p>
+                <p><strong>Luogo:</strong> Tennis Club Milano Bonacossa, Milano</p>
+                <p>Un torneo di alto livello che vede la partecipazione di campioni del tennis mondiale, in una competizione avvincente su terra rossa.</p>
+                <a href="./evento-selezionato.html" class="btn btn-gen">Info</a>
+            </div>
+        </div>
+
+        <div class="row evento align-items-center">
+            <div class="col-lg-4 col-md-12 mb-3 mb-lg-0">
+                <img src="./img/sport5.jpg" class="img-fluid event-img" alt="Evento 5">
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <h4>Gala della Ginnastica Artistica</h4>
+                <p><strong>Data:</strong> 25 Giugno 2025</p>
+                <p><strong>Luogo:</strong> Allianz Cloud, Milano</p>
+                <p>Un evento spettacolare con esibizioni di ginnasti di livello internazionale, tra eleganza e forza atletica.</p>
+                <a href="./evento-selezionato.html" class="btn btn-gen">Info</a>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer class="footer" style="background-color: #faf5f5;">
+        <div class="social-section text-center">
+            <div class="social-icons">
+                <a href="https://www.facebook.com" class="facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.twitter.com" class="twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com" class="instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="#"><img src="./img/logo.png" alt="Company Logo" class="footer-logo"></a>
+            <p class="text-center h5" style="color: #cab177;"><strong>Event Horizon</strong></p>
+        </div>
+        <ul class="text-center footer-link">
+            <li><a href="">Chi Siamo</a></li>
+            <li><a href="">Servizi</a></li>
+            <li><a href="">Contatti</a></li>
+        </ul>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="./js/style.js"></script>
+    <script src="./js/eventi.js"></script>
+</body>
+
+</html>
