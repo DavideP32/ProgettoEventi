@@ -78,18 +78,24 @@
             <!-- Prezzo -->
             <div class="mb-3">
                 <label for="prezzoEvento" class="form-label">Prezzo a Persona (€)*</label>
-                <input type="number" class="form-control" id="prezzoEvento" name="prezzoEvento" min="0" step="0.01" >
+                <input type="number" class="form-control" id="prezzoEvento" name="prezzoEvento" min="0" step="0.01" placeholder="Inserisci il prezzo del tuo evento..." >
+            </div>
+
+            <!-- Posti disponibili -->
+            <div class="mb-3">
+                <label for="prezzoEvento" class="form-label">Posti disponibili *</label>
+                <input type="number" class="form-control" id="postiEvento" name="postiEvento" min="0" step="1" placeholder="Inserisci posti disponibili..." >
             </div>
 
             <!-- Contatti -->
             <div class="mb-3">
                 <label for="telefonoEvento" class="form-label">Telefono *</label>
-                <input type="tel" class="form-control" id="telefonoEvento" name="telefonoEvento" >
+                <input type="tel" class="form-control" id="telefonoEvento" name="telefonoEvento" placeholder="Inserisci numero di telefono...">
             </div>
 
             <div class="mb-3">
                 <label for="emailEvento" class="form-label">Email *</label>
-                <input type="email" class="form-control" id="emailEvento" name="emailEvento" >
+                <input type="email" class="form-control" id="emailEvento" name="emailEvento" placeholder="Inserisci la tua email...">
             </div>
 
             <!-- Motto Evento -->

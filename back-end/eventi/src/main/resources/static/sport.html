@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sport</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/eventi.css">
 </head>
@@ -18,35 +19,86 @@
 
 
     <!-- Navbar -->
-    <header class="d-none navbar navbar-expand-lg text-bg-dark bg-transparent w-100" id="myNavbar">
+    <header class="navbar navbar-expand-lg text-bg-dark bg-transparent w-100">
         <div class="container">
             <a href="./index.html">
                 <img src="./img/logo.png" alt="Logo" width="80" height="80" class="me-2">
             </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+
+            <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">
+                <svg width="80" height="80" viewBox="0 0 100 100">
+                    <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                    <path class="line line2" d="M 20,50 H 80" />
+                    <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                </svg>
             </button>
+
+
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 link-nav">
-                    <li class="nav-item"><a href="#" class="nav-link px-3 text-white">Home</a></li>
-                    <li class="nav-item"><a href="./eventi-generici.html" class="nav-link px-3 text-white">Food & Drink</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-3 text-white">Crea evento</a></li>
+                    <li class="nav-item"><a href="index.html" class="nav-link px-3 text-white">Home</a></li>
+                    <li class="nav-item"><a href="eventi-generici.html" class="nav-link px-3 text-white">Eventi</a></li>
+                    <li class="nav-item"><a href="crea-evento.html" class="nav-link px-3 text-white">Crea evento</a></li>
                 </ul>
 
+
                 <form class="d-flex col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 position-relative" role="search">
-                    <input type="search" class="form-control form-control-dark text-bg-dark bg-transparent pe-5" placeholder="Search..." aria-label="Search">
-                    <button type="submit" class="position-absolute end-0 top-50 translate-middle-y border-0 bg-transparent btn-cerca">
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="search" class="form-control bg-transparent pe-5" placeholder="Cerca un evento..." aria-label="Search" oninput="cercaEventi()">
+                    <button type="button" class="btn btn-transparent position-absolute end-0 top-50 translate-middle-y px-2">
+                        <i class="bi bi-search text-white"></i>
                     </button>
+                    <div id="searchResults" class="position-absolute bg-white text-dark w-100 shadow rounded p-2" style="top: 100%; left: 0; display: none;"></div>
                 </form>
+
+
+
+
 
 
                 <div class="text-end">
                     <a href="./login.html" class="btn btn-outline-light me-2">Login</a>
                     <a href="./registrati.html" class="btn btn-registrati">Registrati</a>
                 </div>
+
+                <div class="template d-none" id="bollino-profilo">
+                    <div tabindex="0" class="popup button" style="padding:0 0.225rem  0; border-top-right-radius: 1.2rem;
+                          border-bottom-right-radius: 1.2rem;">
+                        <div class="popup-header">
+
+
+
+
+                            <div class="">&#9662;</div>
+
+
+
+                            <!-- Replaced SVG avatar with initial letter -->
+                            <div class="idUtente" style="height: 32px; width: 32px; display: flex; justify-content: center; align-items: center; 
+                              background-color: #cab177; border-radius: 50%; font-weight: bold; color: #221b1b;">
+                                P
+                            </div>
+                        </div>
+
+                        <div class="popup-main">
+                            <ul class="list-box">
+                                <a href="profilo.html">
+                                    <li class="button item">Profilo</li>
+                                </a>
+                                <a href="profilo.html#priv-ordini-tab">
+                                    <li class="button item">Prenotazioni</li>
+                                </a>
+                                <a href="profilo.html#priv-transactions-tab">
+                                    <li class="button item">Impostazioni</li>
+                                </a>
+                                <li class="button item" id="logout">Logout</li>
+                                <ul></ul>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </header>
@@ -63,9 +115,8 @@
         </div>
     </section>
 
-    <!-- sezione eventi -->
     <div class="container py-3">
-        <div class="row evento align-items-center">
+        <div class="row evento align-items-center" id="evento-sport-1">
             <div class="col-lg-4 col-md-12 mb-3 mb-lg-0">
                 <img src="./img/sport1.jpg" class="img-fluid event-img" alt="Evento Sportivo 1">
             </div>
@@ -74,12 +125,15 @@
                 <p><strong>Data:</strong> 5 Aprile 2025</p>
                 <p><strong>Luogo:</strong> Milano</p>
                 <p>Un evento imperdibile per i corridori, con un percorso che attraversa i luoghi più iconici della città, da Piazza del Duomo al Castello Sforzesco.</p>
+                <p class="d-none"><strong>Prezzo:</strong> Gratuito</p>
+                <p class="d-none"><strong>Ora:</strong> 9:00</p>
+                <p class="d-none"><strong>Mini Motto:</strong> Una corsa tra storia e bellezza.</p>
                 <a href="./evento-selezionato.html" class="btn btn-gen">Info</a>
             </div>
         </div>
-
+    
         <!-- Evento 2 -->
-        <div class="row evento align-items-center">
+        <div class="row evento align-items-center" id="evento-sport-2">
             <div class="col-lg-4 col-md-12 mb-3 mb-lg-0">
                 <img src="./img/sport2.jpg" class="img-fluid event-img" alt="Evento Sportivo 2">
             </div>
@@ -88,11 +142,14 @@
                 <p><strong>Data:</strong> 17 Maggio 2025</p>
                 <p><strong>Luogo:</strong> Lombardia (Tappa Finale)</p>
                 <p>Assisti alla spettacolare conclusione della famosa gara ciclistica, con i ciclisti più forti del mondo che competono per la vittoria finale.</p>
+                <p class="d-none"><strong>Prezzo:</strong> Gratuito</p>
+                <p class="d-none"><strong>Ora:</strong> 15:00</p>
+                <p class="d-none"><strong>Mini Motto:</strong> L'emozione della gara più famosa d'Italia.</p>
                 <a href="./evento-selezionato.html" class="btn btn-gen">Info</a>
             </div>
         </div>
-
-        <div class="row evento align-items-center">
+    
+        <div class="row evento align-items-center" id="evento-sport-3">
             <div class="col-lg-4 col-md-12 mb-3 mb-lg-0">
                 <img src="./img/sport3.jpg" class="img-fluid event-img" alt="Evento 3">
             </div>
@@ -101,11 +158,14 @@
                 <p><strong>Data:</strong> 15 Marzo 2025</p>
                 <p><strong>Luogo:</strong> Mediolanum Forum, Assago</p>
                 <p>Le migliori squadre italiane si sfidano per conquistare il titolo della Coppa Italia in una serata di grande sport e spettacolo.</p>
+                <p class="d-none"><strong>Prezzo:</strong> €25</p>
+                <p class="d-none"><strong>Ora:</strong> 20:30</p>
+                <p class="d-none"><strong>Mini Motto:</strong> Il basket ai massimi livelli in una notte di emozioni.</p>
                 <a href="./evento-selezionato.html" class="btn btn-gen">Info</a>
             </div>
         </div>
-
-        <div class="row evento align-items-center">
+    
+        <div class="row evento align-items-center" id="evento-sport-4">
             <div class="col-lg-4 col-md-12 mb-3 mb-lg-0">
                 <img src="./img/sport4.jpg" class="img-fluid event-img" alt="Evento 4">
             </div>
@@ -114,11 +174,14 @@
                 <p><strong>Data:</strong> 10-17 Maggio 2025</p>
                 <p><strong>Luogo:</strong> Tennis Club Milano Bonacossa, Milano</p>
                 <p>Un torneo di alto livello che vede la partecipazione di campioni del tennis mondiale, in una competizione avvincente su terra rossa.</p>
+                <p class="d-none"><strong>Prezzo:</strong> €30</p>
+                <p class="d-none"><strong>Ora:</strong> 10:00</p>
+                <p class="d-none"><strong>Mini Motto:</strong> La grande sfida sul rosso milanese.</p>
                 <a href="./evento-selezionato.html" class="btn btn-gen">Info</a>
             </div>
         </div>
-
-        <div class="row evento align-items-center">
+    
+        <div class="row evento align-items-center" id="evento-sport-5">
             <div class="col-lg-4 col-md-12 mb-3 mb-lg-0">
                 <img src="./img/sport5.jpg" class="img-fluid event-img" alt="Evento 5">
             </div>
@@ -127,12 +190,14 @@
                 <p><strong>Data:</strong> 25 Giugno 2025</p>
                 <p><strong>Luogo:</strong> Allianz Cloud, Milano</p>
                 <p>Un evento spettacolare con esibizioni di ginnasti di livello internazionale, tra eleganza e forza atletica.</p>
+                <p class="d-none"><strong>Prezzo:</strong> €20</p>
+                <p class="d-none"><strong>Ora:</strong> 18:00</p>
+                <p class="d-none"><strong>Mini Motto:</strong> Eleganza e forza unite in una serata unica.</p>
                 <a href="./evento-selezionato.html" class="btn btn-gen">Info</a>
             </div>
         </div>
-
     </div>
-    </div>
+    
 
 
 
