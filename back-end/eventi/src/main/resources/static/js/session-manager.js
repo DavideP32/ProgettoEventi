@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
             updateUI(null);
         });
 
+        
     //pulsante di logout
     const logoutBtn = document.getElementById("logout");
     if (logoutBtn) {
@@ -15,7 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
             logout();
         });
     }
-})
+});
+
+
 console.log(window.location.pathname);
 //Prendiamo la sessione dell'utente se è autenticato
 function verificaSessione() {
