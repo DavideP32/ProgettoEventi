@@ -26,11 +26,13 @@ function salvaModifiche(e) {
     const utenteModificato = {
         nome: nome,
         cognome: cognome,
-        email: email,
         dataNascita: dataNascita,
-        password: password
+        email: email,
+        ruolo: "RUOLO_UTENTE",
+        password: password,
+        prenotazioni: []
     };
-
+ 
     return fetch('http://localhost:8080/api/utente', {
         method: 'PUT',
         credentials: 'include',
@@ -42,7 +44,7 @@ function salvaModifiche(e) {
     })
     .then(response => {
         if(!response.ok) {
-            throw new Error('Errore durante il salvataggio delle modifiche');
+            throw new Error(err.message ||'Errore durante il salvataggio delle modifiche');
         }
         return response.json();
     })

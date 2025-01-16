@@ -71,6 +71,8 @@ public class Evento {
     private Double prezzo;
 
 
+    @Column(name="percorso", length=255)
+    private String percorso;
 
     @JsonIgnore
     @OneToMany(mappedBy="evento")
@@ -182,6 +184,14 @@ public class Evento {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPercorso() {
+        return percorso;
+    }
+
+    public void setPercorso(String percorso) {
+        this.percorso = percorso;
     }
 
 

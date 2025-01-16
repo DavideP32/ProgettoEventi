@@ -73,14 +73,12 @@ public class UtenteCtrl {
     @PutMapping
     public ResponseEntity<?> putUtente(@RequestBody Utente utente) {
         try {
-            Utente trovato = utenteService.prendiPerId(utente.getId());
-            UtenteDto trovatoEmail = utenteService.prendiUtenteByEmail(utente.getEmail());
+            // Utente trovato = utenteService.prendiPerId(utente.getId());
+            Utente trovatoEmail = utenteService.prendiUtenteByEmail(utente.getEmail());
 
-            if (trovato != null && trovatoEmail.getId() == trovato.getId()) {
-                UtenteDto utenteDto = utenteService.aggiornaUtente(utente, trovato);
+            if (trovatoEmail != null) {
+                UtenteDto utenteDto = utenteService.aggiornaUtente(utente, trovatoEmail);
                 return ResponseEntity.ok(utenteDto);
-            } else if (trovatoEmail.getId() != trovato.getId()) {
-                return ResponseEntity.badRequest().body("Email non corretta!");
             } else {
                 return ResponseEntity.badRequest().body("Errore, utente non trovato");
             }

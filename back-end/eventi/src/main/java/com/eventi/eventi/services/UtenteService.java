@@ -13,7 +13,8 @@ public interface UtenteService {
     	
 	UtenteDto getUtenteDtoById(long id);
 	Utente prendiPerId(long id);
-	UtenteDto prendiUtenteByEmail(String email);
+	UtenteDto prendiUtenteDtoByEmail(String email);
+	Utente prendiUtenteByEmail(String email);
 	
 	UtenteDto aggiungiUtente(Utente utente);
 	UtenteDto aggiornaUtente(Utente utente, Utente trovato);

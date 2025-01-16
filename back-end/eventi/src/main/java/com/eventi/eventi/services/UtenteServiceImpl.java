@@ -60,8 +60,13 @@ public class UtenteServiceImpl implements UtenteService {
     /*                                GET BY EMAIL                                */
     /* -------------------------------------------------------------------------- */
     @Override
-    public UtenteDto prendiUtenteByEmail(String email){
+    public UtenteDto prendiUtenteDtoByEmail(String email){
         return this.toUtenteDto(utenteRepository.findByEmail(email));
+    }
+
+    @Override
+    public Utente prendiUtenteByEmail(String email){
+        return utenteRepository.findByEmail(email);
     }
 
     /* -------------------------------------------------------------------------- */

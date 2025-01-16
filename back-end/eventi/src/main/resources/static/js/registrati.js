@@ -74,7 +74,7 @@ form.addEventListener('submit', e => {
 
             setTimeout(() => {
                 window.location.replace('http://localhost:8080/login.html');
-            }, 5000);
+            }, 2000);
         } else {
             // Gestione di errori non previsti (es. errore del server)
             return response.json().then(data => {
