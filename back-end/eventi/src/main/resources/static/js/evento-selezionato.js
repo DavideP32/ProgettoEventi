@@ -45,3 +45,7 @@ function createGoldSparkle() {
 
 // Genera scintille dorate ogni 300ms
 setInterval(createGoldSparkle, 300);
+
+
+//GESTIONE LOCALSTORAGE
+
