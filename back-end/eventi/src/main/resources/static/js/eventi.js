@@ -1,25 +1,29 @@
+/* -------------------------------------------------------------------------- */
+/*                    COMPORTAMENTO NAVBAR CHE APPARE DOPO                    */
+/* -------------------------------------------------------------------------- */
+
 // JavaScript per mostrare la navbar con effetto di comparsa graduale
-const navbar = document.getElementById('myNavbar');
+// const navbar = document.getElementById('myNavbar');
 
-window.addEventListener('scroll', function () {
-    const scrollY = window.scrollY;
-    const maxOpacityScroll = 200; // Altezza massima di scroll per opacità massima
+// window.addEventListener('scroll', function () {
+//     const scrollY = window.scrollY;
+//     const maxOpacityScroll = 200; // Altezza massima di scroll per opacità massima
 
-    // Calcola l'opacità in base allo scroll (da 0 a 1)
-    let opacity = Math.min(scrollY / maxOpacityScroll, 1); 
+//     // Calcola l'opacità in base allo scroll (da 0 a 1)
+//     let opacity = Math.min(scrollY / maxOpacityScroll, 1); 
 
-    if (scrollY > 50) {
-        navbar.classList.remove('d-none'); // Rimuove la classe d-none
-        navbar.style.opacity = opacity;    // Aumenta progressivamente l'opacità
-        navbar.classList.add('visible');   
-    } else {
-        navbar.style.opacity = 0;          // Riduce l'opacità gradualmente
-        navbar.classList.remove('visible');
-        setTimeout(() => {
-            navbar.classList.add('d-none'); // Nasconde dopo l'animazione
-        }, 500); // Attendi la fine dell'animazione (0.5s)
-    }
-});
+//     if (scrollY > 50) {
+//         navbar.classList.remove('d-none'); // Rimuove la classe d-none
+//         navbar.style.opacity = opacity;    // Aumenta progressivamente l'opacità
+//         navbar.classList.add('visible');   
+//     } else {
+//         navbar.style.opacity = 0;          // Riduce l'opacità gradualmente
+//         navbar.classList.remove('visible');
+//         setTimeout(() => {
+//             navbar.classList.add('d-none'); // Nasconde dopo l'animazione
+//         }, 500); // Attendi la fine dell'animazione (0.5s)
+//     }
+// });
 
 
 /* -------------------------------------------------------------------------- */
@@ -52,7 +56,7 @@ fetch("http://localhost:8080/api/eventi")
                 <p class="d-none"><strong>Prezzo:</strong>${element.prezzo}</p>
                 <p class="d-none"><strong>Ora:</strong> 20:00</p>
                 <p class="d-none"><strong>Mini Motto:</strong> Musica che emoziona e ispira.</p>
-                <a href="./evento-selezionato.html?id=1" class="btn btn-gen" data-id="1">Info</a>
+                <a href="./evento-selezionato.html?id=1" class="btn btn-gen info-bottone">Info</a>
             </div>
             </div>`
             
