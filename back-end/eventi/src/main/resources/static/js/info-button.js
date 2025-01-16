@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const infoButton = document.querySelectorAll(".info-button");
+    const infoButton = document.querySelectorAll(".info-bottone");
 
     infoButton.forEach((button) => {
         button.addEventListener("click", (e) => {

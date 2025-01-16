@@ -43,6 +43,7 @@ fetch("http://localhost:8080/api/eventi")
        
 
         data.forEach(element => {
+            const dataEvent = new Date(`${element.dataEvento}`);
             document.getElementById(`${element.tipologia}`).innerHTML +=
             `<div class="row evento align-items-center">
             <div class="col-lg-4 col-md-12 mb-3 mb-lg-0">
@@ -50,7 +51,11 @@ fetch("http://localhost:8080/api/eventi")
             </div>
             <div class="col-lg-6 col-md-12">
                 <h4>${element.nome}</h4>
-                <p><strong>Data:</strong> ${element.dataEvento}</p>
+                <p><strong>Data:</strong> ${dataEvent.toLocaleDateString('it-IT', {
+                    day: '2-digit',
+                    month: 'long',
+                    year: 'numeric'
+                })}</p>
                 <p><strong>Luogo:</strong> ${element.luogoEvento}</p>
                 <p>${element.descrizione}</p>
                 <p class="d-none"><strong>Prezzo:</strong>${element.prezzo}</p>

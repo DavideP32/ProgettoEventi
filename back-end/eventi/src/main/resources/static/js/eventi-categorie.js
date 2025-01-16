@@ -36,7 +36,7 @@ fetch("http://localhost:8080/api/eventi")
 
 function updateHtml(data, tipologia) {
 	data.forEach((element) => {
-        console.log(tipologia);
+        const dataEvent = new Date(`${element.dataEvento}`);
 		if (element.tipologia == `${tipologia}`) {
 			document.getElementById("tuttiEventi").innerHTML += `<div class="row evento align-items-center">
                 <div class="col-lg-4 col-md-12 mb-3 mb-lg-0">
@@ -44,11 +44,15 @@ function updateHtml(data, tipologia) {
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <h4>${element.nome}</h4>
-                    <p><strong>Data:</strong> ${element.data}</p>
+                    <p><strong>Data:</strong> ${dataEvent.toLocaleDateString('it-IT', {
+						day: '2-digit',
+						month: 'long',
+						year: 'numeric'
+					})}</p>
                     <p><strong>Luogo:</strong> ${element.luogoEvento}</p>
                     <p>${element.descrizione}</p>
                     <p class="d-none"><strong>Prezzo:</strong> ${element.prezzo}</p>
-                    <p class="d-none"><strong>Ora:</strong> 10:00</p>
+                    <p class="d-none"><strong>Data:</strong> 10:00</p>
                     <p class="d-none"><strong>Mini Motto:</strong> Scopri l'arte contemporanea nel cuore di Milano.</p>
                     <a href="./evento-selezionato.html" class="btn btn-gen">Info</a>
                 </div>
