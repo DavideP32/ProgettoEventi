@@ -56,20 +56,29 @@ function updateUI(utenteLoggato) {
 
 		const dataNasc = new Date(`${utenteLoggato.dataNascita}`)
 
+		console.log(dataNasc)
+
 		inizialeNome.forEach((element) => {
 			element.textContent = `${utenteLoggato.nome[0].toUpperCase()}`
 		})
+
 		if (window.location.pathname == "/profilo.html") {
-			const nomeUtente = document.querySelectorAll(".nome");
-			const cognomeUtente = document.querySelectorAll(".cognome");
-			const emailUtente = document.querySelectorAll(".email");
-			const dataDiNascita = document.querySelectorAll(".dataNascita");
-			const paypalDi = document.getElementById("paypal-di-chi");
-			console.log(paypalDi);
-			paypalDi.innerHTML = `<b class="mx-2 text-muted">
-                                                <i class="fa-brands fa-cc-paypal"></i>
-                                            </b>
-											PayPal di ${utenteLoggato.nome}`;
+			const nomeUtente = document.querySelectorAll(".nome")
+			const cognomeUtente = document.querySelectorAll(".cognome")
+			const emailUtente = document.querySelectorAll(".email")
+			// const email = document.getElementById("email")
+			const dataDiNascita = document.querySelectorAll(".dataNascita")
+			const paypalDi = document.querySelectorAll(".paypal-di-chi")
+			
+
+			paypalDi.forEach((element) => {
+				element.innerHTML = `
+				<b class="mx-2 text-muted">
+				<i class="fa-brands fa-cc-paypal"></i>
+				</b>
+				PayPal di ${utenteLoggato.nome}`;
+			})
+
 			nomeUtente.forEach((element) => {
 				element.textContent = `${utenteLoggato.nome}`
 			})
@@ -83,18 +92,17 @@ function updateUI(utenteLoggato) {
 			})
 
 			dataDiNascita.forEach((element) => {
-				element.textContent = `Data di nascita ${dataEvent.toLocaleDateString("it-IT", {
+				element.textContent = `Data di nascita ${dataNasc.toLocaleDateString("it-IT", {
 					day: "2-digit",
 					month: "long",
 					year: "numeric",
 				})}`
 			})
 
-			
-			document.getElementById("nomeInput").value = `${utenteLoggato.nome}`;
-			document.getElementById("cognomeInput").value = `${utenteLoggato.cognome}`;
-			document.getElementById("emailUtente").value = `${utenteLoggato.email}`;
-			document.getElementById("data-nascita").value = `${utenteLoggato.dataNascita}`;
+			document.getElementById("nomeInput").value = `${utenteLoggato.nome}`
+			document.getElementById("cognomeInput").value = `${utenteLoggato.cognome}`
+			document.getElementById("emailUtente").value = `${utenteLoggato.email}`
+			document.getElementById("data-nascita").value = `${utenteLoggato.dataNascita}`
 		}
 	}
 }
