@@ -4,6 +4,8 @@ const emailError = document.getElementById('email-error');
 const popup = document.getElementById('confirmation-popup');
 const fieldError = document.getElementById('field-error');
 const passwordError = document.getElementById('password-error');
+const popupOverlay = document.getElementById('popup-overlay');
+const sezioneRegistrazione = document.getElementById('registrazione');
 
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -69,8 +71,8 @@ form.addEventListener('submit', e => {
             fieldError.style.display = 'none';
         } else if (response.ok) {
             // Se la registrazione ha successo, mostra il messaggio di conferma
-            popup.classList.remove('d-none');
-            popup.style.display = 'block';
+            popupOverlay.classList.remove('d-none');
+            sezioneRegistrazione.classList.add('d-none');
 
             setTimeout(() => {
                 window.location.replace('http://localhost:8080/login.html');
