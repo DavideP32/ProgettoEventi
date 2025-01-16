@@ -58,13 +58,13 @@ function updateUI(utenteLoggato) {
 		loginText.classList.add("d-none")
 		bollino.classList.remove("d-none")
 
-		inizialeNome.forEach((element) => {
-			element.textContent = `${utenteLoggato.nome[0].toUpperCase()}`
-		})
-		if (window.location.pathname == "/profilo.html") {
-			nomeUtente.forEach((element) => {
-				element.textContent = `${utenteLoggato.nome}`
-			})
+    if(utenteLoggato) {
+        loginText.classList.add("d-none");
+        bollino.classList.remove("d-none");
+        loginText.style.display = 'none';
+        
+       
+        
 
 			cognomeUtente.forEach((element) => {
 				element.textContent = `${utenteLoggato.cognome}`
