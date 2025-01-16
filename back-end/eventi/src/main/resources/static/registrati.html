@@ -14,90 +14,95 @@
     </head>
     <body>
         
-        <!-- Pop-up -->
-        <div class="card d-none" id="confirmation-popup">
-            <div class="header">
-              <div class="image">
-                <svg
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
-                  ></path>
-                </svg>
-              </div>
-              <div class="content">
-                <span class="title">Conferma</span>
-                <p class="message">
-                 Registrazione effettuata con successo!
-                </p>
-              </div>
-        
-              </div>
-            </div>
-          </div>
+
           
             <!-- Freccia per tornare alla home -->
             <a href="index.html" class="position-absolute top-0 start-0 m-3 arrow-home">
                 <i class="fa fa-arrow-left fa-2x"></i>
             </a>
 
-    <div class="container">
+                    <!-- Pop-up -->
+        <div id="popup-overlay" class="position-fixed d-none">
+            <div  class="container left-section w-75 " >
+                <div class="card " id="confirmation-popup">
+                    <div class="header">
+                      <div class="image">
+                        <svg
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M4.5 12.75l6 6 9-13.5"
+                        ></path>
+                      </svg>
+            
+                      </div>
+                      <div class="content">
+                        <span class="title">
+                            Registrazione effettuata con successo!
+                        </span>
+                        <div class="actions">
+                            <a href="login.html"><button type="button" class="desactivate">Accedi</button></a>
+                          </div>
+                      </div>
+            
+                      </div>
+                </div>
+            </div>
+        </div>
+          
+
+    <div class="container ">
+
+        
         <!-- Sezione di registrazione -->
         <div class="left-section">
-            <div class="w-75">
+            
+             <div class="w-75 dare-d-none "> <!-- per far scomparire la registrazione, dare d-non qui -->
 
-                <div class="d-flex align-items-center">
-                    <a href="index.html"><img src="./img/logo.png" alt="Logo Event Horizon" width="80" class="animate__animated animate__fadeInLeft animate__faster"></a>
-                    <h4 class="ms-2 animate__animated animate__fadeInLeft animate__delay-1s animate__faster">Event Horizon</h4>
-                </div>
-                 
-                <h1 class="mb-4 mt-3">Registrati</h1>
-
-                <form>
-                    <input type="text" id="first-name" name="nome" class="form-control" placeholder="Nome">
-                    <input type="text" id="last-name" name="cognome" class="form-control" placeholder="Cognome">
-                    <input type="date" id="birthdate" name="birthdate" class="form-control" style="color: #656d75;" aria-label="Data di nascita" placeholder="Data di nascita">
-
-                    <input type="email" id="email" name="email" class="form-control" placeholder="Indirizzo email">
-                    <p id="email-error" style="color: rgb(173, 1, 1); display: none;">L'email è già registrata. Prova con un'altra.</p>
-
-
-                    <input type="password" id="password" name="password" class="form-control" placeholder="Password">
-                    <input type="password" id="confirm-password" name="confirm-password" class="form-control" placeholder="Conferma password">
+                
+                    <div class="d-flex align-items-center">
+                        <a href="index.html"><img src="./img/logo.png" alt="Logo Event Horizon" width="80" class="animate__animated animate__fadeInLeft animate__faster"></a>
+                        <h4 class="ms-2 animate__animated animate__fadeInLeft animate__delay-1s animate__faster">Event Horizon</h4>
+                    </div>
                     
-                    <p id="password-error" style="color: rgb(173, 1, 1); display: none;">Le password non corrispondono!</p>
-
-                    <p id="field-error" style="color: rgb(173, 1, 1); display: none;">Per favore compila tutti i campi richiesti.</p>
-
-
-                    <button type="submit" class="btn login-btn w-100 mt-3">Registrati</button>
-
-                </form>
-
-                <hr>
-                <div class="text-center mt-3">
-                    <p><span>Hai già un account?</span><br><a class="link" href="./login.html">Accedi</a></p>
-                </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <a href="https://www.facebook.com" target="_blank">
-                        <img src="https://cdn-icons-png.flaticon.com/512/174/174848.png" width="40" class="me-3" alt="Facebook">
-                    </a>
+                    <h1 class="mb-4 mt-3">Registrati</h1>
+                    <form>
+                        <input type="text" id="first-name" name="nome" class="form-control" placeholder="Nome">
+                        <input type="text" id="last-name" name="cognome" class="form-control" placeholder="Cognome">
+                        <input type="date" id="birthdate" name="birthdate" class="form-control" style="color: #656d75;" aria-label="Data di nascita" placeholder="Data di nascita">
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Indirizzo email">
+                        <p id="email-error" style="color: rgb(173, 1, 1); display: none;">L'email è già registrata. Prova con un'altra.</p>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                        <input type="password" id="confirm-password" name="confirm-password" class="form-control" placeholder="Conferma password">
                     
-                    <a href="https://www.x.com" target="_blank">
-                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968830.png" width="40" class="me-3" alt="X (ex Twitter)">
-                    </a>
+                        <p id="password-error" style="color: rgb(173, 1, 1); display: none;">Le password non corrispondono!</p>
+                        <p id="field-error" style="color: rgb(173, 1, 1); display: none;">Per favore compila tutti i campi richiesti.</p>
+                        <button type="submit" class="btn login-btn w-100 mt-3">Registrati</button>
+                    </form>
+                    <hr>
+                    <div class="text-center mt-3">
+                        <p><span>Hai già un account?</span><br><a class="link" href="./login.html">Accedi</a></p>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <a href="https://www.facebook.com" target="_blank">
+                            <img src="https://cdn-icons-png.flaticon.com/512/174/174848.png" width="40" class="me-3" alt="Facebook">
+                        </a>
                     
-                    <a href="https://www.instagram.com" target="_blank">
-                        <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" width="40" class="me-3" alt="X">
-                    </a>
-                </div>
+                        <a href="https://www.x.com" target="_blank">
+                            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968830.png" width="40" class="me-3" alt="X (ex Twitter)">
+                        </a>
+                    
+                        <a href="https://www.instagram.com" target="_blank">
+                            <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" width="40" class="me-3" alt="X">
+                        </a>
+                    </div>
+                
             </div>
         </div>
     

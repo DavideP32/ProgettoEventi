@@ -148,3 +148,12 @@ h4 {
         display: none;
     }
 }
+
+@media (max-width: 768px) {
+    .evento img{
+        min-width: 100%; /* Adatta la larghezza al 90% dello schermo */
+        max-width: 100%; /* Evita di superare la larghezza dello schermo */
+        padding: 0; /* Aggiungi un po' di spazio interno per leggibilità */
+		margin: 0;
+    }
+}

@@ -9,104 +9,127 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/crea-evento.css">
+    <link rel="stylesheet" href="./css/pop-up.css">
+
 
 </head>
 <body>
 
 
+                <!-- Pop-up -->
+                <div class="card popup-event container d-none">
+                    <div class="header">
+                      <div class="image">
+                        <svg
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M4.5 12.75l6 6 9-13.5"
+                        ></path>
+                      </svg>
+                      
+                      </div>
+                      <div class="content">
+                        <span class="title">EVENTO CREATO</span>
+                        <p class="message">
+                          Evento inoltrato all'admin, se accettato comparirà nella sezione eventi
+                        </p>
+                      </div>
+                      <div class="actions">
+                        <a href="index.html"><button type="button" class="desactivate">Torna alla Home</button></a>
+                      </div>
+                    </div>
+                </div>
+
+
 <!-- Pagina Creazione Evento -->
-<section class="create-event py-5 d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-    <a href="index.html" class=" border-0  position-absolute top-0 start-0 m-4" style="color: black;">
-        <i class="fa fa-arrow-left fa-2x"></i>
-    </a>
-    <div class="container text-center bg-light p-5 rounded shadow-lg" style="max-width: 600px;">
-        <div class="d-flex justify-content-center align-items-center">
-            <!-- Logo Animato -->
-            <a href="index.html"><img src="./img/logo.png" alt="Logo Evento" class="logo animate__animated animate__fadeInLeft" style="max-width: 100px;"></a>
-            <!-- Titolo Animato -->
-            <h2 class="fw-bold text-center mb-4 animate__animated animate__fadeInDown">🎷 Crea il Tuo Evento!</h2>
+<section class="create-event py-5 d-flex justify-content-center align-items-center " style="min-height: 100vh;">
+    <div class="dare-d-none create-event"> <!-- per far scomparire la creazione evento, dare d-non qui -->
+        <a href="index.html" class=" border-0  position-absolute top-0 start-0 m-4" style="color: black;">
+            <i class="fa fa-arrow-left fa-2x"></i>
+        </a>
+        <div class="container text-center bg-light p-5 rounded shadow-lg" style="max-width: 600px;">
+            <div class="d-flex justify-content-center align-items-center">
+                <!-- Logo Animato -->
+                <a href="index.html"><img src="./img/logo.png" alt="Logo Evento" class="logo animate__animated animate__fadeInLeft" style="max-width: 100px;"></a>
+                <!-- Titolo Animato -->
+                <h2 class="fw-bold text-center mb-4 animate__animated animate__fadeInDown">🎷 Crea il Tuo Evento!</h2>
+            </div>
+            <!-- Form Creazione Evento -->
+            <form>
+                <!-- Nome Evento -->
+                <div class="mb-3">
+                    <label for="nomeEvento" class="form-label">Nome Evento *</label>
+                    <input type="text" class="form-control" id="nomeEvento" name="nomeEvento" placeholder="Es: Notte di Jazz" >
+                </div>
+                <!-- Descrizione Evento -->
+                <div class="mb-3">
+                    <label for="descrizioneEvento" class="form-label">Descrizione *</label>
+                    <textarea class="form-control" id="descrizioneEvento" name="descrizioneEvento" placeholder="Descrivi l'atmosfera e i dettagli dell'evento..." rows="3" ></textarea>
+                </div>
+                <!-- Categoria Evento -->
+                <div class="mb-3">
+                    <label for="categoriaEvento" class="form-label">Categoria *</label>
+                    <select class="form-control" id="categoriaEvento" name="categoriaEvento" >
+                        <option value="">Seleziona una categoria...</option>
+                        <option value="MUSICA">Musica</option>
+                        <option value="TEATRO_CINEMA">Cinema & Teatro</option>
+                        <option value="CIBO">Food & Drink</option>
+                        <option value="FESTE_SAGRE">Eventi & Sagre</option>
+                        <option value="SPORT">Sport</option>
+                        <option value="ARTE">Arte & Cultura</option>
+                    </select>
+                </div>
+                <!-- Immagine Evento -->
+                <div class="mb-3">
+                    <label for="immagineEvento" class="form-label">Carica un'Immagine per l'Evento *</label>
+                    <input type="file" class="form-control" id="immagineEvento" name="immagineEvento" accept="image/*" >
+                </div>
+                <!-- Data e Ora -->
+                <div class="mb-3">
+                    <label for="dataOraEvento" class="form-label">Data *</label>
+                    <input type="date" class="form-control" id="dataOraEvento" name="dataOraEvento" >
+                </div>
+                <!-- Luogo Evento con Ricerca Dinamica -->
+                <div class="mb-3 position-relative">
+                    <label for="luogoEvento" class="form-label">Luogo *</label>
+                    <input type="text" class="form-control" id="luogoEvento" name="luogoEvento" placeholder="Cerca un luogo..." >
+                    <ul id="suggestions" class="list-group position-absolute mt-1 d-none"></ul>
+                </div>
+                <!-- Prezzo -->
+                <div class="mb-3">
+                    <label for="prezzoEvento" class="form-label">Prezzo a Persona (€)*</label>
+                    <input type="number" class="form-control" id="prezzoEvento" name="prezzoEvento" min="0" step="0.01" placeholder="Inserisci il prezzo del tuo evento..." >
+                </div>
+                <!-- Posti disponibili -->
+                <div class="mb-3">
+                    <label for="prezzoEvento" class="form-label">Posti disponibili *</label>
+                    <input type="number" class="form-control" id="postiEvento" name="postiEvento" min="0" step="1" placeholder="Inserisci posti disponibili..." >
+                </div>
+                <!-- Contatti -->
+                <div class="mb-3">
+                    <label for="telefonoEvento" class="form-label">Telefono *</label>
+                    <input type="tel" class="form-control" id="telefonoEvento" name="telefonoEvento" placeholder="Inserisci numero di telefono...">
+                </div>
+                <div class="mb-3">
+                    <label for="emailEvento" class="form-label">Email *</label>
+                    <input type="email" class="form-control" id="emailEvento" name="emailEvento" placeholder="Inserisci la tua email...">
+                </div>
+                <!-- Motto Evento -->
+                <div class="mb-3">
+                    <label for="mottoEvento" class="form-label">Mini Motto *</label>
+                    <input type="text" class="form-control" id="mottoEvento" name="mottoEvento" placeholder="Es: Un viaggio musicale senza tempo!" >
+                </div>
+                <!-- Pulsante -->
+                <button type="submit" class="btn btn-crea mt-3">🎉 Crea Evento Ora!</button>
+            </form>
         </div>
-
-        <!-- Form Creazione Evento -->
-        <form>
-
-            <!-- Nome Evento -->
-            <div class="mb-3">
-                <label for="nomeEvento" class="form-label">Nome Evento *</label>
-                <input type="text" class="form-control" id="nomeEvento" name="nomeEvento" placeholder="Es: Notte di Jazz" >
-            </div>
-
-            <!-- Descrizione Evento -->
-            <div class="mb-3">
-                <label for="descrizioneEvento" class="form-label">Descrizione *</label>
-                <textarea class="form-control" id="descrizioneEvento" name="descrizioneEvento" placeholder="Descrivi l'atmosfera e i dettagli dell'evento..." rows="3" ></textarea>
-            </div>
-
-            <!-- Categoria Evento -->
-            <div class="mb-3">
-                <label for="categoriaEvento" class="form-label">Categoria *</label>
-                <select class="form-control" id="categoriaEvento" name="categoriaEvento" >
-                    <option value="">Seleziona una categoria...</option>
-                    <option value="MUSICA">Musica</option>
-                    <option value="TEATRO_CINEMA">Cinema & Teatro</option>
-                    <option value="CIBO">Food & Drink</option>
-                    <option value="FESTE_SAGRE">Eventi & Sagre</option>
-                    <option value="SPORT">Sport</option>
-                    <option value="ARTE">Arte & Cultura</option>
-                </select>
-            </div>
-
-            <!-- Immagine Evento -->
-            <div class="mb-3">
-                <label for="immagineEvento" class="form-label">Carica un'Immagine per l'Evento *</label>
-                <input type="file" class="form-control" id="immagineEvento" name="immagineEvento" accept="image/*" >
-            </div>
-
-            <!-- Data e Ora -->
-            <div class="mb-3">
-                <label for="dataOraEvento" class="form-label">Data *</label>
-                <input type="date" class="form-control" id="dataOraEvento" name="dataOraEvento" >
-            </div>
-
-            <!-- Luogo Evento con Ricerca Dinamica -->
-            <div class="mb-3 position-relative">
-                <label for="luogoEvento" class="form-label">Luogo *</label>
-                <input type="text" class="form-control" id="luogoEvento" name="luogoEvento" placeholder="Cerca un luogo..." >
-                <ul id="suggestions" class="list-group position-absolute mt-1 d-none"></ul>
-            </div>
-
-            <!-- Prezzo -->
-            <div class="mb-3">
-                <label for="prezzoEvento" class="form-label">Prezzo a Persona (€)*</label>
-                <input type="number" class="form-control" id="prezzoEvento" name="prezzoEvento" min="0" step="0.01" placeholder="Inserisci il prezzo del tuo evento..." >
-            </div>
-
-            <!-- Posti disponibili -->
-            <div class="mb-3">
-                <label for="prezzoEvento" class="form-label">Posti disponibili *</label>
-                <input type="number" class="form-control" id="postiEvento" name="postiEvento" min="0" step="1" placeholder="Inserisci posti disponibili..." >
-            </div>
-
-            <!-- Contatti -->
-            <div class="mb-3">
-                <label for="telefonoEvento" class="form-label">Telefono *</label>
-                <input type="tel" class="form-control" id="telefonoEvento" name="telefonoEvento" placeholder="Inserisci numero di telefono...">
-            </div>
-
-            <div class="mb-3">
-                <label for="emailEvento" class="form-label">Email *</label>
-                <input type="email" class="form-control" id="emailEvento" name="emailEvento" placeholder="Inserisci la tua email...">
-            </div>
-
-            <!-- Motto Evento -->
-            <div class="mb-3">
-                <label for="mottoEvento" class="form-label">Mini Motto *</label>
-                <input type="text" class="form-control" id="mottoEvento" name="mottoEvento" placeholder="Es: Un viaggio musicale senza tempo!" >
-            </div>
-
-            <!-- Pulsante -->
-            <button type="submit" class="btn btn-crea mt-3">🎉 Crea Evento Ora!</button>
-        </form>
     </div>
 </section>
 
