@@ -69,3 +69,17 @@ function annullaModifiche(e) {
     })
 }
 
+
+/*--------------------------------------------------------------------------------*/
+/*                            MODIFICHE PRENOTAZIONI ATTIVE                       */
+/*--------------------------------------------------------------------------------*/
+
+document.querySelector('.cancel').addEventListener('click', function() {
+    const popup = document.getElementById('popup-reject');
+    const overlay = document.getElementById('overlay');
+
+    if (popup) {
+        popup.classList.add('d-none');
+        overlay.classList.add('d-none');
+    }
+});
