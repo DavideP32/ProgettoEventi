@@ -30,7 +30,7 @@ margin-bottom: 40px;
 .instructors-container {
 display: flex;
 justify-content: center;
-gap: 30px;
+gap: 4rem;
 flex-wrap: wrap;
 }
 
@@ -40,8 +40,8 @@ border-radius: 10px;
 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 text-align: center;
 padding: 20px;
-width: 200px;
-height: 250px;
+width: 210px;
+height: 280px;
 transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animazione per il movimento e l'ombra */
 
 }
@@ -54,8 +54,8 @@ transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animazione per il movi
 
 
 .instructor-card img {
-width: 120px;
-height: 120px;
+width: 160px;
+height: 160px;
 border-radius: 50%;
 object-fit: cover;
 margin-bottom: 15px;
