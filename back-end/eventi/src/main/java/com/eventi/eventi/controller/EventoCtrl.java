@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.eventi.eventi.entities.Evento;
 import com.eventi.eventi.services.EventoService;
@@ -111,5 +113,16 @@ public class EventoCtrl {
             return ResponseEntity.internalServerError().body(new Evento());
         }
     }
+
+
+    @PostMapping("/upload") // in alternativa usare "@RequestParam"
+	public ResponseEntity<Evento> uploadEvento(Evento evento,
+			@RequestPart(name = "image", required = false) MultipartFile file) {
+
+		// salvo veicolo con o senza immagine
+		eventoService.saveEvento(evento, file);
+
+		return ResponseEntity.ok().body(evento);
+	}
 
 }

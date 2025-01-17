@@ -7,6 +7,8 @@ package com.eventi.eventi.services;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.eventi.eventi.entities.Evento;
 
 public interface EventoService{
@@ -20,5 +22,7 @@ public interface EventoService{
     public Evento aggiornaEvento(Evento evento, Evento trovato);
 
     public void cancellaEvento(long id);
+
+    Evento saveEvento(Evento evento, MultipartFile multipartFile);
     
 } 
