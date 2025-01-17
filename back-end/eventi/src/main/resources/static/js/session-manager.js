@@ -2,6 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	verificaSessione()
 		.then((utenteData) => {
 			updateUI(utenteData)
+			if(utenteData.ruolo == 'RUOLO_UTENTE' && window.location.pathname == '/admin.html'){
+				alert('non puoi accedere alla pagina admin, sei solo un utente');
+				window.location.replace("http://localhost:8080/index.html");
+			}
 		})
 		.catch((error) => {
 			console.log("Utente non autenticato", error)

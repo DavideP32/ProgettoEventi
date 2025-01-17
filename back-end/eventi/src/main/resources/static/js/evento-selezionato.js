@@ -47,5 +47,41 @@ function createGoldSparkle() {
 setInterval(createGoldSparkle, 300);
 
 
-//GESTIONE LOCALSTORAGE
+/* -------------------------------------------------------------------------- */
+/*                            GESTIONE LOCALSTORAGE                           */
+/* -------------------------------------------------------------------------- */
+
+const eventoSel = localStorage.getItem("eventoSelezionato");
+
+document.addEventListener("DOMContentLoaded", () => {
+    EventoSelezionatoUI(JSON.parse(eventoSel));
+    // localStorage.removeItem('eventoSelezionato');
+})
+
+
+function EventoSelezionatoUI(eventoSelezionato) {
+    const titolo = document.getElementById("titolo-evento");
+    const descrizione = document.getElementById('descrizione-evento');
+    const data = document.getElementById('data-evento');
+    const luogo = document.getElementById('luogo-evento');
+    const immagine = document.querySelector('.hero');
+    const posti = document.getElementById('posti-evento');
+    const prezzo = document.getElementById('prezzo-evento');
+    const email = document.getElementById('email-evento');
+
+    const dataEvent = new Date(`${eventoSelezionato.dataEvento}`);
+
+    titolo.textContent = `${eventoSelezionato.nome}`;
+    descrizione.textContent = `${eventoSelezionato.descrizione}`;
+    data.textContent = `${dataEvent.toLocaleDateString('it-IT', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+    })}`;
+    luogo.textContent = `${eventoSelezionato.luogoEvento}`;
+    posti.textContent = `Affrettati! Rimangono solo ${eventoSelezionato.posti} posti`;
+    immagine.style.background = `url(${eventoSelezionato.percorso}) center/cover no-repeat`;
+    prezzo.textContent = `Prezzo: ${eventoSelezionato.prezzo}€ a persona`;
+    email.textContent = `${eventoSelezionato.email}`;
+}
 
