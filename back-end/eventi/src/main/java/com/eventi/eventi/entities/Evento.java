@@ -5,6 +5,7 @@
 
 package com.eventi.eventi.entities;
 
+import java.beans.Transient;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -81,6 +82,7 @@ public class Evento {
 
 
     // metodo che gera l'url
+    @Transient
     public String getUrl() {
 
 		// 1) percorso immagine di default se non è stata caricata
@@ -92,7 +94,8 @@ public class Evento {
         }
 
         //2
-        return "/" + UploadImg.IMG_URL_PATH + "/" + id + "/" + percorso;
+        // return "/" + UploadImg.IMG_URL_PATH + "/" + id + "/" + percorso;
+        return percorso;
     }
     
 

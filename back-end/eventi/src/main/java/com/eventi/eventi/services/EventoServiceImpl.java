@@ -115,8 +115,9 @@ public class EventoServiceImpl implements EventoService{
     /* -------------------------------------------------------------------------- */
     /*                              EVENTO + IMMAGINE                             */
     /* -------------------------------------------------------------------------- */
+    @Override
     public Evento saveEvento(Evento evento, MultipartFile multipartFile) {
-		 
+        evento.setId(0L);
 		// controllo se è stata caricata un'immagine
 		if(multipartFile == null || multipartFile.isEmpty()) {
 			// non è stata caricata una immagine, salvo comunque il veicolo
@@ -130,13 +131,15 @@ public class EventoServiceImpl implements EventoService{
 		// nome del file o immagine: **rimuovo spazi**
 		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename().strip().replace(" ", "-"));
 		
+        // fileName = "img" + fileName;
 		// setto nome del file prima di salvare il veicolo
 		evento.setPercorso(fileName);		
 		// salvo il veicolo
 		eventoRepository.save(evento);
 
 		// genero il percorso della cartella dove salvare l'immagine
-		String uploadDir = UploadImg.IMG_SAVE_PATH + "/" + evento.getId();
+		// String uploadDir = UploadImg.IMG_SAVE_PATH + "/" + evento.getId();
+        String uploadDir = UploadImg.IMG_SAVE_PATH;
 		 
         try {
 			// converte percorso stringa in un path

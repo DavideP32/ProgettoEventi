@@ -119,8 +119,10 @@ public class EventoCtrl {
 	public ResponseEntity<Evento> uploadEvento(Evento evento,
 			@RequestPart(name = "image", required = false) MultipartFile file) {
 
+        // Evento evento = eventoService.getEventoById(id); 
 		// salvo veicolo con o senza immagine
 		eventoService.saveEvento(evento, file);
+
 
 		return ResponseEntity.ok().body(evento);
 	}
