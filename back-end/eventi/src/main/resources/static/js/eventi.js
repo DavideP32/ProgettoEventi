@@ -21,7 +21,7 @@ fetch("http://localhost:8080/api/eventi")
             document.getElementById(`${element.tipologia}`).innerHTML +=
             `<div class="row evento align-items-center">
             <div class="col-lg-4 col-md-12 mb-3 mb-lg-0">
-                    <img src="${element.percorso}" class="img-fluid event-img" alt="Evento 1">
+                    <img src="${element.url}" class="img-fluid event-img" alt="Evento 1">
             </div>
             <div class="col-lg-6 col-md-12">
                 <h4>${element.nome}</h4>
