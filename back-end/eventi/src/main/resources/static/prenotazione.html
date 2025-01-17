@@ -20,7 +20,7 @@
 
 
                                 <!-- Pop-up -->
-        <div id="popup-overlay" class="position-fixed d-none">
+        <div class="position-fixed d-none" id="popup-overlay">
             <div  class="container left-section w-75 popup-prenotazioni" >
                 <div class="card " id="confirmation-popup">
                     <div class="header">
@@ -58,7 +58,7 @@
 <!-- Sezione Prenotazione -->
 <section class=" booking-form d-flex">
     <!-- Colonna Sinistra: Form -->
-    <div class="container flex-fill p-5">
+    <div class="container flex-fill p-5" id="prenotazione">
         <h2 class="fw-bold text-center mb-4">Completa la tua prenotazione</h2>
         
         <div class="event-details mb-4 p-4 bg-light rounded shadow">
@@ -90,7 +90,8 @@
                     <option value="bonifico">Bonifico Bancario</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary w-100">Conferma Prenotazione</button>
+            <button type="submit" class="conferma-prenotazione btn btn-primary w-100">Conferma Prenotazione</button>
+            <p id="field-error" style="color: rgb(173, 1, 1); display: none;">Per favore compila tutti i campi richiesti.</p>
         </form>
     </div>
 
