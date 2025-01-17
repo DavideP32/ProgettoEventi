@@ -31,6 +31,16 @@
 //         });
 //     });
 // });
+// document.addEventListener("DOMContentLoaded", () => {
+let infoButton = document.querySelectorAll(".info-bottone");
+console.log(infoButton);
+infoButton.forEach(element => {
+    element.addEventListener('click', e =>{
+        e.preventDefault();
 
-const infoButton = document.querySelectorAll(".info-bottone");
+        console.log(element);
+        console.log(e.target);
+    })
+});
 
+// })

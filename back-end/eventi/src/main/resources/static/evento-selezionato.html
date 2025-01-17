@@ -139,9 +139,7 @@
                 <p id="luogo-evento" class="lead">📍 Grand Hotel, Via Roma 1, Milano</p>
                 <a href="https://www.google.com/maps?q=Grand+Hotel,+Via+Roma+1,+Milano" target="_blank" class="btn btn-outline-light">Apri su Google Maps</a>
             </div>
-            <div id="immagine-evento-container" class="text-center">
-                <img id="immagine-evento" src="" alt="Immagine Evento" class="img-fluid"> <!-- Aggiorna dinamicamente con JS -->
-            </div>
+            
             <div id="prenotati-ora"></div>
         </section>
 
@@ -150,8 +148,8 @@
         <section class="tickets py-5 bg-dark text-white text-center">
             <div class="container">
                 <h2 class="fw-bold">Prenota il tuo posto</h2>
-                <p class="lead">Posti limitati, affrettati!</p>
-                <p class="lead mt-3">Prezzo: €50 a persona - €90 per coppia (con calice di benvenuto incluso).</p>
+                <p class="lead" id="posti-evento">Posti limitati, affrettati!</p>
+                <p class="lead mt-3" id="prezzo-evento">Prezzo: €50 a persona - €90 per coppia (con calice di benvenuto incluso).</p>
                 <a href="./prenotazione.html" class="btn btn-prenotati mt-3">PRENOTATI ORA</a>
             </div>
         </section>
@@ -162,7 +160,7 @@
             <div class="container text-center">
                 <h2 class="fw-bold">Contattaci</h2>
                 <p class="lead">Per maggiori informazioni, puoi contattarci direttamente.</p>
-                <p class="lead">📧 Email: <a href="mailto:info@eventijazz.it" class="text-dark">info@eventijazz.it</a></p>
+                <p class="lead">📧 Email: <a href="mailto:info@eventijazz.it" class="text-dark" id="email-evento">info@eventijazz.it</a></p>
                 <p class="lead">📞 Telefono: <a href="tel:+391234567890" class="text-dark">+39 123 456 7890</a></p>
             </div>
         </section>
