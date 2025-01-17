@@ -112,8 +112,8 @@
                             <span class="d-none d-lg-inline">Annunci scartati</span>
                         </a>
                         <a class="nav-link" href="#" id="priv-wishlist-tab" data-bs-toggle="pill" data-bs-target="#priv-wishlist" role="tab" aria-controls="priv-wishlist" aria-selected="false" title="Lista dei desideri">
-                            <i class="fas fa-history d-lg-none"></i>
-                            <span class="d-none d-lg-inline">Cronologia</span>
+                            <i class="fas fa-users"></i> <!-- Icona di gruppo di utenti -->
+                            <span class="d-none d-lg-inline">Utenti</span>
                         </a>
                         <a class="nav-link" href="#" id="priv-transactions-tab" data-bs-toggle="pill" data-bs-target="#priv-transactions" role="tab" aria-controls="priv-transactions" aria-selected="false" title="Storico transazioni">
                             <i class="fas fa-cog d-lg-none"></i>
@@ -128,8 +128,7 @@
                         <div class="card-body">
                             <div class="itemside align-items-center">
                                 <div class="aside">
-                                    <div class="idUtente" style="height: 40px; width: 40px; display: flex; justify-content: center; align-items: center;
-                                background-color: #cab177; border-radius: 50%; font-weight: bold; color: #221b1b;">
+                                    <div class="idUtente" style="margin-bottom: 1rem; width: 40px; height: 40px; font-size: larger;">
                                         P
                                     </div>
                                 </div>
@@ -168,9 +167,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#!" class="btn btn-outline-primary" title="Aggiungi un metodo di pagamento">
-                                <i class="me-2 fa-solid fa-plus"></i> Aggiungi metodo di pagamento
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -241,22 +237,41 @@
                     </div>
                 </div>
                 <div id="priv-wishlist" class="tab-pane fade" role="tabpanel" aria-labelledby="priv-wishlist-tab">
-                    <div class="evento">
-                        <div class="row align-items-center">
-                            <div class="col-lg-5 col-md-12 mb-3 mb-lg-0">
-                                <img src="./img/musica2.jpg" class="img-fluid event-img" alt="Evento 2">
-                            </div>
-                            <div class="col-lg-7 col-md-12">
-                                <div class="d-flex gap-5">
-                                    <a href="">
-                                        <h4>Concerto di Musica Classica</h4>
-                                    </a>
+
+                    <h4>Richieste di Promozione a Admin</h4>
+                    <div class="card border-0">
+                        <div class="card-body">
+                            <div class="itemside align-items-center">
+                                <div class="aside"> 
+                                    <div class="d-flex justify-content-between">
+                                        <div class="idUtente" style="margin-bottom: 1rem; width: 40px; height: 40px; font-size: larger;">
+                                            P
+                                        </div>
+                                        <div class="text-center">
+                                            <label class="toggle-switch">
+                                              <input type="checkbox" id="toggle" onclick="openPromotePopup('Paola', 'Votano')">
+                                              <span class="slider"></span>
+                                            </label>                                
+                                        </div>                  
+                                    </div>
                                 </div>
-                                <p><strong>Data:</strong> 5 Settembre 2025</p>
-                                <p><strong>Luogo:</strong> Piazza della Loggia, Brescia</p>
+                                <div class="info">
+                                    <div class="d-flex gap-2">
+                                        <p class="nome title h6">Paola</p>
+                                        <p class="cognome title h6">Votano</p>
+                                    </div>
+                                    <p id="email">
+                                        Email: esempio@gmail.com <i class="dot"></i> <a href="#" class="px-2" title="Modifica informazioni"></a>
+                                    </p>
+                                    <p id="data-nascita">
+                                        Data di nascita: 23 Febbraio 2004 <i class="dot"></i> <a href="#" class="px-2" title="Modifica informazioni"></a>
+                                    </p>   
+                                </div>
                             </div>
                         </div>
                     </div>
+
+
                 </div>
                 <div id="priv-transactions" class="tab-pane fade" role="tabpanel" aria-labelledby="priv-transactions-tab">
                     <div class="card border-0">
@@ -264,8 +279,7 @@
                             <!-- Sezione Immagine e Nome Utente -->
                             <div class="itemside align-items-center mb-3">
                                 <div class="aside">
-                                    <div class="idUtente" style="height: 40px; width: 40px; display: flex; justify-content: center; align-items: center;
-                                    background-color: #cab177; border-radius: 50%; font-weight: bold; color: #221b1b; margin-bottom: 1rem;">
+                                    <div class="idUtente">
                                         P
                                     </div>
                                 </div>
@@ -284,17 +298,40 @@
 
                             </div>
 
-                            <!-- Sezione Email -->
-                            <label class="form-label">Email</label>
-                            <input type="email" class="form-control" id="emailUtente" value="esempio@gmail.com">
-
-                            <!-- Sezione Data di Nascita -->
-                            <label class="form-label mt-2">Data di Nascita</label>
-                            <input type="date" class="form-control " id="dataNascita" value="2004-02-23">
 
                             <!-- Sezione Password -->
-                            <label class="form-label mt-2">Password</label>
-                            <input type="password" class="form-control impostazioni" id="passwordUtente" placeholder="Inserisci nuova password">
+                            <label class="form-label mt-2">Vecchia password</label>
+                            <input type="password" class="form-control impostazioni" id="passwordUtente" placeholder="Inserisci vecchia password password">
+                            <label class="form-label mt-2">Nuova password</label>
+                            <input type="password" class="form-control impostazioni" id="passwordUtente" placeholder="Inserisci nuova password password">
+                            <input type="password" class="form-control impostazioni" id="passwordUtente" placeholder="Conferma nuova password password">
+
+                            <p class="text-muted mt-3">
+                                Metodi di pagamento
+                            </p>
+                            <div class="row g-2 mb-3">
+                                <div class="col-md-6">
+                                    <div class="box">
+                                        <b class="mx-2 text-muted">
+                                            <i class="fa-solid fa-credit-card"></i>
+                                        </b>
+                                        Visa •••• 9905, Scad: 12/21
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="box paypal-di-chi">
+                                        <b class="mx-2 text-muted">
+                                            <i class="fa-brands fa-cc-paypal"></i>
+                                        </b>
+                                        PayPal di Paola Votano
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#!" class="btn btn-outline-primary add-payment-method" title="Aggiungi un metodo di pagamento">
+                                <i class="me-2 fa-solid fa-plus"></i> Aggiungi metodo di pagamento
+                            </a>
+
+
 
                             <hr>
 
@@ -311,6 +348,9 @@
         </div>
     </div>
 </section>
+
+
+
 
 
 
@@ -377,6 +417,40 @@
 
 
 
+<!-- POPUP PER LA CONFERVA DI DIVENTRARE ADMIN -->
+<div class="card popup d-none" id="popup-promote-admin">
+    <div class="header">
+        <div class="image">
+            <svg
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4.5 12.75l6 6 9-13.5"
+                ></path>
+            </svg>
+        </div>
+        <div class="content">
+            <span class="title">Conferma promozione a Admin</span>
+            <p class="message">
+                Sei sicuro di voler promuovere <span id="popup-username" class="fw-bold">[Nome Cognome]</span> a Admin?
+            </p>
+        </div>
+        <div class="actions">
+            <button type="button" class="desactivate" onclick="promoteToAdmin()">Conferma</button>
+            <button type="button" class="cancel" onclick="closePopup()">Annulla</button>
+        </div>
+    </div>
+</div>
+
+
+
+
 
 
 
@@ -388,6 +462,7 @@
 <script src="./js/profilo.js"></script>
 <script src="./js/session-manager.js"></script>
 <script src="./js/popupAdminProfilo.js"></script>
+<script src="./js/admin.js"></script>
 </body>
 
 </html>
