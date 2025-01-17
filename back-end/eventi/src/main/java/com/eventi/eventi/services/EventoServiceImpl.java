@@ -5,12 +5,21 @@
 
 package com.eventi.eventi.services;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.eventi.eventi.configuration.UploadImg;
 import com.eventi.eventi.entities.Evento;
 import com.eventi.eventi.repositories.EventoRepository;
 
@@ -102,4 +111,58 @@ public class EventoServiceImpl implements EventoService{
 
     }
 
+
+    /* -------------------------------------------------------------------------- */
+    /*                              EVENTO + IMMAGINE                             */
+    /* -------------------------------------------------------------------------- */
+    public Evento saveEvento(Evento evento, MultipartFile multipartFile) {
+		 
+		// controllo se è stata caricata un'immagine
+		if(multipartFile == null || multipartFile.isEmpty()) {
+			// non è stata caricata una immagine, salvo comunque il veicolo
+			eventoRepository.save(evento);
+			
+			// ritorno al controller
+			return evento;		
+		}
+		 
+		// c'è 1 immagine da salvare oltre ai dati del veicolo
+		// nome del file o immagine: **rimuovo spazi**
+		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename().strip().replace(" ", "-"));
+		
+		// setto nome del file prima di salvare il veicolo
+		evento.setPercorso(fileName);		
+		// salvo il veicolo
+		eventoRepository.save(evento);
+
+		// genero il percorso della cartella dove salvare l'immagine
+		String uploadDir = UploadImg.IMG_SAVE_PATH + "/" + evento.getId();
+		 
+        try {
+			// converte percorso stringa in un path
+			Path uploadPath = Paths.get(uploadDir);
+
+			if (!Files.exists(uploadPath)) {
+				// crea cartella dove salvare l'immagine se non esiste
+				Files.createDirectories(uploadPath); // throws IOException
+			}
+			try (InputStream inputStream = multipartFile.getInputStream()) { // try with resource
+				Path filePath = uploadPath.resolve(fileName); // percorso file completo
+				// sovrascrive file se già presente con stesso nome
+				Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+
+
+			} catch (IOException ioe) {
+				throw new IOException("Could not save image file: " + fileName, ioe);
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        
+
+        // restituisco il veicolo salvato
+		return evento;
+		
+	}
 }

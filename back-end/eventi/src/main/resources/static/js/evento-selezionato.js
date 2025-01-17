@@ -81,7 +81,11 @@ function EventoSelezionatoUI(eventoSelezionato) {
     luogo.textContent = `${eventoSelezionato.luogoEvento}`;
     posti.textContent = `Affrettati! Rimangono solo ${eventoSelezionato.posti} posti`;
     immagine.style.background = `url(${eventoSelezionato.percorso}) center/cover no-repeat`;
-    prezzo.textContent = `Prezzo: ${eventoSelezionato.prezzo}€ a persona`;
+    if(Number(eventoSelezionato.prezzo) > 0){
+        prezzo.textContent = `Prezzo: ${eventoSelezionato.prezzo}€ a persona`;
+    } else{
+        prezzo.textContent = `Prezzo: Gratuito`;
+    }
     email.textContent = `${eventoSelezionato.email}`;
 }
 

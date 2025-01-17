@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.hibernate.annotations.ColumnDefault;
 
+import com.eventi.eventi.configuration.UploadImg;
 import com.eventi.eventi.enums.Caratteristiche;
 import com.eventi.eventi.enums.Tipologia;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -79,7 +80,20 @@ public class Evento {
     private List<Prenotazione> prenotazioni;
 
 
+    // metodo che gera l'url
+    public String getUrl() {
 
+		// 1) percorso immagine di default se non è stata caricata
+		// 2) percorso immagine caricata
+
+		if (percorso == null || percorso.equals("")) {
+        	//1
+        	return "/" + UploadImg.DEFAULT_IMG_PATH;        	
+        }
+
+        //2
+        return "/" + UploadImg.IMG_URL_PATH + "/" + id + "/" + percorso;
+    }
     
 
     public List<Prenotazione> getPrenotazioni() {
