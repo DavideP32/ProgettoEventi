@@ -57,7 +57,7 @@ function updateHtml(data, tipologia) {
 		if (element.tipologia == `${tipologia}`) {
 			document.getElementById("tuttiEventi").innerHTML += `<div class="row evento align-items-center">
                 <div class="col-lg-4 col-md-12 mb-3 mb-lg-0">
-                    <img src="${element.percorso}" class="img-fluid event-img" alt="Evento Artistico 1">
+                    <img src="${element.url}" class="img-fluid event-img" alt="Evento Artistico 1">
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <h4 class="nome-evento">${element.nome}</h4>
