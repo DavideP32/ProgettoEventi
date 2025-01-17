@@ -224,12 +224,9 @@ header.navbar-scrolled {
 
 
 /* BOLLINO */
-.dropdown {
-    position: relative;
-}
+
 
 .dropdown-menu {
-    position: absolute;
     transform: translateY(0.5rem);
     background-color: #000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -259,12 +256,15 @@ header.navbar-scrolled {
     cursor: pointer;
 }
 
-@media (max-width: 768px) { /* Tablet o mobile */
-    .dropdown-menu {
-        left: 10%; /* Allinea al centro del bollino */
-        transform: translateX(-10%) translateY(0.5rem); /* Centra il dropdown sotto il bollino */
-    }
+.dropdown {
+    padding:0 0.225rem 0;
 }
+
+.bollino {
+    max-width: 150px;
+}
+
+
 
 
 
