@@ -16,8 +16,8 @@ body {
 
 /* Navbar Toggler Default Button */
 .navbar-toggler {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     transition: all 0.3s ease;
     transform-origin: center;
 }
@@ -223,30 +223,55 @@ header.navbar-scrolled {
 }
 
 
+/* BOLLINO */
+.dropdown {
+    position: relative;
+}
 
+.dropdown-menu {
+    position: absolute;
+    transform: translateY(0.5rem);
+    background-color: #000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: var(--br, 0.325rem);
+    padding: 1rem;
+}
 
+.dropdown-menu a {
+    color: #cab177;
+}
 
-
-
-
-.template {
-    /* ------------------------------------------------------------ */
-    /* fill */
-    --fill: #0000;
-    --fill-hover: hsla(0, 0%, 45%, 0.1);
-    /* txt */
-    --txt: #eee;
-    /*-------------------------*/
-    --br: 0.325rem;
-    --gap: 0.275rem;
-    /* ---------------------------------------------------------- */
+.idUtente {
+    height: 32px; 
+    width: 32px; 
     display: flex;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-size: 0.975rem;
-    color: var(--txt);
-  }
+    align-items: center;
+    justify-content: center;
+    background-color: #cab177; 
+    border-radius: 50%; 
+    font-weight: bold; 
+    color: #221b1b;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) { /* Tablet o mobile */
+    .dropdown-menu {
+        left: 10%; /* Allinea al centro del bollino */
+        transform: translateX(-10%) translateY(0.5rem); /* Centra il dropdown sotto il bollino */
+    }
+}
+
+
+
+
+
+
+
   
   /* button */
   .button {

@@ -19,63 +19,59 @@
 		<header class="navbar navbar-expand-lg text-bg-dark bg-transparent w-100">
 			<div class="container">
 				<a href="./index.html">
-					<img src="./img/logo.png" alt="Logo" width="80" height="80" class="me-2" />
+					<img src="./img/logo.png" alt="Logo" width="80" height="80" class="me-2">
 				</a>
-
+	
+	
 				<button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">
-					<svg width="80" height="80" viewBox="0 0 100 100">
+					<svg width="70" height="70" viewBox="0 0 100 100">
 						<path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
 						<path class="line line2" d="M 20,50 H 80" />
 						<path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
 					</svg>
 				</button>
-
+	
+	
+	
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0 link-nav">
 						<li class="nav-item"><a href="index.html" class="nav-link px-3 text-white">Home</a></li>
 						<li class="nav-item"><a href="eventi-generici.html" class="nav-link px-3 text-white">Eventi</a></li>
 						<li class="nav-item"><a href="crea-evento.html" class="nav-link px-3 text-white">Crea evento</a></li>
 					</ul>
-
+	
+	
 					<form class="d-flex col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 position-relative" role="search">
-						<input type="search" class="form-control bg-transparent pe-5" placeholder="Cerca un evento..." aria-label="Search" oninput="cercaEventi()" />
+						<input type="search" class="form-control bg-transparent pe-5" placeholder="Cerca un evento..." aria-label="Search" oninput="cercaEventi()">
 						<button type="button" class="btn btn-transparent position-absolute end-0 top-50 translate-middle-y px-2">
 							<i class="bi bi-search text-white"></i>
 						</button>
-						<div id="searchResults" class="position-absolute bg-white text-dark w-100 shadow rounded p-2" style="top: 100%; left: 0; display: none"></div>
+						<div id="searchResults" class="position-absolute bg-white text-dark w-100 shadow rounded p-2" style="top: 100%; left: 0; display: none;"></div>
 					</form>
-
+	
+	
 					<div class="text-end">
 						<a href="./login.html" class="btn btn-outline-light me-2">Login</a>
 						<a href="./registrati.html" class="btn btn-registrati">Registrati</a>
 					</div>
-
-					<div class="template d-none" id="bollino-profilo">
-						<div tabindex="0" class="popup button" style="padding: 0 0.225rem 0; border-top-right-radius: 1.2rem; border-bottom-right-radius: 1.2rem">
-							<div class="popup-header">
-								<div class="">&#9662;</div>
-
-								<!-- Replaced SVG avatar with initial letter -->
-								<div class="idUtente" style="height: 32px; width: 32px; display: flex; justify-content: center; align-items: center; background-color: #cab177; border-radius: 50%; font-weight: bold; color: #221b1b">P</div>
-							</div>
-
-							<div class="popup-main">
-								<ul class="list-box">
-									<a href="profilo.html">
-										<li class="button item">Profilo</li>
-									</a>
-									<a href="profilo.html#priv-ordini-tab">
-										<li class="button item">Prenotazioni</li>
-									</a>
-									<a href="profilo.html#priv-transactions-tab">
-										<li class="button item">Impostazioni</li>
-									</a>
-									<li class="button item" id="logout">Logout</li>
-									<ul></ul>
+	
+	
+					<div class="bollino d-none" id="bollino-profilo">
+							<div tabindex="0" class="dropdown" style="padding:0 0.225rem 0;">
+								<div class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+									<!-- Cerchio con iniziale -->
+									<div class="idUtente text-decoration-none">
+										P
+									</div>
+								</div>
+								<ul class="dropdown-menu dropdown-menu-end">
+									<li><a class="dropdown-item" href="profilo.html">Profilo</a></li>
+									<li><a class="dropdown-item" id="logout" href="#">Logout</a></li>
 								</ul>
-							</div>
-						</div>
+							</div>                 
 					</div>
+	
+	
 				</div>
 			</div>
 		</header>
@@ -353,7 +349,6 @@
 			</div>
 			<ul class="text-center footer-link">
 				<li><a href="">Chi Siamo</a></li>
-				<li><a href="">Servizi</a></li>
 				<li><a href="">Contatti</a></li>
 			</ul>
 		</footer>
