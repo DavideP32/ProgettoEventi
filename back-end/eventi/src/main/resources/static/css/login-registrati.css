@@ -52,12 +52,12 @@ input {
 
 .link {
     text-decoration: none;
-    color: #28a745;
+    color: #cab177;
     transition: color 0.3s ease;
 }
 
 .link:hover {
-    color: #207133;
+    color: #b09b69;
     text-decoration: underline;
 }
 
