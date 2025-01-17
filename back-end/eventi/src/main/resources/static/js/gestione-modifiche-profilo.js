@@ -74,6 +74,8 @@ function annullaModifiche(e) {
 /*                            MODIFICHE PRENOTAZIONI ATTIVE                       */
 /*--------------------------------------------------------------------------------*/
 
+
+//Tasto annulla
 document.querySelector('.cancel').addEventListener('click', function() {
     const popup = document.getElementById('popup-reject');
     const overlay = document.getElementById('overlay');
@@ -82,4 +84,25 @@ document.querySelector('.cancel').addEventListener('click', function() {
         popup.classList.add('d-none');
         overlay.classList.add('d-none');
     }
+});
+
+//Tasto elimina
+document.querySelector('.desactivate').addEventListener('click', function() {
+
+    const evento = document.getElementById('evento-2');
+    const popup = document.getElementById('popup-reject');
+    const overlay = document.getElementById('overlay');
+
+    if(evento) {
+        evento.remove();
+    }
+
+    //ALERT
+    alert('Evento eliminato con successo');
+    
+    if (popup) {
+        popup.classList.add('d-none');
+        overlay.classList.add('d-none');
+    }
+
 });
