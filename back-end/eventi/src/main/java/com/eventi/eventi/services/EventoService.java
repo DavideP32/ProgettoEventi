@@ -13,15 +13,16 @@ import com.eventi.eventi.entities.Evento;
 
 public interface EventoService{
 
-    public List<Evento> getAllEventi();
-    public Evento getEventoById(long id);
-    public List<Evento> getEventiByNome(String nome);
+    List<Evento> getAllEventi();
+    Evento getEventoById(long id);
+    List<Evento> getEventiByNome(String nome);
     
-    public Evento aggiungiEvento(Evento evento);
+    Evento aggiungiEvento(Evento evento);
 
-    public Evento aggiornaEvento(Evento evento, Evento trovato);
+    Evento aggiornaEvento(Evento evento, Evento trovato);
+    Evento aggiornaPostiEvento (Evento trovato, int posti);
 
-    public void cancellaEvento(long id);
+    void cancellaEvento(long id);
 
     Evento saveEvento(Evento evento, MultipartFile multipartFile);
     

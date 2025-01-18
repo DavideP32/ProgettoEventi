@@ -101,6 +101,13 @@ public class EventoServiceImpl implements EventoService{
         return evento;
     }
 
+    @Override
+    public Evento aggiornaPostiEvento (Evento trovato, int posti){
+        trovato.setPosti(trovato.getPosti() - posti);
+        
+        eventoRepository.save(trovato);
+        return trovato;
+    }
 
     /* -------------------------------------------------------------------------- */
     /*                               CANCELLA EVENTO                              */
