@@ -9,7 +9,6 @@ const dataPrenot = document.getElementById("data-prenot")
 const luogoPrenot = document.getElementById("luogo-prenot")
 const fotoPrenot = document.querySelector(".booking-image")
 
-
 /* -------------------------------------------------------------------------- */
 /*                            DATI DINAMICI EVENTO                            */
 /* -------------------------------------------------------------------------- */
@@ -74,11 +73,23 @@ document.querySelector(".conferma-prenotazione").addEventListener("click", funct
 		// Se tutte le validazioni sono superate
 		fieldError.style.display = "none" // Nasconde eventuali errori precedenti
 		popup.classList.remove("d-none") // Mostra il popup
+
+
+        /* -------------------------------------------------------------------------- */
+        /*                           INVIO PRENOTAZIONI                               */
+        /* -------------------------------------------------------------------------- */
+        
+        let prenotazione = {
+            
+        }
+
+        fetch("http://localhost:8080/api/prenotazioni", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(utente),
+        })
 	})
 })
-
-
-/* -------------------------------------------------------------------------- */
-/*                            GESTIONE PRENOTAZIONE                           */
-/* -------------------------------------------------------------------------- */
 
