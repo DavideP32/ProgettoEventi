@@ -51,14 +51,14 @@ function updateUI(utenteLoggato) {
 	const bollino = document.getElementById("bollino-profilo")
 	const loginText = document.querySelector(".text-end")
 	const inizialeNome = document.querySelectorAll(".idUtente")
-	const linkProfilo = document.querySelector(".linkProfilo")
 	
 	// console.log(typeof utenteLoggato.ruolo)
-
+	
 	if (utenteLoggato) {
 		loginText.classList.add("d-none")
 		bollino.classList.remove("d-none")
-
+		
+		const linkProfilo = document.querySelector(".linkProfilo")
 		if (utenteLoggato.ruolo === 'RUOLO_UTENTE') {
 			linkProfilo.innerHTML = `<a class="dropdown-item" href="profilo.html">Profilo</a>`
 		}else if (utenteLoggato.ruolo === 'RUOLO_ADMIN') {
@@ -74,7 +74,7 @@ function updateUI(utenteLoggato) {
 			element.textContent = `${utenteLoggato.nome[0].toUpperCase()}`
 		})
 
-		if (window.location.pathname == "/profilo.html") {
+		if (window.location.pathname == "/profilo.html" || window.location.pathname == "/admin.html") {
 			const nomeUtente = document.querySelectorAll(".nome")
 			const cognomeUtente = document.querySelectorAll(".cognome")
 			const emailUtente = document.querySelectorAll(".email")
@@ -137,54 +137,3 @@ function logout() {
 		})
 }
 
-/*--------------------------------------------------------------------------------*/
-/*                            GESTIONE EVENTI                                     */
-/*--------------------------------------------------------------------------------*/
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     const urlParams = new URLSearchParams(window.location.search);
-//     const eventoId = urlParams.get('id');
-
-//     if (eventoId) {
-//         getEventoDetails(eventoId)  // Recupera i dettagli dell'evento
-//             .then(eventoData => {
-//                 updateEventoUI(eventoData);  // Aggiorna l'UI con i dettagli
-//             })
-//             .catch(error => {
-//                 console.log('Errore nel recupero dei dettagli dell\'evento:', error);
-//             });
-//     } else {
-//         console.log('ID evento mancante');
-//     }
-// });
-
-// function getEventoDetails(id) {
-//     return fetch(`http://localhost:8080/api/evento/${id}`, {
-//         method: 'GET',
-//         headers: {
-//             'Accept': 'application/json',
-//             'Content-Type': 'application/json',
-//         }
-//     })
-//     .then(response => {
-//         if (!response.ok) {
-//             throw new Error('Errore nel recupero dei dettagli dell\'evento');
-//         }
-//         return response.json();
-//     });
-// }
-
-// function updateEventoUI(eventoData) {
-//     // Aggiorna l'interfaccia con i dettagli dell'evento
-//     const titoloEvento = document.getElementById('titolo-evento');
-//     const descrizioneEvento = document.getElementById('descrizione-evento');
-//     const dataEvento = document.getElementById('data-evento');
-//     const luogoEvento = document.getElementById('luogo-evento');
-//     const immagineEvento = document.getElementById('immagine-evento');
-
-//     titoloEvento.textContent = eventoData.titolo;
-//     descrizioneEvento.textContent = eventoData.descrizione;
-//     dataEvento.textContent = eventoData.data;
-//     luogoEvento.textContent = eventoData.luogo;
-//     immagineEvento.src = eventoData.immagine;
-// }

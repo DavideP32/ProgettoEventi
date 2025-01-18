@@ -2,8 +2,6 @@
 /*                           CREAZIONE EVENTI DAL DB                          */
 /* -------------------------------------------------------------------------- */
 
-
-
 fetch("http://localhost:8080/api/eventi")
     .then(response =>{
         return response.json();

@@ -7,10 +7,12 @@ package com.eventi.eventi.login;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
+import com.eventi.eventi.entities.Prenotazione;
 import com.eventi.eventi.enums.Ruolo;
 
 @Component
@@ -23,14 +25,16 @@ public class SessioneUtente implements Serializable{
 	private String email;
     private LocalDate dataNascita;
 	private Ruolo ruolo;
+    private List<Prenotazione> prenotazioni;
 
-    public SessioneUtente(long utente_id, String nome, String cognome, String email, LocalDate dataNascita, Ruolo ruolo) {
+    public SessioneUtente(long utente_id, String nome, String cognome, String email, LocalDate dataNascita, Ruolo ruolo, List<Prenotazione> prenotazioni) {
         this.utente_id = utente_id;
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
         this.dataNascita = dataNascita;
         this.ruolo = ruolo;
+        this.prenotazioni = prenotazioni;
     }
 
 
@@ -89,6 +93,14 @@ public class SessioneUtente implements Serializable{
 
     public void setDataNascita(LocalDate dataNascita) {
         this.dataNascita = dataNascita;
+    }
+
+    public List<Prenotazione> getPrenotazioni() {
+        return prenotazioni;
+    }
+
+    public void setPrenotazioni(List<Prenotazione> prenotazioni) {
+        this.prenotazioni = prenotazioni;
     }
 
 
