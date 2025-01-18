@@ -37,6 +37,10 @@ public class PrenotazioniServiceImpl implements PrenotazioniService{
     @Override
      public Prenotazione aggiungiPrenotazione(Prenotazione prenotazione){
         prenotazione.setId(0L);
+
+        EventoService eventoService = new EventoServiceImpl();
+        eventoService.aggiornaPostiEvento(prenotazione.getEvento(), prenotazione.getNumeroPersone());
+
         prenotazioniRepository.save(prenotazione);
         return prenotazione;
     }
