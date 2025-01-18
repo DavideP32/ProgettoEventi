@@ -70,3 +70,10 @@ input:checked + .slider:before {
   margin-left: 10px;
   vertical-align: middle;
 }
+
+#userSection {
+  display: flex;
+  flex-direction: column; /* Disposizione verticale */
+  gap: 1rem; /* Spaziatura tra le card */
+}
+

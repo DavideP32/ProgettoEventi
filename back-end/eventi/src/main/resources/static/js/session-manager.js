@@ -51,12 +51,20 @@ function updateUI(utenteLoggato) {
 	const bollino = document.getElementById("bollino-profilo")
 	const loginText = document.querySelector(".text-end")
 	const inizialeNome = document.querySelectorAll(".idUtente")
-
-	console.log(inizialeNome)
+	const linkProfilo = document.querySelector(".linkProfilo")
+	
+	// console.log(typeof utenteLoggato.ruolo)
 
 	if (utenteLoggato) {
 		loginText.classList.add("d-none")
 		bollino.classList.remove("d-none")
+
+		if (utenteLoggato.ruolo === 'RUOLO_UTENTE') {
+			linkProfilo.innerHTML = `<a class="dropdown-item" href="profilo.html">Profilo</a>`
+		}else if (utenteLoggato.ruolo === 'RUOLO_ADMIN') {
+			linkProfilo.innerHTML = `<a class="dropdown-item" href="admin.html">Pannello</a>`
+		}
+		
 
 		const dataNasc = new Date(`${utenteLoggato.dataNascita}`)
 
