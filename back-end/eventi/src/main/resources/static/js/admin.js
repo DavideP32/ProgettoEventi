@@ -24,7 +24,8 @@ fetch("http://localhost:8080/api/utente")
         const userSection = document.getElementById("userSection"); // ID della sezione dove verranno inseriti gli utenti
 
         data.forEach(user => {
-            const birthDate = new Date(user.dataNascita);
+            if (user.ruolo != 'RUOLO_ADMIN') {
+                const birthDate = new Date(user.dataNascita);
 
             // Crea un div per la singola card
             const userCard = document.createElement("div");
@@ -70,6 +71,8 @@ fetch("http://localhost:8080/api/utente")
 
             // Aggiungi la card creata al contenitore principale
             userSection.appendChild(userCard);
+            }
+            
         });
     })
     .catch(error => console.error("Errore durante la fetch:", error));
