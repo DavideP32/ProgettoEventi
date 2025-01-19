@@ -17,7 +17,7 @@ window.addEventListener('scroll', function () {
 
 
 // //BARRA DI RICERCA
-// const events = [
+// const evento = [
 //     "Serata Vintage Party 80's",
 //     "Festival del Cinema",
 //     "Food & Wine Experience",
@@ -38,7 +38,7 @@ window.addEventListener('scroll', function () {
 
 //     if (input.trim() === "") return; // Se l'input è vuoto, non fa nulla
 
-//     const eventiFiltrati = events.filter(event => event.toLowerCase().includes(input));
+//     const eventiFiltrati = evento.filter(event => event.toLowerCase().includes(input));
 
 //     if (eventiFiltrati.length > 0) {
 //         eventiFiltrati.forEach(event => {
@@ -71,77 +71,77 @@ window.addEventListener('scroll', function () {
 
 
 
-// RRICERCA CON DB
-// Lista eventi simulati per testare la ricerca
-let events = [
-    { name: "Concerto Rock Night", url: "musica.html" },
-    { name: "Festival della Musica Jazz", url: "musica.html" },
-    { name: "Esibizione di Piano", url: "musica.html" },
-    { name: "Serata Acustica", url: "musica.html" },
-    { name: "Concerto Irama-live 2025", url: "musica.html" },
-    { name: "Festival del Rock", url: "musica.html" },
-    { name: "Vintage Music Party", url: "musica.html" }
-];
+// // RRICERCA CON DB
+// // Lista eventi simulati per testare la ricerca
+// let evento = [
+//     { name: "Concerto Rock Night", url: "musica.html" },
+//     { name: "Festival della Musica Jazz", url: "musica.html" },
+//     { name: "Esibizione di Piano", url: "musica.html" },
+//     { name: "Serata Acustica", url: "musica.html" },
+//     { name: "Concerto Irama-live 2025", url: "musica.html" },
+//     { name: "Festival del Rock", url: "musica.html" },
+//     { name: "Vintage Music Party", url: "musica.html" }
+// ];
 
-// Funzione per cercare eventi
-function cercaEventi() {
-    const input = document.querySelector('#eventSearch');
-    const searchResults = document.getElementById('searchResults');
+// // Funzione per cercare eventi
+// function cercaEventi() {
+//     const input = document.querySelector('#eventSearch');
+//     const searchResults = document.getElementById('searchResults');
 
-    // Reset dei risultati
-    searchResults.innerHTML = "";
-    searchResults.style.display = "none"; // Nasconde i risultati per default
+//     // Reset dei risultati
+//     searchResults.innerHTML = "";
+//     searchResults.style.display = "none"; // Nasconde i risultati per default
 
-    const inputValue = input.value.toLowerCase();
+//     const inputValue = input.value.toLowerCase();
 
-    if (inputValue.trim() === "") return; // Se l'input è vuoto, non fa nulla
+//     if (inputValue.trim() === "") return; // Se l'input è vuoto, non fa nulla
 
-    const eventiFiltrati = events.filter(event => event.name.toLowerCase().includes(inputValue));
+//     const eventiFiltrati = evento.filter(event => event.name.toLowerCase().includes(inputValue));
 
-    if (eventiFiltrati.length > 0) {
-        eventiFiltrati.forEach(event => {
-            const suggerimento = document.createElement('div');
-            suggerimento.className = 'suggestion-item p-2';
-            suggerimento.textContent = event.name;
+//     if (eventiFiltrati.length > 0) {
+//         eventiFiltrati.forEach(event => {
+//             const suggerimento = document.createElement('div');
+//             suggerimento.className = 'suggestion-item p-2';
+//             suggerimento.textContent = event.name;
 
-            // Aggiungi evento click per selezionare il suggerimento
-            suggerimento.addEventListener('click', () => {
-                input.value = event.name;
-                searchResults.style.display = "none"; // Nasconde i suggerimenti
-            });
+//             // Aggiungi evento click per selezionare il suggerimento
+//             suggerimento.addEventListener('click', () => {
+//                 input.value = event.name;
+//                 searchResults.style.display = "none"; // Nasconde i suggerimenti
+//             });
 
-            searchResults.appendChild(suggerimento);
-        });
+//             searchResults.appendChild(suggerimento);
+//         });
 
-        searchResults.style.display = "block"; // Mostra i risultati
-    } else {
-        const notResult = document.createElement('div');
-        notResult.className = 'no-result text-warning p-2';
-        notResult.textContent = 'Nessun risultato trovato';
-        searchResults.appendChild(notResult);
-        searchResults.style.display = "block"; // Mostra comunque il contenitore
-    }
-}
+//         searchResults.style.display = "block"; // Mostra i risultati
+//     } else {
+//         const notResult = document.createElement('div');
+//         notResult.className = 'no-result text-warning p-2';
+//         notResult.textContent = 'Nessun risultato trovato';
+//         searchResults.appendChild(notResult);
+//         searchResults.style.display = "block"; // Mostra comunque il contenitore
+//     }
+// }
 
-// Listener per l'input e il tasto Enter
-document.addEventListener('DOMContentLoaded', () => {
-    const input = document.querySelector('#eventSearch');
+// // Listener per l'input e il tasto Enter
+// document.addEventListener('DOMContentLoaded', () => {
+//     const input = document.querySelector('#eventSearch');
 
-    // Ascolta l'input per cercare eventi
-    input.addEventListener('input', cercaEventi);
+//     // Ascolta l'input per cercare eventi
+//     input.addEventListener('input', cercaEventi);
 
-    // Ascolta il tasto Enter per navigare
-    input.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter') {
-            const selectedEvent = input.value;
-            const matchedEvent = events.find(e => e.name.toLowerCase() === selectedEvent.toLowerCase());
+//     // Ascolta il tasto Enter per navigare
+//     input.addEventListener('keydown', (event) => {
+//         if (event.key === 'Enter') {
+//             const selectedEvent = input.value;
+//             const matchedEvent = evento.find(e => e.name.toLowerCase() === selectedEvent.toLowerCase());
 
-            if (matchedEvent && matchedEvent.url) {
-                // Naviga alla pagina dell'evento
-                window.location.href = matchedEvent.url;
-            } else {
-                alert('Evento non trovato!');
-            }
-        }
-    });
-});
+//             if (matchedEvent && matchedEvent.url) {
+//                 // Naviga alla pagina dell'evento
+//                 window.location.href = matchedEvent.url;
+//             } else {
+//                 alert('Evento non trovato!');
+//             }
+//         }
+//     });
+// });

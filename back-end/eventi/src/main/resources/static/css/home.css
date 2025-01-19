@@ -166,7 +166,7 @@ h1 {
     position: absolute;
     bottom: -6px;
     height: 4px;
-    background: linear-gradient(90deg, #f12424, #cab177);
+    background: linear-gradient(90deg, #131313, #cab177);
     animation: underline-animate 4s infinite;
 }
 
