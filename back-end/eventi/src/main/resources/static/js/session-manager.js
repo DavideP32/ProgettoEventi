@@ -58,6 +58,8 @@ function updateUI(utenteLoggato) {
 		loginText.classList.add("d-none")
 		bollino.classList.remove("d-none")
 		
+		console.log(utenteLoggato);
+
 		const linkProfilo = document.querySelector(".linkProfilo")
 		if (utenteLoggato.ruolo === 'RUOLO_UTENTE') {
 			linkProfilo.innerHTML = `<a class="dropdown-item" href="profilo.html">Profilo</a>`

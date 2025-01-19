@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                         </a>
                         <p><strong>Data:</strong> ${element.evento.dataEvento}</p>
                         <p><strong>Luogo:</strong> ${element.evento.luogoEvento}</p>
-                        <button class="bin-button popup-trigger reject">
+                        <button class="bin-button popup-trigger reject" onclick="eliminaPrenotazione('${element.id}')">
                             <svg class="bin-top" viewBox="0 0 39 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <line y1="5" x2="39" y2="5" stroke="white" stroke-width="4"></line>
                                 <line x1="12" y1="1.5" x2="26.0357" y2="1.5" stroke="white" stroke-width="3"></line>
@@ -58,7 +58,22 @@ document.addEventListener("DOMContentLoaded", async () => {
     eventi.innerHTML = eventiHTML;
 });
 
-
+function eliminaPrenotazione(idPrenot) {
+    fetch(`http://localhost:8080/api/prenotazioni/${idPrenot}`, {
+        method: "DELETE",
+		credentials: "include",
+    })
+    .then(response =>{
+        if (!response.ok) {
+            throw new Error(err.message || "Errore durante il salvataggio delle modifiche")
+        }
+        // document.querySelector(`[data-id="${idPrenot}"]`).remove();
+    })
+    .catch((error) => {
+        console.error("Errore:", error);
+        alert("Non è stato possibile eliminare la prenotazione.");
+    });
+}
 
 /*--------------------------------------------------------------------------------*/
 /*                            MODIFICHE DATI PROFILO                              */
@@ -143,20 +158,24 @@ document.querySelector(".cancel").addEventListener("click", function () {
 })
 
 //Tasto elimina
-document.querySelector(".desactivate").addEventListener("click", function () {
-	const evento = document.getElementById("evento-2")
-	const popup = document.getElementById("popup-reject")
-	const overlay = document.getElementById("overlay")
+// document.querySelector(".desactivate").addEventListener("click", e => {
+// 	const evento = document.getElementById("evento-2")
+// 	const popup = document.getElementById("popup-reject")
+// 	const overlay = document.getElementById("overlay")
+//     console.log(e.target);
 
-	if (evento) {
-		evento.remove()
-	}
 
-	//ALERT
-	alert("Evento eliminato con successo")
+// 	if (evento) {
+// 		evento.remove()
+// 	}
 
-	if (popup) {
-		popup.classList.add("d-none")
-		overlay.classList.add("d-none")
-	}
-})
+// 	//ALERT
+// 	alert("Evento eliminato con successo")
+
+// 	if (popup) {
+// 		popup.classList.add("d-none")
+// 		overlay.classList.add("d-none")
+// 	}
+// })
+
+

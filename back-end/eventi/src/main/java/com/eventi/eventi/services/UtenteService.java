@@ -18,6 +18,7 @@ public interface UtenteService {
 	
 	UtenteDto aggiungiUtente(Utente utente);
 	UtenteDto aggiornaUtente(Utente utente, Utente trovato);
+	// void aggiornaPrenotazione(Utente utente, Prenotazione prenotazione);
 	void cancellaUtenteById(long id);
 	
 	

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.eventi.eventi.dtos.UtenteDto;
+import com.eventi.eventi.entities.Prenotazione;
 import com.eventi.eventi.entities.Utente;
 import com.eventi.eventi.repositories.UtenteRepository;
 
@@ -93,6 +94,12 @@ public class UtenteServiceImpl implements UtenteService {
 		utenteRepository.save(trovato);
 		return this.toUtenteDto(utente);
     }
+
+    // @Override
+    // public void aggiornaPrenotazione(Utente utente, Prenotazione prenotazione){
+    //     utente.getPrenotazioni().add(prenotazione);
+
+    // }
 
 
     /* -------------------------------------------------------------------------- */

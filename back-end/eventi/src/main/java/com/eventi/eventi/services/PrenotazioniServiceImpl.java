@@ -19,6 +19,9 @@ public class PrenotazioniServiceImpl implements PrenotazioniService {
     @Autowired
     EventoService eventoService;
 
+    @Autowired
+    UtenteService utenteService;
+
     @Override
     public List<Prenotazione> getAllPreno() {
         List<Prenotazione> prenotazioni = prenotazioniRepository.findAll();
@@ -41,6 +44,8 @@ public class PrenotazioniServiceImpl implements PrenotazioniService {
     public Prenotazione aggiungiPrenotazione(Prenotazione prenotazione) {
 
         Evento eventoAggiornato = eventoService.aggiornaPostiEvento(prenotazione.getEvento(), prenotazione.getNumeroPersone());
+
+        // utenteService.aggiornaPrenotazione(prenotazione.getUtente(), prenotazione);
 
         prenotazione.setEvento(eventoAggiornato);
         prenotazione.setId(0L);
