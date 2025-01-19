@@ -16,40 +16,11 @@
 <body>
 
 
-                <!-- Pop-up -->
-                <div class="card popup-event container d-none" id="acceptEvento">
-                    <div class="header">
-                      <div class="image">
-                        <svg
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M4.5 12.75l6 6 9-13.5"
-                        ></path>
-                      </svg>
-                      
-                      </div>
-                      <div class="content">
-                        <span class="title">EVENTO CREATO</span>
-                        <p class="message">
-                          Evento inoltrato all'admin, se accettato comparirà nella sezione eventi
-                        </p>
-                      </div>
-                      <div class="actions">
-                        <a href="index.html"><button type="button" class="desactivate">Torna alla Home</button></a>
-                      </div>
-                    </div>
-                </div>
+    
 
 
 <!-- Pagina Creazione Evento -->
-<section class="create-event py-5 d-flex justify-content-center align-items-center " style="min-height: 100vh;">
+<section class="create-event py-5 d-flex justify-content-center align-items-center  " style="min-height: 100vh;">
     <div class=" create-event" id="creaEvento"  > <!-- per far scomparire la creazione evento, dare d-non qui -->
         <a href="index.html" class=" border-0  position-absolute top-0 start-0 m-4" style="color: black;">
             <i class="fa fa-arrow-left fa-2x"></i>
@@ -114,24 +85,63 @@
                 </div>
                 <!-- Contatti -->
                 <div class="mb-3">
-                    <label for="telefonoEvento" class="form-label">Telefono *</label>
-                    <input type="tel" class="form-control" id="telefonoEvento" name="telefonoEvento" placeholder="Inserisci numero di telefono...">
-                </div>
-                <div class="mb-3">
                     <label for="emailEvento" class="form-label">Email *</label>
                     <input type="email" class="form-control" id="emailEvento" name="emailEvento" placeholder="Inserisci la tua email...">
                 </div>
                 <!-- Motto Evento -->
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="mottoEvento" class="form-label">Mini Motto *</label>
                     <input type="text" class="form-control" id="mottoEvento" name="mottoEvento" placeholder="Es: Un viaggio musicale senza tempo!" >
                 </div>
+                <!-- Messaggio errore -->
+                 <div class="mt-5 d-none error">
+                    <p>Tutti i campi sono obbligatori !</p>
+                 </div>
                 <!-- Pulsante -->
-                <button type="submit" class="btn btn-crea mt-3">🎉 Crea Evento Ora!</button>
+                <button type="submit" class="btn btn-crea">🎉 Crea Evento Ora!</button>
             </form>
         </div>
     </div>
 </section>
+
+
+
+<!-- Sfondo sovrapposto -->
+<div id="popup-overlay"></div>
+
+<!-- Pop-up -->
+<div class="card popup-event d-none" id="acceptEvento">
+  <div class="header">
+    <div class="image">
+      <svg
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M4.5 12.75l6 6 9-13.5"
+        ></path>
+      </svg>
+    </div>
+    <div class="content">
+      <span class="title">EVENTO CREATO</span>
+      <p class="message">
+        Evento inoltrato all'admin, se accettato comparirà nella sezione eventi
+      </p>
+    </div>
+    <div class="actions">
+      <a href="index.html">
+        <button type="button" class="desactivate">Torna alla Home</button>
+      </a>
+    </div>
+  </div>
+</div>
+
+  
 
 
 <!-- <script>

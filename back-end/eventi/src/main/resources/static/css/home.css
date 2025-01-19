@@ -1,6 +1,5 @@
 body {
 	box-sizing: border-box;
-	font-family: "Inter", serif;
 }
 
 .overlay {
@@ -144,3 +143,43 @@ h1 {
 /* .desc-carosello {
 	align-items: center !important;
 } */
+
+
+
+
+
+
+.trending-title {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding: 0.5rem 1rem;
+}
+
+.trending-title .highlight {
+    color: #cab177; /* Colore distintivo per "Top" */
+    font-weight: bold;
+}
+
+.trending-title::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    height: 4px;
+    background: linear-gradient(90deg, #f12424, #cab177);
+    animation: underline-animate 4s infinite;
+}
+
+@keyframes underline-animate {
+    0% {
+        left: 10%;
+        width: 0%;
+    }
+    50% {
+        width: 30%;
+    }
+    100% {
+        left: 70%;
+        width: 0%;
+    }
+}

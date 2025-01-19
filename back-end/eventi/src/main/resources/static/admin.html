@@ -141,8 +141,8 @@
                             <p class="text-muted">
                                 Metodi di pagamento
                             </p>
-                            <div class="row g-2 mb-3">
-                                <div class="col-md-6">
+                            <div id="metodiPagamento1" class="metodi-pagamento row g-2 mb-3">
+                                <!-- <div class="col-md-6">
                                     <div class="box">
                                         <b class="mx-2 text-muted">
                                             <i class="fa-solid fa-credit-card"></i>
@@ -157,8 +157,11 @@
                                         </b>
                                         PayPal di Paola Votano
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
+                            <a href="#!" class="btn btn-outline-primary add-payment-method" title="Aggiungi un metodo di pagamento">
+                                <i class="me-2 fa-solid fa-plus"></i> Aggiungi metodo di pagamento
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -176,93 +179,23 @@
                                 </a>
                                 <p><strong>Data:</strong> 15 Marzo 2025</p>
                                 <p><strong>Luogo:</strong> Teatro alla Scala, Milano</p>
-                                <div class="d-flex gap-4">
+                                <div class="d-flex gap-4 si-no">
                                     <a href="" class="popup-trigger accept"><i class="fa-solid fa-check check accetta"></i></a>
                                     <a href="" class="popup-trigger reject"><i class="fa-solid fa-xmark check rifiuta"></i></a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="overlay d-none" id="overlay"></div>
-                    
-
-                    
-                    <!-- Evento 2 -->
-                    <div class="evento">
-                        <div class="row align-items-center">
-                            <div class="col-lg-5 col-md-12 mb-3 mb-lg-0">
-                                <img src="./img/musica2.jpg" class="img-fluid event-img" alt="Evento 2">
-                            </div>
-                            <div class="col-lg-7 col-md-12">
-                                <div class="d-flex gap-5">
-                                    <a href="">
-                                        <h4>Concerto di Musica Classica</h4>
-                                    </a>
-                                </div>
-                                <p><strong>Data:</strong> 5 Settembre 2025</p>
-                                <p><strong>Luogo:</strong> Piazza della Loggia, Brescia</p>
-                                <div class="d-flex gap-4">
-                                    <a href="" class="popup-trigger accept"><i class="fa-solid fa-check check accetta"></i></a>
-                                    <a href="" class="popup-trigger reject"><i class="fa-solid fa-xmark check rifiuta"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div>                    
                 </div>
+
                 <div id="priv-storico" class="tab-pane fade" role="tabpanel" aria-labelledby="priv-storico-tab">
-                    <div class="evento">
-                        <div class="row align-items-center">
-                            <div class="col-lg-5 col-md-12 mb-3 mb-lg-0">
-                                <img src="./img/musica2.jpg" class="img-fluid event-img" alt="Evento 2">
-                            </div>
-                            <div class="col-lg-7 col-md-12">
-                                <div class="d-flex gap-5">
-                                    <a href="">
-                                        <h4>Concerto di Musica Classica</h4>
-                                    </a>
-                                </div>
-                                <p><strong>Data:</strong> 5 Settembre 2025</p>
-                                <p><strong>Luogo:</strong> Piazza della Loggia, Brescia</p>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="evento-scartato"></div>
+       
                 </div>
                 <div id="priv-wishlist" class="tab-pane fade" role="tabpanel" aria-labelledby="priv-wishlist-tab">
 
                     <h4>Richieste di Promozione a Admin</h4>
                     <section id="userSection" class="container ">
-                        <!-- <div class="card border-0 ">
-                            <div class="card-body">
-                                <div class="itemside align-items-center">
-                                    <div class="aside">
-                                        <div class="d-flex justify-content-between">
-                                            <div class="idUtente" style="margin-bottom: 1rem; width: 40px; height: 40px; font-size: larger;">
-                                                P
-                                            </div>
-                                            <div class="text-center">
-                                                <label class="toggle-switch">
-                                                  <input type="checkbox" id="toggle" onclick="openPromotePopup('Paola', 'Votano')">
-                                                  <span class="slider"></span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="info">
-                                        <div class="d-flex gap-2">
-                                            <p class="nome title h6">Paola</p>
-                                            <p class="cognome title h6">Votano</p>
-                                        </div>
-                                        <p id="email">
-                                            Email: esempio@gmail.com <i class="dot"></i> <a href="#" class="px-2" title="Modifica informazioni"></a>
-                                        </p>
-                                        <p id="data-nascita">
-                                            Data di nascita: 23 Febbraio 2004 <i class="dot"></i> <a href="#" class="px-2" title="Modifica informazioni"></a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
                     </section>
 
 
@@ -300,35 +233,7 @@
                             <input type="password" class="form-control impostazioni" placeholder="Inserisci nuova password password">
                             <input type="password" class="form-control impostazioni" placeholder="Conferma nuova password password">
 
-                            <p class="text-muted mt-3">
-                                Metodi di pagamento
-                            </p>
-                            <div class="row g-2 mb-3">
-                                <div class="col-md-6">
-                                    <div class="box">
-                                        <b class="mx-2 text-muted">
-                                            <i class="fa-solid fa-credit-card"></i>
-                                        </b>
-                                        Visa •••• 9905, Scad: 12/21
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="box paypal-di-chi">
-                                        <b class="mx-2 text-muted">
-                                            <i class="fa-brands fa-cc-paypal"></i>
-                                        </b>
-                                        PayPal di Paola Votano
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#!" class="btn btn-outline-primary add-payment-method" title="Aggiungi un metodo di pagamento">
-                                <i class="me-2 fa-solid fa-plus"></i> Aggiungi metodo di pagamento
-                            </a>
-
-
-
                             <hr>
-
 
                             <!-- Bottone per Salvataggio e Annullamento -->
                             <div class="mt-4">
@@ -348,6 +253,7 @@
 
 
 
+<div class="overlay d-none" id="overlay"></div>
 
 
 <!-- pop-up -->
@@ -439,6 +345,105 @@
             <button type="button" class="desactivate" onclick="promoteToAdmin()">Conferma</button>
             <button type="button" class="cancel" onclick="closePopup()">Annulla</button>
         </div>
+    </div>
+</div>
+
+<!-- Popup Aggiungi Metodo di Pagamento -->
+<div class="card popup d-none" id="popup-add-payment">
+    <div class="header">
+        <div class="image">
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+        >
+            <rect
+                x="2.25"
+                y="5.25"
+                width="19.5"
+                height="13.5"
+                rx="2.25"
+                ry="2.25"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.25 9.75h19.5M6 15.75h3.75"
+            />
+        </svg>
+        
+        </div>
+        <div class="content">
+            <span class="title">Aggiungi un metodo di pagamento</span>
+            <p class="message">Inserisci i dettagli del nuovo metodo di pagamento.</p>
+        </div>
+    </div>
+    <div class="body">
+        <label class="form-label">Tipo di pagamento</label>
+        <select id="tipoPagamento" class="form-control">
+            <option value="carta">Carta di credito</option>
+            <option value="paypal">PayPal</option>
+        </select>
+
+        <div id="sezioneCarta" class="mt-3">
+            <label class="form-label">Numero carta</label>
+            <input type="text" id="numeroCarta" class="form-control" placeholder="•••• •••• •••• ••••">
+
+            <label class="form-label mt-2">Data di scadenza</label>
+            <input type="text" id="scadenzaCarta" class="form-control" placeholder="MM/YY">
+
+            <label class="form-label mt-2">CVV</label>
+            <input type="text" id="cvvCarta" class="form-control" placeholder="•••">
+        </div>
+
+        <div id="sezionePayPal" class="mt-3 d-none">
+            <label class="form-label">Email PayPal</label>
+            <input type="email" id="emailPayPal" class="form-control" placeholder="example@email.com">
+        </div>
+    </div>
+    <div class="actions mt-4">
+        <button type="button" class="btn btn-primary" id="salvaMetodo">Salva</button>
+        <button type="button" class="btn btn-secondary" id="annullaMetodo">Annulla</button>
+    </div>
+</div>
+
+<!-- Popup Conferma -->
+<!-- <div class="popup conferma d-none" id="popup-conferma">
+    <div class="message">Metodo di pagamento aggiunto con successo!</div>
+</div> -->
+
+<!-- Popup Conferma Eliminazione -->
+<div class="card popup d-none" id="popup-delete-payment">
+    <div class="header">
+        <div class="image">
+            <svg
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                ></path>
+            </svg>
+        </div>
+        <div class="content">
+            <span class="title">Conferma Eliminazione</span>
+            <p class="message">Sei sicuro di voler eliminare questo metodo di pagamento?</p>
+        </div>
+    </div>
+    <div class="actions mt-4">
+        <button type="button" class="btn btn-danger" id="confermaEliminazione">Elimina</button>
+        <button type="button" class="btn btn-secondary" id="annullaEliminazione">Annulla</button>
     </div>
 </div>
 
