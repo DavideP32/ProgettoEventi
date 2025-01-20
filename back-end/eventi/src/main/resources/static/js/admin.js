@@ -1,79 +1,200 @@
-    // Funzione per aprire il popup e mostrare i dati dell'utente
-    function openPromotePopup(nome, cognome) {
-        const popup = document.getElementById('popup-promote-admin');
-        const usernameField = document.getElementById('popup-username');
+function showConfirmation(e, checkboxId, nome) {
+	e.preventDefault() // Impedisce il comportamento predefinito della checkbox
+	const checkbox = document.getElementById(checkboxId)
+	const isChecked = checkbox.checked // Stato attuale della checkbox
+	const popup = document.getElementById("popup-promote-admin")
+	const popupNome = document.getElementById("popup-username")
+	const popupTitolo = document.getElementById("popup-title")
+	const icona = document.getElementById("icona-popup-admin")
+	popup.classList.remove("d-none")
 
-        usernameField.textContent = `${nome} ${cognome}`;
-        popup.classList.remove('d-none');
-    }
+	//cambio il nome a seconda dell'utente
+    
+	if (isChecked) {
+        popupTitolo.textContent = "Conferma la promozione al ruolo Admin"
+        popupNome.innerHTML = `Sei sicuro di voler promuovere <span class="fw-bold">${nome}</span> ad Admin?`
+		
+	} else {
+		popupTitolo.textContent = "Conferma la rimozione del ruolo Admin"
+        icona.innerHTML = `<svg
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 6l12 12M6 18L18 6"
+            />
+            </svg>`
+         popupNome.innerHTML = `Sei sicuro di voler rimuovere <span class="fw-bold">${nome}</span> dagli Admin?`
+	}
 
-    // Funzione per chiudere il popup
-    function closePopup() {
-        const popup = document.getElementById('popup-promote-admin');
-        popup.classList.add('d-none');
-    }
+	// Gestione del pulsante di conferma
+	document.getElementById("promuovi").onclick = () => {
+		checkbox.checked = isChecked
+		promoteUser(checkboxId.split("-")[1])
+		popup.classList.add("d-none")
+	}
 
-//Apparizioni Utenti per la pagina admin da questo:
+	// Gestione del pulsante di annullamento
+	document.getElementById("non-promuovi").onclick = () => {
+		popup.classList.add("d-none")
+		checkbox.checked = !isChecked
+	}
+}
+
+function promoteUser(userId) {
+	fetch(`http://localhost:8080/api/utente/${userId}`, {
+		method: "PUT",
+		headers: {
+			"Content-Type": "application/json",
+		},
+	})
+		.then((response) => {
+			if (!response.ok) {
+				throw new Error(`Errore: ${response.status}`)
+			}
+			return response.json()
+		})
+		.then((data) => {
+			if (data.ruolo == "RUOLO_UTENTE") {
+				console.log(`Admin ${data.nome} degradato ad utente!`)
+			} else if (data.ruolo == "RUOLO_ADMIN") {
+				console.log(`Utente ${data.nome} promosso a admin!`)
+			}
+		})
+		.catch((error) => console.error("Errore durante la promozione:", error))
+}
+
+/* -------------------------------------------------------------------------- */
+/*                       PRENDO TUTTI GLI UTENTI DA MOSTRARE                  */
+/* -------------------------------------------------------------------------- */
 fetch("http://localhost:8080/api/utente")
-    .then(response => {
-        return response.json();
-    })
-    .then(data => {
-        console.log(data);
+	.then((response) => {
+		return response.json()
+	})
+	.then((data) => {
+		console.log(data)
 
-        const userSection = document.getElementById("userSection"); // ID della sezione dove verranno inseriti gli utenti
+		const userSection = document.getElementById("userSection")
 
-        data.forEach(user => {
-            if (user.ruolo != 'RUOLO_ADMIN') {
-                const birthDate = new Date(user.dataNascita);
+		data.forEach((user) => {
+			const birthDate = new Date(user.dataNascita)
 
-            // Crea un div per la singola card
-            const userCard = document.createElement("div");
-            userCard.classList.add("card", "border-0");
-            userCard.id = `utente-${user.id}`;
+			// Checkata o non checkata a seconda del ruolo
+			const isChecked = user.ruolo === "RUOLO_ADMIN" ? "checked" : ""
 
-            // Inserisci il contenuto della card
-            userCard.innerHTML = `
-                <div class="card-body">
-                    <div class="itemside align-items-center">
-                        <div class="aside"> 
-                            <div class="d-flex justify-content-between">
-                                <div class="idUtente" style="margin-bottom: 1rem; width: 40px; height: 40px; font-size: larger;">
-                                    ${user.nome.charAt(0)}${user.cognome.charAt(0)}
+			userSection.innerHTML += `
+                <div class="card border-0">
+                    <div class="card-body">
+                        <div class="itemside align-items-center">
+                            <div class="aside">
+                                <div class="d-flex justify-content-between">
+                                    <div class="idUtente" style="margin-bottom: 1rem; width: 40px; height: 40px; font-size: larger;">
+                                        ${user.nome.charAt(0)}${user.cognome.charAt(0)}
+                                    </div>
+                                    <div class="text-center">
+                                        <label class="toggle-switch">
+                                          <input type="checkbox" id="toggle-${user.id}" ${isChecked} onchange="showConfirmation(event, 'toggle-${user.id}', '${user.nome}')">
+                                          <span class="slider"></span>
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="text-center">
-                                    <label class="toggle-switch">
-                                      <input type="checkbox" id="toggle-${user.id}" onclick="openPromotePopup('${user.nome}', '${user.cognome}')">
-                                      <span class="slider"></span>
-                                    </label>                                
-                                </div>                  
                             </div>
-                        </div>
-                        <div class="info">
-                            <div class="d-flex gap-2">
-                                <p class="nome title h6">${user.nome}</p>
-                                <p class="cognome title h6">${user.cognome}</p>
+                            <div class="info">
+                                <div class="d-flex gap-2">
+                                    <p class="nome title h6">${user.nome}</p>
+                                    <p class="cognome title h6">${user.cognome}</p>
+                                </div>
+                                <p id="email">
+                                    Email: ${user.email} <i class="dot"></i> <a href="#" class="px-2" title="Modifica informazioni"></a>
+                                </p>
+                                <p id="data-nascita">
+                                    Data di nascita: ${birthDate.toLocaleDateString("it-IT", {
+										day: "2-digit",
+										month: "long",
+										year: "numeric",
+									})} <i class="dot"></i> <a href="#" class="px-2" title="Modifica informazioni"></a>
+                                </p>
                             </div>
-                            <p id="email">
-                                Email: ${user.email} <i class="dot"></i> <a href="#" class="px-2" title="Modifica informazioni"></a>
-                            </p>
-                            <p id="data-nascita">
-                                Data di nascita: ${birthDate.toLocaleDateString('it-IT', {
-                                    day: '2-digit',
-                                    month: 'long',
-                                    year: 'numeric'
-                                })} <i class="dot"></i> <a href="#" class="px-2" title="Modifica informazioni"></a>
-                            </p>   
                         </div>
                     </div>
-                </div>
-            `;
+                </div>`
+		})
+	})
+	.catch((error) => console.error("Errore durante la fetch:", error))
 
-            // Aggiungi la card creata al contenitore principale
-            userSection.appendChild(userCard);
-            }
-            
-        });
-    })
-    .catch(error => console.error("Errore durante la fetch:", error));
+// onclick="promoteUser(${user.id})
 
+/*--------------------------------------------------------------------------------*/
+/*                            MODIFICHE DATI PROFILO                              */
+/*--------------------------------------------------------------------------------*/
+
+//Pulsante "Salva modifiche"
+const salvaModificheBtn = document.getElementById("salvaBtn")
+if (salvaModificheBtn) {
+	salvaModificheBtn.addEventListener("click", salvaModifiche)
+}
+
+// Pulsante "Annulla Modifiche"
+const annullaModificheBtn = document.getElementById("annullaBtn")
+if (annullaModificheBtn) {
+	annullaModificheBtn.addEventListener("click", annullaModifiche)
+}
+
+function salvaModifiche(e) {
+	e.preventDefault()
+
+	const nome = document.getElementById("nomeInput").value
+	const cognome = document.getElementById("cognomeInput").value
+	// const dataNascita = document.getElementById("data-di-nascita").textContent;
+	emailUt = document.getElementById("email").textContent
+	// const password = document.getElementById("passwordUtente").value
+
+	console.log(emailUt)
+
+	const utenteModificato = {
+		nome: nome,
+		cognome: cognome,
+		email: emailUt,
+		ruolo: "RUOLO_ADMIN",
+	}
+
+	return fetch("http://localhost:8080/api/utente", {
+		method: "PUT",
+		credentials: "include",
+		headers: {
+			Accept: "application/json",
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(utenteModificato),
+	})
+		.then((response) => {
+			if (!response.ok) {
+				throw new Error(err.message || "Errore durante il salvataggio delle modifiche")
+			}
+			return response.json()
+		})
+		.then((data) => {
+			updateUI(data)
+		})
+		.catch((error) => {
+			console.log("Errore", error)
+		})
+}
+
+function annullaModifiche(e) {
+	e.preventDefault()
+
+	verificaSessione()
+		.then((utenteData) => {
+			updateUI(utenteData)
+		})
+		.catch((error) => {
+			console.log("Errore durante annullamento delle modifiche", error)
+		})
+}

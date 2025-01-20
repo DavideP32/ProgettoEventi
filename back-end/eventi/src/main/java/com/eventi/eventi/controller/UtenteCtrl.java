@@ -88,6 +88,23 @@ public class UtenteCtrl {
         }
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<?> putRuolo(@PathVariable long id) {
+        try {
+            UtenteDto utente = utenteService.aggiornaRuoloUtente(id);
+
+            if (utente != null) {
+                return ResponseEntity.ok(utente);
+            } else {
+                return ResponseEntity.badRequest().body("Utente non trovato");
+            }
+
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body(new UtenteDto());
+        }
+
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteUtenteById(@PathVariable long id) {
         try {
@@ -105,7 +122,7 @@ public class UtenteCtrl {
     }
 
 
- /* -------------------------------------------------------------------------- */
+    /* -------------------------------------------------------------------------- */
  /*                                    LOGIN                                   */
  /* -------------------------------------------------------------------------- */
     @PostMapping("/login")
@@ -130,19 +147,19 @@ public class UtenteCtrl {
 
 
     /* -------------------------------------------------------------------------- */
-    /*                                   LOGOUT                                   */
-    /* -------------------------------------------------------------------------- */
+ /*                                   LOGOUT                                   */
+ /* -------------------------------------------------------------------------- */
     @PostMapping("/logout")
     public ResponseEntity<?> logout(HttpSession session) {
         session.removeAttribute("utente");
         session.invalidate();
         return ResponseEntity.ok("Logout effettuato con successo");
     }
-    
+
 
     /* -------------------------------------------------------------------------- */
-    /*                            PRENDI UTENTE LOGGATO                           */
-    /* -------------------------------------------------------------------------- */
+ /*                            PRENDI UTENTE LOGGATO                           */
+ /* -------------------------------------------------------------------------- */
     @GetMapping("/isLogged")
     public ResponseEntity<?> getUtenteLoggato(HttpSession session) {
         SessioneUtente sessioneUtente = (SessioneUtente) session.getAttribute("utente");

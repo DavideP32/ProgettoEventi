@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.eventi.eventi.dtos.UtenteDto;
 import com.eventi.eventi.entities.Utente;
+import com.eventi.eventi.enums.Ruolo;
 import com.eventi.eventi.repositories.UtenteRepository;
 
 @Service
@@ -97,11 +98,19 @@ public class UtenteServiceImpl implements UtenteService {
 		return this.toUtenteDto(utente);
     }
 
-    // @Override
-    // public void aggiornaPrenotazione(Utente utente, Prenotazione prenotazione){
-    //     utente.getPrenotazioni().add(prenotazione);
+    @Override
+    public UtenteDto aggiornaRuoloUtente(long id){
+        Utente u = prendiPerId(id);
 
-    // }
+        if(u.getRuolo() == Ruolo.RUOLO_UTENTE){
+            u.setRuolo(Ruolo.RUOLO_ADMIN);
+        } else if (u.getRuolo() == Ruolo.RUOLO_ADMIN){
+            u.setRuolo(Ruolo.RUOLO_UTENTE);
+        }
+
+        utenteRepository.save(u);
+        return toUtenteDto(u);
+    }
 
 
     /* -------------------------------------------------------------------------- */
