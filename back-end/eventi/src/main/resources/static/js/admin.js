@@ -148,9 +148,12 @@ fetch("http://localhost:8080/api/eventi")
 	.then(data =>{
 		const divEventiDaAccettare = document.getElementById("priv-ordini");
 
+
 		data.forEach(element =>{
+			const eventDate = new Date(element.dataEvento);
 			if(element.approvazione == "RICHIESTA"){
-				divEventiDaAccettare.innerHTML += `<div class="evento evento-fittizio">
+				divEventiDaAccettare.innerHTML += `
+					<div class="evento evento-fittizio">
                         <div class="row align-items-center">
                             <div class="col-lg-5 col-md-12 mb-3 mb-lg-0">
                                 <img src="${element.url}" class="img-fluid event-img" alt="${element.nome}">
@@ -159,12 +162,16 @@ fetch("http://localhost:8080/api/eventi")
                                 <a href="">
                                     <h4>${element.nome}</h4>
                                 </a>
-                                <p><strong>Data:</strong> ${element.dataEvento}</p>
+                                <p><strong>Data:</strong> ${eventDate.toLocaleDateString("it-IT", {
+									day: "2-digit",
+									month: "long",
+									year: "numeric",
+								})}</p>
                                 <p><strong>Luogo:</strong>${element.luogoEvento}</p>
                                 <p>${element.descrizione}</p>
-                                <div class="d-flex gap-4 si-no">
-                                    <a href="" class="popup-trigger accept"><i class="fa-solid fa-check check accetta"></i></a>
-                                    <a href="" class="popup-trigger reject"><i class="fa-solid fa-xmark check rifiuta"></i></a>
+                                 <div class="d-flex gap-4 si-no">
+                                    <button class="btn btn-accetta popup-trigger accept d-flex align-items-center justify-content-center"><i class="fa-solid fa-check check accetta"></i></button>
+                                    <button class="btn btn-rifiuta popup-trigger reject d-flex align-items-center justify-content-center"><i class="fa-solid fa-xmark check rifiuta"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -173,7 +180,17 @@ fetch("http://localhost:8080/api/eventi")
 		})
 	})
 
-
+function approvaEvento(eventoId) {
+	fetch(`http://localhost:8080/api/eventi/${eventoId}/true`, {
+		method: "PUT",
+	})
+	.then(response =>{
+		if (!response.ok) {
+			throw new Error("Errore nella fetch");
+			
+		}
+	})
+}
 
 /*--------------------------------------------------------------------------------*/
 /*                            MODIFICHE DATI PROFILO                              */
