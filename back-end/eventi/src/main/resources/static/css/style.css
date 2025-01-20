@@ -14,6 +14,16 @@ body {
     padding: 0;
 }
 
+.dropdown-menu a:active {
+    color: #cab177 !important;
+    background-color: #faf5f5 !important;
+}
+
+.dropdown-menu a:hover {
+    color: #cab177 !important;
+}
+
+
 /* Navbar Toggler Default Button */
 .navbar-toggler {
     width: 70px;
@@ -272,14 +282,6 @@ header.navbar-scrolled {
 }
 
 
-
-
-
-
-
-
-
-  
   /* button */
   .button {
     display: inline-block;
@@ -365,3 +367,20 @@ header.navbar-scrolled {
         color: rgb(255, 255, 255) !important;
         font-weight: bold;
     }
+
+
+
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent !important;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #cab177;
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #a98f60;
+  }
+  
