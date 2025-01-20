@@ -68,6 +68,7 @@ function EventoSelezionatoUI(eventoSelezionato) {
     const posti = document.getElementById('posti-evento');
     const prezzo = document.getElementById('prezzo-evento');
     const email = document.getElementById('email-evento');
+    const linkMappe = document.getElementById("mappa");
 
     const dataEvent = new Date(`${eventoSelezionato.dataEvento}`);
 
@@ -87,5 +88,12 @@ function EventoSelezionatoUI(eventoSelezionato) {
         prezzo.textContent = `Prezzo: Gratuito`;
     }
     email.textContent = `${eventoSelezionato.email}`;
+
+    console.log(typeof eventoSelezionato.luogoEvento);
+
+    let ricercaMaps = eventoSelezionato.luogoEvento.replace(" ", "+")
+
+    linkMappe.href = `https://www.google.com/maps?q=${ricercaMaps}`;
 }
+
 
