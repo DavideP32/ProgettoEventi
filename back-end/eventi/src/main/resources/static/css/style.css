@@ -34,6 +34,12 @@ body {
     transition: all 0.3s ease;
 }
 
+.form-control:focus {
+    border-color: #000 !important;
+    box-shadow: 0 0 0 .10rem #cab177 !important;
+}
+
+
 
 /* Navbar Lines for Animation */
 .line {
