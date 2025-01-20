@@ -100,6 +100,19 @@ public class EventoCtrl {
         }
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<?> approvaEvento(@PathVariable long id) {
+        try {
+            eventoService.approvaEvento(id);
+
+            return ResponseEntity.ok("Evento approvato!");
+
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body("Impossibile approvare l'evento!");
+        }
+    
+    }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteById(@PathVariable long id){

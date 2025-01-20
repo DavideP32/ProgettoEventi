@@ -93,6 +93,9 @@ public class UtenteServiceImpl implements UtenteService {
         if(trovato.getPassword() == null){
             trovato.setPassword(utente.getPassword());
         }
+        if(trovato.getDataNascita() == null){
+            trovato.setDataNascita(utente.getDataNascita());
+        }
 		
 		utenteRepository.save(trovato);
 		return this.toUtenteDto(utente);

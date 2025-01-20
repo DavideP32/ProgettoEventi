@@ -11,6 +11,7 @@ import java.util.List;
 import org.hibernate.annotations.ColumnDefault;
 
 import com.eventi.eventi.configuration.UploadImg;
+import com.eventi.eventi.enums.Approvazione;
 import com.eventi.eventi.enums.Caratteristiche;
 import com.eventi.eventi.enums.Tipologia;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -40,6 +41,10 @@ public class Evento {
     @Column(columnDefinition = "ENUM('PRENOTAZIONE_OBBLIGATORIA', 'ENTRATA_LIBERA')")
 	@Enumerated(EnumType.STRING)
     private Caratteristiche caratteristiche;
+
+    @Column(columnDefinition = "ENUM('APPROVATO', 'RICHIESTA', 'SCARTATO')")
+	@Enumerated(EnumType.STRING)
+    private Approvazione approvazione = Approvazione.RICHIESTA;
 
     @Column(length=255)
     private String nome;
@@ -208,6 +213,14 @@ public class Evento {
 
     public void setPercorso(String percorso) {
         this.percorso = percorso;
+    }
+
+    public Approvazione getApprovazione() {
+        return approvazione;
+    }
+
+    public void setApprovazione(Approvazione approvazione) {
+        this.approvazione = approvazione;
     }
 
 

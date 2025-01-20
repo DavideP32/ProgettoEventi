@@ -138,6 +138,43 @@ fetch("http://localhost:8080/api/utente")
 
 // onclick="promoteUser(${user.id})
 
+/* -------------------------------------------------------------------------- */
+/*                       EVENTI IN FASE DI APPROVAZIONE                       */
+/* -------------------------------------------------------------------------- */
+fetch("http://localhost:8080/api/eventi")
+	.then(response =>{
+		return response.json();
+	})
+	.then(data =>{
+		const divEventiDaAccettare = document.getElementById("priv-ordini");
+
+		data.forEach(element =>{
+			if(element.approvazione == "RICHIESTA"){
+				divEventiDaAccettare.innerHTML += `<div class="evento evento-fittizio">
+                        <div class="row align-items-center">
+                            <div class="col-lg-5 col-md-12 mb-3 mb-lg-0">
+                                <img src="${element.url}" class="img-fluid event-img" alt="${element.nome}">
+                            </div>
+                            <div class="col-lg-7 col-md-12">
+                                <a href="">
+                                    <h4>${element.nome}</h4>
+                                </a>
+                                <p><strong>Data:</strong> ${element.dataEvento}</p>
+                                <p><strong>Luogo:</strong>${element.luogoEvento}</p>
+                                <p>${element.descrizione}</p>
+                                <div class="d-flex gap-4 si-no">
+                                    <a href="" class="popup-trigger accept"><i class="fa-solid fa-check check accetta"></i></a>
+                                    <a href="" class="popup-trigger reject"><i class="fa-solid fa-xmark check rifiuta"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+			}
+		})
+	})
+
+
+
 /*--------------------------------------------------------------------------------*/
 /*                            MODIFICHE DATI PROFILO                              */
 /*--------------------------------------------------------------------------------*/

@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.eventi.eventi.configuration.UploadImg;
 import com.eventi.eventi.entities.Evento;
+import com.eventi.eventi.enums.Approvazione;
 import com.eventi.eventi.repositories.EventoRepository;
 
 @Service
@@ -84,6 +85,7 @@ public class EventoServiceImpl implements EventoService {
         trovato.setNome(evento.getNome());
         trovato.setTipologia(evento.getTipologia());
         trovato.setCaratteristiche(evento.getCaratteristiche());
+        trovato.setApprovazione(evento.getApprovazione());
         trovato.setDescrizione(evento.getDescrizione());
         trovato.setLuogoEvento(evento.getLuogoEvento());
         trovato.setCoordinateGPS(evento.getCoordinateGPS());
@@ -114,6 +116,20 @@ public class EventoServiceImpl implements EventoService {
         eventoRepository.save(eventoPersistito);
 
         return eventoPersistito;
+    }
+
+    @Override
+    public void approvaEvento(long id){
+        Optional<Evento> optional = eventoRepository.findById(id);
+        
+        if(optional.isPresent()){
+            Evento evento = optional.get();
+            if(evento.getApprovazione() == Approvazione.RICHIESTA){
+                evento.setApprovazione(Approvazione.APPROVATO);
+                eventoRepository.save(evento);
+            }
+        }
+
     }
 
     /* -------------------------------------------------------------------------- */

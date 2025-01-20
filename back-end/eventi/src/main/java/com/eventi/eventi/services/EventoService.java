@@ -21,6 +21,7 @@ public interface EventoService{
 
     Evento aggiornaEvento(Evento evento, Evento trovato);
     Evento aggiornaPostiEvento (Evento trovato, int posti);
+    void approvaEvento(long id);
 
     void cancellaEvento(long id);
 
