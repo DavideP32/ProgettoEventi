@@ -113,7 +113,7 @@ function salvaModifiche(e) {
 
 	const nome = document.getElementById("nomeInput").value;
 	const cognome = document.getElementById("cognomeInput").value;
-	const dataNascita = document.getElementById("data-nascita").value;
+	// const dataNascita = document.getElementById("data-di-nascita").textContent;
     emailUt = document.getElementById("email").textContent;
 	// const password = document.getElementById("passwordUtente").value
 
