@@ -9,14 +9,13 @@ function showConfirmation(e, checkboxId, nome) {
 	popup.classList.remove("d-none")
 
 	//cambio il nome a seconda dell'utente
-    
+
 	if (isChecked) {
-        popupTitolo.textContent = "Conferma la promozione al ruolo Admin"
-        popupNome.innerHTML = `Sei sicuro di voler promuovere <span class="fw-bold">${nome}</span> ad Admin?`
-		
+		popupTitolo.textContent = "Conferma la promozione al ruolo Admin"
+		popupNome.innerHTML = `Sei sicuro di voler promuovere <span class="fw-bold">${nome}</span> ad Admin?`
 	} else {
 		popupTitolo.textContent = "Conferma la rimozione del ruolo Admin"
-        icona.innerHTML = `<svg
+		icona.innerHTML = `<svg
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
@@ -30,7 +29,7 @@ function showConfirmation(e, checkboxId, nome) {
                 d="M6 6l12 12M6 18L18 6"
             />
             </svg>`
-         popupNome.innerHTML = `Sei sicuro di voler rimuovere <span class="fw-bold">${nome}</span> dagli Admin?`
+		popupNome.innerHTML = `Sei sicuro di voler rimuovere <span class="fw-bold">${nome}</span> dagli Admin?`
 	}
 
 	// Gestione del pulsante di conferma
@@ -142,18 +141,18 @@ fetch("http://localhost:8080/api/utente")
 /*                       EVENTI IN FASE DI APPROVAZIONE                       */
 /* -------------------------------------------------------------------------- */
 fetch("http://localhost:8080/api/eventi")
-	.then(response =>{
-		return response.json();
+	.then((response) => {
+		return response.json()
 	})
-	.then(data =>{
-		const divEventiDaAccettare = document.getElementById("priv-ordini");
-		const divEventiRifiutati = document.getElementById("priv-storico");
+	.then((data) => {
+		const divEventiDaAccettare = document.getElementById("priv-ordini")
+		const divEventiRifiutati = document.getElementById("priv-storico")
 
-		data.forEach(element =>{
-			const eventDate = new Date(element.dataEvento);
-			if(element.approvazione == "RICHIESTA"){
+		data.forEach((element) => {
+			const eventDate = new Date(element.dataEvento)
+			if (element.approvazione == "RICHIESTA") {
 				divEventiDaAccettare.innerHTML += `
-					<div class="evento evento-fittizio">
+					<div class="evento evento-fittizio" data-id="${element.id}">
                         <div class="row align-items-center">
                             <div class="col-lg-5 col-md-12 mb-3 mb-lg-0">
                                 <img src="${element.url}" class="img-fluid event-img" alt="${element.nome}">
@@ -175,12 +174,12 @@ fetch("http://localhost:8080/api/eventi")
                                 </div>
                             </div>
                         </div>
-                    </div>`;
+                    </div>`
 			}
 
-			if(element.approvazione == "SCARTATO"){
+			if (element.approvazione == "SCARTATO") {
 				divEventiRifiutati.innerHTML += `
-					<div class="evento evento-fittizio">
+					<div class="evento evento-fittizio" data-id="${element.id}">
                         <div class="row align-items-center">
                             <div class="col-lg-5 col-md-12 mb-3 mb-lg-0">
                                 <img src="${element.url}" class="img-fluid event-img" alt="${element.nome}">
@@ -205,32 +204,101 @@ fetch("http://localhost:8080/api/eventi")
 	})
 
 function approvaEvento(eventoId) {
-	fetch(`http://localhost:8080/api/eventi/${eventoId}/true`, {
-		method: "PUT",
+	const popup = document.getElementById("popup-accept")
+	const accetta = document.getElementById("accetta-scarta")
+	const annulla = document.getElementById("annulla-scarta")
+	const overlay = document.getElementById("overlay")
+
+	popup.classList.remove("d-none")
+	overlay.classList.remove("d-none")
+
+	accetta.replaceWith(accetta.cloneNode(true))
+	const nuovoAccettaBtn = document.getElementById("accetta-scarta") // Recupera il nuovo pulsante
+
+	nuovoAccettaBtn.addEventListener("click", () => {
+		fetch(`http://localhost:8080/api/eventi/${eventoId}/true`, {
+			method: "PUT",
+		})
+			.then((response) => {
+				if (!response.ok) {
+					throw new Error("Errore nella fetch")
+				}
+
+				const elementoDaRimuovere = document.querySelector(`[data-id="${eventoId}"]`)
+				if (elementoDaRimuovere) {
+					// Aggiungi classi Animate.css per l'animazione
+					elementoDaRimuovere.classList.add("animate__animated", "animate__zoomOut")
+
+					// Rimuovi l'elemento dopo il completamento dell'animazione
+					elementoDaRimuovere.addEventListener("animationend", () => {
+						elementoDaRimuovere.remove()
+					})
+				}
+			})
+			.catch((err) => {
+				console.log(err)
+			})
+
+		popup.classList.add("d-none")
+		overlay.classList.add("d-none")
 	})
-	.then(response =>{
-		if (!response.ok) {
-			throw new Error("Errore nella fetch");
-			
-		}
-	})
-	.catch(err =>{
-		console.log(err);
-	})
+
+	annulla.replaceWith(annulla.cloneNode(true));
+    const nuovoAnnulla = document.getElementById("annulla-scarta");
+
+    nuovoAnnulla.addEventListener("click", () => {
+        popup.classList.add("d-none");
+        overlay.classList.add("d-none");
+    });
 }
+
 function disapprovaEvento(eventoId) {
-	fetch(`http://localhost:8080/api/eventi/${eventoId}/false`, {
-		method: "PUT",
+	const popup = document.getElementById("popup-reject")
+	const accetta = document.getElementById("accetta-elimina-evento")
+	const annulla = document.getElementById("annulla-elimina-evento")
+	const overlay = document.getElementById("overlay")
+
+	popup.classList.remove("d-none")
+	overlay.classList.remove("d-none")
+
+	accetta.replaceWith(accetta.cloneNode(true))
+	const nuovoAccettaBtn = document.getElementById("accetta-elimina-evento") // Recupera il nuovo pulsante
+
+	nuovoAccettaBtn.addEventListener("click", () => {
+		fetch(`http://localhost:8080/api/eventi/${eventoId}/false`, {
+			method: "PUT",
+		})
+			.then((response) => {
+				if (!response.ok) {
+					throw new Error("Errore nella fetch")
+				}
+
+				const elementoDaRimuovere = document.querySelector(`[data-id="${eventoId}"]`)
+				if (elementoDaRimuovere) {
+					// Aggiungi classi Animate.css per l'animazione
+					elementoDaRimuovere.classList.add("animate__animated", "animate__zoomOut")
+
+					// Rimuovi l'elemento dopo il completamento dell'animazione
+					elementoDaRimuovere.addEventListener("animationend", () => {
+						elementoDaRimuovere.remove()
+					})
+				}
+			})
+			.catch((err) => {
+				console.log(err)
+			})
+
+		popup.classList.add("d-none")
+		overlay.classList.add("d-none")
 	})
-	.then(response =>{
-		if (!response.ok) {
-			throw new Error("Errore nella fetch");
-			
-		}
-	})
-	.catch(err =>{
-		console.log(err);
-	})
+
+	annulla.replaceWith(annulla.cloneNode(true));
+    const nuovoAnnulla = document.getElementById("annulla-elimina-evento");
+
+    nuovoAnnulla.addEventListener("click", () => {
+        popup.classList.add("d-none");
+        overlay.classList.add("d-none");
+    });
 }
 
 /*--------------------------------------------------------------------------------*/

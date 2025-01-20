@@ -71,6 +71,7 @@ form.addEventListener("submit", (e) => {
 	const nomeEvento = form.nomeEvento.value.trim();
 	const descrizioneEvento = form.descrizioneEvento.value.trim();
 	const categoriaEvento = form.categoriaEvento.value.trim();
+	const immagineEvento = form.immagineEvento.files[0];
 	const dataOraEvento = form.dataOraEvento.value.trim();
 	const luogoEvento = form.luogoEvento.value.trim();
 	const prezzo = form.prezzoEvento.value.trim();
@@ -102,6 +103,7 @@ form.addEventListener("submit", (e) => {
 	formData.append("prezzo", prezzo);
 	formData.append("email", emailEvento);
 	formData.append("caratteristiche", "ENTRATA_LIBERA");
+	formData.append("approvazione", "RICHIESTA")
 	formData.append("coordinateGPS", "-15.860857, -60.724130");
 	formData.append("posti", 200);
 	formData.append("disponibilita", true);

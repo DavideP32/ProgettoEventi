@@ -87,13 +87,14 @@ public class UtenteServiceImpl implements UtenteService {
     public UtenteDto aggiornaUtente(Utente utente, Utente trovato){
         trovato.setNome(utente.getNome());
 		trovato.setCognome(utente.getCognome());
-		trovato.setDataNascita(utente.getDataNascita());
 		trovato.setEmail(utente.getEmail());
 		trovato.setRuolo(utente.getRuolo());
         if(trovato.getPassword() == null){
             trovato.setPassword(utente.getPassword());
         }
         if(trovato.getDataNascita() == null){
+            trovato.setDataNascita(utente.getDataNascita());
+        }else{
             trovato.setDataNascita(utente.getDataNascita());
         }
 		

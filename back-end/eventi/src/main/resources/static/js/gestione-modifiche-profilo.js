@@ -1,8 +1,8 @@
 /* -------------------------------------------------------------------------- */
 /*                        PRENDERE PRENOTAZIONI ATTIVE                        */
 /* -------------------------------------------------------------------------- */
+let utenteAutenticato = null
 document.addEventListener("DOMContentLoaded", async () => {
-	let utenteAutenticato = null
 	try {
 		utenteAutenticato = await verificaSessione()
 	} catch (err) {
@@ -203,7 +203,8 @@ function salvaModifiche(e) {
 		nome: nome,
 		cognome: cognome,
 		email: emailUt,
-		ruolo: "RUOLO_UTENTE",
+		ruolo: utenteAutenticato.ruolo,
+        dataNascita: utenteAutenticato.dataNascita
 	}
 
 	return fetch("http://localhost:8080/api/utente", {
