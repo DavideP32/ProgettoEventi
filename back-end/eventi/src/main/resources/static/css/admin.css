@@ -2,24 +2,6 @@
   padding-top: 10rem;
 }
 
-.check {
-  font-size: 1.5rem;
-  transition: all 0.3s;
-}
-
-.check:hover {
-  transform: scale(1.1);
-}
-
-.accetta {
-  color: green;
-}
-
-.rifiuta {
-  color: red;
-}
-
-
 .toggle-switch {
   position: relative;
   display: inline-block;
@@ -77,3 +59,43 @@ input:checked + .slider:before {
   gap: 1rem; /* Spaziatura tra le card */
 }
 
+.toggle-label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0 5px;
+}
+
+
+
+.accetta {
+  font-size: larger;
+  color: #2A7221;
+}
+
+
+.rifiuta {
+  font-size: larger;
+  color: #D1462F;
+}
+
+.btn-accetta{
+  background-color: transparent;
+  border-color: #2A7221;
+  transition: all 0.2s;
+}
+
+.btn-accetta:hover {
+  border-color: #2A7221;
+  transform: scale(1.1);
+}
+
+.btn-rifiuta{
+  background-color: transparent;
+  border-color: #D1462F;
+  transition: all 0.2s;
+}
+
+.btn-rifiuta:hover {
+  border-color: #D1462F;
+  transform: scale(1.1);
+}

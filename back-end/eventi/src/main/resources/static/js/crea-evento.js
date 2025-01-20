@@ -72,7 +72,6 @@ form.addEventListener("submit", (e) => {
 	const descrizioneEvento = form.descrizioneEvento.value.trim();
 	const categoriaEvento = form.categoriaEvento.value.trim();
 	const dataOraEvento = form.dataOraEvento.value.trim();
-	const immagineEvento = form.immagineEvento.files[0];
 	const luogoEvento = form.luogoEvento.value.trim();
 	const prezzo = form.prezzoEvento.value.trim();
 	const emailEvento = form.emailEvento.value.trim();
@@ -83,7 +82,6 @@ form.addEventListener("submit", (e) => {
 		!descrizioneEvento ||
 		!categoriaEvento ||
 		!dataOraEvento ||
-		!immagineEvento ||
 		!luogoEvento ||
 		!prezzo ||
 		!emailEvento

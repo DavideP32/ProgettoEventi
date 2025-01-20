@@ -98,10 +98,18 @@ fetch("http://localhost:8080/api/utente")
                                         ${user.nome.charAt(0)}${user.cognome.charAt(0)}
                                     </div>
                                     <div class="text-center">
+
+                                    <div class="d-flex align-items-center gap-3 toggle-container">
+                                            <span class="toggle-label">Utente</span>
+
                                         <label class="toggle-switch">
                                           <input type="checkbox" id="toggle-${user.id}" ${isChecked} onchange="showConfirmation(event, 'toggle-${user.id}', '${user.nome}')">
                                           <span class="slider"></span>
                                         </label>
+
+                                       <span class="toggle-label">Admin</span>
+                                    </div>
+
                                     </div>
                                 </div>
                             </div>
