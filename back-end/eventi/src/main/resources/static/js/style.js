@@ -1,18 +1,22 @@
 // Navbar che cambia colore e bottone che si rimpicciolisce quando si scorre
-window.addEventListener("scroll", function () {
-	let navbar = document.querySelector("header")
-	let navbarToggler = document.querySelector(".navbar-toggler")
 
-	if (window.scrollY > 50) {
-		navbar.classList.add("navbar-scrolled")
-		navbar.classList.remove("bg-transparent")
-		navbarToggler.classList.add("shrink-button") // Rimpicciolisce il bottone
-	} else {
-		navbar.classList.remove("navbar-scrolled")
-		navbar.classList.add("bg-transparent")
-		navbarToggler.classList.remove("shrink-button") // Ripristina la dimensione
-	}
-})
+if(window.location.pathname != "/admin.html" && window.location.pathname != "/profilo.html"){
+
+    window.addEventListener("scroll", function () {
+        let navbar = document.querySelector("header")
+        let navbarToggler = document.querySelector(".navbar-toggler")
+    
+        if (window.scrollY > 50) {
+            navbar.classList.add("navbar-scrolled")
+            navbar.classList.remove("bg-transparent")
+            navbarToggler.classList.add("shrink-button") // Rimpicciolisce il bottone
+        } else {
+            navbar.classList.remove("navbar-scrolled")
+            navbar.classList.add("bg-transparent")
+            navbarToggler.classList.remove("shrink-button") // Ripristina la dimensione
+        }
+    })
+}
 
 /* -------------------------------------------------------------------------- */
 /*                              BARRA DI RICERCA                              */

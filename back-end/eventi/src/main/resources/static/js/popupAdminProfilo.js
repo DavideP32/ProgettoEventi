@@ -249,7 +249,11 @@ function acceptAction() {
 accept.addEventListener('click', openAcceptPopup);
 
 
-document.querySelector('.desactivate').addEventListener('click', acceptAction);
+document.querySelector('.desactivate').addEventListener('click', () => {
+    document.querySelector('.evento-fittizio').classList.add("d-none");
+    document.getElementById("popup-accept").classList.add("d-none");
+});
+
 document.querySelector('.cancel').addEventListener('click', closePopup);
 
 document.getElementById('overlay').addEventListener('click', (event) => {
