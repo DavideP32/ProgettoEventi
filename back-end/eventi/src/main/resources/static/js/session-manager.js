@@ -53,6 +53,7 @@ function updateUI(utenteLoggato) {
 	const inizialeNome = document.querySelectorAll(".idUtente")
 	
 	// console.log(typeof utenteLoggato.ruolo)
+	console.log(inizialeNome);
 	
 	if (utenteLoggato) {
 		loginText.classList.add("d-none")
@@ -70,10 +71,10 @@ function updateUI(utenteLoggato) {
 
 		const dataNasc = new Date(`${utenteLoggato.dataNascita}`)
 
-		console.log(dataNasc)
+		console.log(utenteLoggato.nome)
 
 		inizialeNome.forEach((element) => {
-			element.textContent = `${utenteLoggato.nome[0].toUpperCase()}`
+			element.textContent = `${utenteLoggato.nome[0].toUpperCase()}`;
 		})
 
 		if (window.location.pathname == "/profilo.html" || window.location.pathname == "/admin.html") {
@@ -102,7 +103,7 @@ function updateUI(utenteLoggato) {
 			})
 
 			emailUtente.forEach((element) => {
-				element.textContent = `Email: ${utenteLoggato.email}`
+				element.textContent = `${utenteLoggato.email}`
 			})
 
 			dataDiNascita.forEach((element) => {

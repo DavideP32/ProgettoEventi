@@ -12,7 +12,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     console.log(utenteAutenticato);
 
-    let eventiAttivi = utenteAutenticato.prenotazioni;
+    // Fetch delle prenotazioni aggiornate
+    let eventiAttivi = [];
+    try {
+        const response = await fetch(`http://localhost:8080/api/prenotazioni/${utenteAutenticato.id}`);
+        if (!response.ok) {
+            throw new Error("Errore nel recupero delle prenotazioni.");
+        }
+        eventiAttivi = await response.json();
+    } catch (err) {
+        console.error("Errore nel recupero delle prenotazioni:", err);
+        eventi.innerHTML = "<p>Errore nel caricamento degli eventi.</p>";
+        return;
+    }
+
     console.log(eventiAttivi);
     const eventi = document.getElementById("priv-ordini");
 
@@ -36,7 +49,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                         <p><strong>Data:</strong> ${element.evento.dataEvento}</p>
                         <p><strong>Luogo:</strong> ${element.evento.luogoEvento}</p>
                         <button class="bin-button popup-trigger reject" onclick="eliminaPrenotazione('${element.id}')">
-                            <svg class="bin-top" viewBox="0 0 39 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             <svg class="bin-top" viewBox="0 0 39 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <line y1="5" x2="39" y2="5" stroke="white" stroke-width="4"></line>
                                 <line x1="12" y1="1.5" x2="26.0357" y2="1.5" stroke="white" stroke-width="3"></line>
                             </svg>
@@ -57,6 +70,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     eventi.innerHTML = eventiHTML;
 });
+
+/* -------------------------------------------------------------------------- */
+/*                           ELIMINARE PRENOTAZIONE                           */
+/* -------------------------------------------------------------------------- */
 
 function eliminaPrenotazione(idPrenot) {
     fetch(`http://localhost:8080/api/prenotazioni/${idPrenot}`, {
@@ -92,19 +109,21 @@ if (annullaModificheBtn) {
 }
 
 function salvaModifiche(e) {
-	e.preventDefault()
+	e.preventDefault();
 
-	const nome = document.getElementById("nomeInput").value
-	const cognome = document.getElementById("cognomeInput").value
-	const email = document.getElementById("emailUtente").value
-	const dataNascita = document.getElementById("data-nascita").value
-	const password = document.getElementById("passwordUtente").value
+	const nome = document.getElementById("nomeInput").value;
+	const cognome = document.getElementById("cognomeInput").value;
+	const dataNascita = document.getElementById("data-nascita").value;
+    emailUt = document.getElementById("email").textContent;
+	// const password = document.getElementById("passwordUtente").value
+
+    console.log(emailUt);
 
 	const utenteModificato = {
 		nome: nome,
 		cognome: cognome,
-		dataNascita: dataNascita,
-		email: email,
+        email: emailUt,
+        ruolo: "RUOLO_UTENTE"
 	}
 
 	return fetch("http://localhost:8080/api/utente", {

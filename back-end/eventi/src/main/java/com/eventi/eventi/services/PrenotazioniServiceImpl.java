@@ -41,6 +41,12 @@ public class PrenotazioniServiceImpl implements PrenotazioniService {
     }
 
     @Override
+    public List<Prenotazione> prendiPerUtenteId(long id){
+        List<Prenotazione> prenotazioni = prenotazioniRepository.findByUtenteId(id);
+        return prenotazioni;
+    }
+
+    @Override
     public Prenotazione aggiungiPrenotazione(Prenotazione prenotazione) {
 
         Evento eventoAggiornato = eventoService.aggiornaPostiEvento(prenotazione.getEvento(), prenotazione.getNumeroPersone());

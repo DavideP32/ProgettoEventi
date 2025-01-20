@@ -8,6 +8,7 @@ import com.eventi.eventi.entities.Prenotazione;
 public interface PrenotazioniService {
 
     public List<Prenotazione> getAllPreno();
+    List<Prenotazione> prendiPerUtenteId(long id);
     public Prenotazione aggiungiPrenotazione(Prenotazione prenotazione);
     public Prenotazione aggiornaPrenotazione(Prenotazione prenotazione, Prenotazione trovata);
     public void cancellaPrenotazione(long id);
