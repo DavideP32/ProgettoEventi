@@ -119,13 +119,20 @@ public class EventoServiceImpl implements EventoService {
     }
 
     @Override
-    public void approvaEvento(long id){
+    public void approvaEvento(long id, boolean cosaFare){
         Optional<Evento> optional = eventoRepository.findById(id);
         
-        if(optional.isPresent()){
+        if(optional.isPresent() && cosaFare == true){
             Evento evento = optional.get();
             if(evento.getApprovazione() == Approvazione.RICHIESTA){
                 evento.setApprovazione(Approvazione.APPROVATO);
+                eventoRepository.save(evento);
+            }
+        }
+        else if (optional.isPresent() && cosaFare == false){
+            Evento evento = optional.get();
+            if (evento.getApprovazione() == Approvazione.RICHIESTA) {
+                evento.setApprovazione(Approvazione.SCARTATO);
                 eventoRepository.save(evento);
             }
         }

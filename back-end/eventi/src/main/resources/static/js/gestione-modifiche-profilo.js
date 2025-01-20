@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const eventi = document.getElementById("priv-ordini");
 
     if (eventiAttivi.length === 0) {
-        eventi.innerHTML = "<p>Nessun evento trovato.</p>";
+        eventi.innerHTML = "<p>Nessuna prenotazione trovata.</p>";
         return;
     }
 

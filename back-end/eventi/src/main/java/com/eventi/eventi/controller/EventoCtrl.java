@@ -100,11 +100,10 @@ public class EventoCtrl {
         }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<?> approvaEvento(@PathVariable long id) {
+    @PutMapping("/{id}/{cosaFare}")
+    public ResponseEntity<?> approvaEvento(@PathVariable long id,  boolean cosaFare) {
         try {
-            eventoService.approvaEvento(id);
-
+            eventoService.approvaEvento(id, cosaFare);
             return ResponseEntity.ok("Evento approvato!");
 
         } catch (Exception e) {
