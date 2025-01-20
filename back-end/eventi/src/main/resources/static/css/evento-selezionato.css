@@ -9,6 +9,10 @@
     pointer-events: auto;
 }
 
+#prenotati-ora {
+    scroll-margin-top: 120px; /* Altezza desiderata */
+}
+
 .hero {
     position: relative;
     background: url('../img/eventoJazz.jpg') center/cover no-repeat;

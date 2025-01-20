@@ -119,6 +119,32 @@
 	margin-bottom: 4rem;
 }
 
+#musica {
+    scroll-margin-top: 120px; /* Altezza desiderata */
+}
+
+#TEATRO_CINEMA {
+    scroll-margin-top: 120px; /* Altezza desiderata */
+}
+
+#CIBO {
+    scroll-margin-top: 120px; /* Altezza desiderata */
+}
+
+#FESTE_SAGRE {
+    scroll-margin-top: 120px; /* Altezza desiderata */
+}
+
+#SPORT {
+    scroll-margin-top: 120px; /* Altezza desiderata */
+}
+
+#ARTE {
+    scroll-margin-top: 120px; /* Altezza desiderata */
+}
+
+
+
 @media (min-width: 768px) and (max-width: 1440px) {
 	.evento {
 		gap: 5rem;
