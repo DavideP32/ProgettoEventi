@@ -101,7 +101,10 @@ public class EventoCtrl {
     }
 
     @PutMapping("/{id}/{cosaFare}")
-    public ResponseEntity<?> approvaEvento(@PathVariable long id,  boolean cosaFare) {
+    public ResponseEntity<?> approvaEvento(@PathVariable long id, @PathVariable Boolean cosaFare) {
+        if (cosaFare == null) {
+            return ResponseEntity.badRequest().body("Parametro cosaFare non valido!");
+        }
         try {
             eventoService.approvaEvento(id, cosaFare);
             return ResponseEntity.ok("Evento approvato!");

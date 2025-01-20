@@ -163,64 +163,64 @@ annullaEliminazioneButton.addEventListener('click', () => {
 
 
 //Funzione per eliminare un evento
-document.addEventListener("DOMContentLoaded", () => {
-    const popup = document.getElementById("popup-reject");
-    const overlay = document.getElementById("overlay");
-    let eventToReject = null;
+// document.addEventListener("DOMContentLoaded", () => {
+//     const popup = document.getElementById("popup-reject");
+//     const overlay = document.getElementById("overlay");
+//     let eventToReject = null;
 
-    // Funzione per mostrare il popup
-    function showPopup(eventElement) {
-        eventToReject = eventElement;
-        popup.classList.remove("d-none");
-        overlay.classList.remove("d-none");
-    }
+//     // Funzione per mostrare il popup
+//     function showPopup(eventElement) {
+//         eventToReject = eventElement;
+//         popup.classList.remove("d-none");
+//         overlay.classList.remove("d-none");
+//     }
 
-    function closePopup() {
-        popup.classList.add("d-none");
-        overlay.classList.add("d-none");
-        eventToReject = null;
-    }
+//     function closePopup() {
+//         popup.classList.add("d-none");
+//         overlay.classList.add("d-none");
+//         eventToReject = null;
+//     }
 
-    function confirmDelete() {
-        if (eventToReject) {
-            const rejectedSection = document.querySelector(".evento-scartato");
-            if (rejectedSection) {
-                rejectedSection.appendChild(eventToReject);
+//     function confirmDelete() {
+//         if (eventToReject) {
+//             const rejectedSection = document.querySelector(".evento-scartato");
+//             if (rejectedSection) {
+//                 rejectedSection.appendChild(eventToReject);
 
-                const actions = eventToReject.querySelector(".si-no");
-                if (actions) {
-                    actions.remove();
-                }
-            }
-        }
-        closePopup();
-    }
+//                 const actions = eventToReject.querySelector(".si-no");
+//                 if (actions) {
+//                     actions.remove();
+//                 }
+//             }
+//         }
+//         closePopup();
+//     }
 
-    document.body.addEventListener("click", (e) => {
-        if (e.target.closest(".reject")) {
-            e.preventDefault();
-            const eventElement = e.target.closest(".evento");
-            if (eventElement) {
-                showPopup(eventElement);
-            }
-        }
+//     document.body.addEventListener("click", (e) => {
+//         if (e.target.closest(".reject")) {
+//             e.preventDefault();
+//             const eventElement = e.target.closest(".evento");
+//             if (eventElement) {
+//                 showPopup(eventElement);
+//             }
+//         }
 
-        if (e.target.matches(".cancel")) {
-            e.preventDefault();
-            closePopup();
-        }
+//         if (e.target.matches(".cancel")) {
+//             e.preventDefault();
+//             closePopup();
+//         }
 
-        if (e.target.matches(".desactivate")) {
-            e.preventDefault();
-            confirmDelete();
-        }
+//         if (e.target.matches(".desactivate")) {
+//             e.preventDefault();
+//             confirmDelete();
+//         }
 
-        if (e.target.matches("#overlay")) {
-            e.preventDefault();
-            closePopup();
-        }
-    });
-});
+//         if (e.target.matches("#overlay")) {
+//             e.preventDefault();
+//             closePopup();
+//         }
+//     });
+// });
 
 
 

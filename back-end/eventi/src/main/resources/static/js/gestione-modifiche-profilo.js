@@ -2,42 +2,43 @@
 /*                        PRENDERE PRENOTAZIONI ATTIVE                        */
 /* -------------------------------------------------------------------------- */
 document.addEventListener("DOMContentLoaded", async () => {
-    let utenteAutenticato = null;
-    try {
-        utenteAutenticato = await verificaSessione();
-    } catch (err) {
-        alert("Non puoi accedere alla pagina profilo senza essere autenticato.");
-        window.location.replace("http://localhost:8080/login.html");
-        return;
-    }
-    console.log(utenteAutenticato);
+	let utenteAutenticato = null
+	try {
+		utenteAutenticato = await verificaSessione()
+	} catch (err) {
+		alert("Non puoi accedere alla pagina profilo senza essere autenticato.")
+		window.location.replace("http://localhost:8080/login.html")
+		return
+	}
+	console.log(utenteAutenticato)
 
-    // Fetch delle prenotazioni aggiornate
-    let eventiAttivi = [];
-    try {
-        const response = await fetch(`http://localhost:8080/api/prenotazioni/${utenteAutenticato.id}`);
-        if (!response.ok) {
-            throw new Error("Errore nel recupero delle prenotazioni.");
-        }
-        eventiAttivi = await response.json();
-    } catch (err) {
-        console.error("Errore nel recupero delle prenotazioni:", err);
-        eventi.innerHTML = "<p>Errore nel caricamento degli eventi.</p>";
-        return;
-    }
+	// Fetch delle prenotazioni aggiornate
+	let eventiAttivi = []
+	try {
+		const response = await fetch(`http://localhost:8080/api/prenotazioni/${utenteAutenticato.id}`)
+		if (!response.ok) {
+			throw new Error("Errore nel recupero delle prenotazioni.")
+		}
+		eventiAttivi = await response.json()
+	} catch (err) {
+		console.error("Errore nel recupero delle prenotazioni:", err)
+		eventi.innerHTML = "<p>Errore nel caricamento degli eventi.</p>"
+		return
+	}
 
-    console.log(eventiAttivi);
-    const eventi = document.getElementById("priv-ordini");
+	console.log(eventiAttivi)
+	const eventi = document.getElementById("priv-ordini")
 
-    if (eventiAttivi.length === 0) {
-        eventi.innerHTML = "<p>Nessuna prenotazione trovata.</p>";
-        return;
-    }
+	if (eventiAttivi.length === 0) {
+		eventi.innerHTML = "<p>Nessuna prenotazione trovata.</p>"
+		return
+	}
 
-    let eventiHTML = '';
-    eventiAttivi.forEach(element => {
-        eventiHTML += `
-            <div class="evento">
+	let eventiHTML = ""
+	eventiAttivi.forEach((element) => {
+        const data = new Date(element.evento.dataEvento);
+		eventiHTML += `
+            <div class="evento" data-id="${element.id}">
                 <div class="row align-items-center">
                     <div class="col-lg-5 col-md-12 mb-3 mb-lg-0">
                         <img src="${element.evento.url}" class="img-fluid event-img" alt="${element.evento.nome}">
@@ -46,7 +47,11 @@ document.addEventListener("DOMContentLoaded", async () => {
                         <a href="#">
                             <h4>${element.evento.nome}</h4>
                         </a>
-                        <p><strong>Data:</strong> ${element.evento.dataEvento}</p>
+                        <p><strong>Data:</strong> ${data.toLocaleDateString("it-IT", {
+                            day: "2-digit",
+                            month: "long",
+                            year: "numeric",
+                        })}</p>
                         <p><strong>Luogo:</strong> ${element.evento.luogoEvento}</p>
                         <button class="bin-button popup-trigger reject" onclick="eliminaPrenotazione('${element.id}')">
                              <svg class="bin-top" viewBox="0 0 39 7" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,32 +70,107 @@ document.addEventListener("DOMContentLoaded", async () => {
                     </div>
                 </div>
             </div>
-        `;
-    });
+        `
+	})
 
-    eventi.innerHTML = eventiHTML;
-});
+	eventi.innerHTML = eventiHTML
+})
 
 /* -------------------------------------------------------------------------- */
 /*                           ELIMINARE PRENOTAZIONE                           */
 /* -------------------------------------------------------------------------- */
-
 function eliminaPrenotazione(idPrenot) {
-    fetch(`http://localhost:8080/api/prenotazioni/${idPrenot}`, {
-        method: "DELETE",
-		credentials: "include",
-    })
-    .then(response =>{
-        if (!response.ok) {
-            throw new Error(err.message || "Errore durante il salvataggio delle modifiche")
-        }
-        // document.querySelector(`[data-id="${idPrenot}"]`).remove();
-    })
-    .catch((error) => {
-        console.error("Errore:", error);
-        alert("Non è stato possibile eliminare la prenotazione.");
+    const popup = document.getElementById("popup-reject");
+    const overlay = document.getElementById("overlay");
+    const confermaBtn = document.getElementById("elimina-prenotazione");
+    const annullaBtn = document.getElementById("annulla-eliminazione");
+
+    // Mostra popup e overlay
+    popup.classList.remove("d-none");
+    overlay.classList.remove("d-none");
+
+    // Rimuovi eventuali listener precedenti per evitare duplicazioni
+    confermaBtn.replaceWith(confermaBtn.cloneNode(true)); // Sostituisci il pulsante con una sua copia per rimuovere i listener
+    const nuovoConfermaBtn = document.getElementById("elimina-prenotazione"); // Recupera il nuovo pulsante
+
+    // Aggiungi event listener al pulsante di conferma
+    nuovoConfermaBtn.addEventListener("click", () => {
+        fetch(`http://localhost:8080/api/prenotazioni/${idPrenot}`, {
+            method: "DELETE",
+            credentials: "include",
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Errore durante il salvataggio delle modifiche");
+                }
+
+                // Trova l'elemento da rimuovere
+                const elementoDaRimuovere = document.querySelector(`.evento[data-id="${idPrenot}"]`);
+                if (elementoDaRimuovere) {
+                    // Aggiungi classi Animate.css per l'animazione
+                    elementoDaRimuovere.classList.add('animate__animated', 'animate__zoomOut');
+
+                    // Rimuovi l'elemento dopo il completamento dell'animazione
+                    elementoDaRimuovere.addEventListener('animationend', () => {
+                        elementoDaRimuovere.remove();
+                    });
+                }
+            })
+            .catch((error) => {
+                console.error("Errore:", error);
+                alert("Non è stato possibile eliminare la prenotazione.");
+            });
+
+        // Nascondi popup e overlay
+        popup.classList.add("d-none");
+        overlay.classList.add("d-none");
+    });
+
+    // Rimuovi eventuali listener precedenti e aggiungi il listener al pulsante di annullamento
+    annullaBtn.replaceWith(annullaBtn.cloneNode(true));
+    const nuovoAnnullaBtn = document.getElementById("annulla-eliminazione");
+
+    nuovoAnnullaBtn.addEventListener("click", () => {
+        popup.classList.add("d-none");
+        overlay.classList.add("d-none");
     });
 }
+
+// function eliminaPrenotazione(idPrenot) {
+// 	const popup = document.getElementById("popup-reject")
+// 	const overlay = document.getElementById("overlay")
+
+// 	popup.classList.remove("d-none")
+// 	overlay.classList.remove("d-none")
+
+// 	document.getElementById("elimina-prenotazione").addEventListener("click", () => {
+// 		fetch(`http://localhost:8080/api/prenotazioni/${idPrenot}`, {
+// 			method: "DELETE",
+// 			credentials: "include",
+// 		})
+// 			.then((response) => {
+// 				if (!response.ok) {
+// 					throw new Error(err.message || "Errore durante il salvataggio delle modifiche")
+// 				}
+// 				const elementoDaRimuovere = document.querySelector(`.evento[data-id="${idPrenot}"]`)
+// 				if (elementoDaRimuovere) {
+// 					
+//                   
+//                         elementoDaRimuovere.remove(); // Rimuovi elemento dopo animazione
+//                     
+//                 }
+				
+// 			})
+// 			.catch((error) => {
+// 				console.error("Errore:", error)
+// 				alert("Non è stato possibile eliminare la prenotazione.")
+// 			})
+// 	})
+// 	document.getElementById("annulla-eliminazione").addEventListener("click", () => {
+// 		popup.classList.add("d-none")
+// 		overlay.classList.add("d-none")
+// 	})
+// }
 
 /*--------------------------------------------------------------------------------*/
 /*                            MODIFICHE DATI PROFILO                              */
@@ -109,21 +189,21 @@ if (annullaModificheBtn) {
 }
 
 function salvaModifiche(e) {
-	e.preventDefault();
+	e.preventDefault()
 
-	const nome = document.getElementById("nomeInput").value;
-	const cognome = document.getElementById("cognomeInput").value;
+	const nome = document.getElementById("nomeInput").value
+	const cognome = document.getElementById("cognomeInput").value
 	// const dataNascita = document.getElementById("data-di-nascita").textContent;
-    emailUt = document.getElementById("email").textContent;
+	emailUt = document.getElementById("email").textContent
 	// const password = document.getElementById("passwordUtente").value
 
-    console.log(emailUt);
+	console.log(emailUt)
 
 	const utenteModificato = {
 		nome: nome,
 		cognome: cognome,
-        email: emailUt,
-        ruolo: "RUOLO_UTENTE"
+		email: emailUt,
+		ruolo: "RUOLO_UTENTE",
 	}
 
 	return fetch("http://localhost:8080/api/utente", {
@@ -160,41 +240,3 @@ function annullaModifiche(e) {
 			console.log("Errore durante annullamento delle modifiche", error)
 		})
 }
-
-/*--------------------------------------------------------------------------------*/
-/*                            MODIFICHE PRENOTAZIONI ATTIVE                       */
-/*--------------------------------------------------------------------------------*/
-
-//Tasto annulla
-document.querySelector(".cancel").addEventListener("click", function () {
-	const popup = document.getElementById("popup-reject")
-	const overlay = document.getElementById("overlay")
-
-	if (popup) {
-		popup.classList.add("d-none")
-		overlay.classList.add("d-none")
-	}
-})
-
-//Tasto elimina
-// document.querySelector(".desactivate").addEventListener("click", e => {
-// 	const evento = document.getElementById("evento-2")
-// 	const popup = document.getElementById("popup-reject")
-// 	const overlay = document.getElementById("overlay")
-//     console.log(e.target);
-
-
-// 	if (evento) {
-// 		evento.remove()
-// 	}
-
-// 	//ALERT
-// 	alert("Evento eliminato con successo")
-
-// 	if (popup) {
-// 		popup.classList.add("d-none")
-// 		overlay.classList.add("d-none")
-// 	}
-// })
-
-

@@ -1,126 +1,121 @@
 .card {
-    background-color: #f5ebeb;
-    max-width: none;
+	background-color: #f5ebeb;
+	max-width: none;
 }
 
 .evento {
-    max-width: 800px;
-    gap: 2rem;
+	max-width: 800px;
+	gap: 2rem;
 }
 
-.gestione  {
-    position: sticky !important;
-    top: 7rem !important;
-    z-index: 3;
+.gestione {
+	position: sticky !important;
+	top: 7rem !important;
+	z-index: 3;
 }
 
 .gestione .card {
-    position: sticky !important;
-    top: 7rem !important;
-    margin-bottom: 1.5rem;
-    z-index: 3;
+	position: sticky !important;
+	top: 7rem !important;
+	margin-bottom: 1.5rem;
+	z-index: 3;
 }
 
-
 aside {
-    display: block;
-    unicode-bidi: isolate;
+	display: block;
+	unicode-bidi: isolate;
 }
 
 .nav-pills {
-    --bs-nav-pills-link-active-bg: #cab177;
-     
+	--bs-nav-pills-link-active-bg: #cab177;
 }
 
 .nav-pills .nav-link {
-    color: rgb(0, 0, 0) !important; /* Rende le scritte bianche */
+	color: rgb(0, 0, 0) !important; /* Rende le scritte bianche */
 }
 
 .nav-pills .nav-link.active {
-    background-color: #cab177; /* Colore di sfondo per il link attivo */
-    color: white !important; /* Mantieni bianco anche il testo attivo */
+	background-color: #cab177; /* Colore di sfondo per il link attivo */
+	color: white !important; /* Mantieni bianco anche il testo attivo */
 }
 
 .nav-pills .nav-link.active:hover {
-    color: white !important;
+	color: white !important;
 }
 
 .nav-pills .nav-link:hover {
-    color: #cab177 !important; /* Anche al passaggio del mouse */
+	color: #cab177 !important; /* Anche al passaggio del mouse */
 }
 
 input {
-    color: #cab177 !important;
+	color: #cab177 !important;
 }
 
 .impostazioni::placeholder {
-    color: #cab177 !important;
+	color: #cab177 !important;
 }
 
-
 .btn-save {
-    background-color: #cab177 !important;
-    border-color: #cab177;
+	background-color: #cab177 !important;
+	border-color: #cab177;
 }
 
 .btn-save:hover {
-    background-color: inherit !important;
-    color: inherit !important;
-    border-color: inherit !important;
+	background-color: inherit !important;
+	color: inherit !important;
+	border-color: inherit !important;
 }
 
-
 .btn-cancel {
-    --bs-btn-color: #000000 !important;
-    --bs-btn-border-color: #000000 !important;
-    --bs-btn-hover-color: #000 !important;
-    --bs-btn-hover-bg: #ffffff !important;
-    --bs-btn-hover-border-color: #ffffff !important;
-    --bs-btn-focus-shadow-rgb: 248, 249, 250 !important;
-    --bs-btn-active-color: #000 !important;
-    --bs-btn-active-bg: #ffffff !important;
-    --bs-btn-active-border-color: #ffffff !important;
-    --bs-btn-active-shadow: inset 0 3px 2px rgb(0, 0, 0) !important;
-    --bs-btn-disabled-color: #ffffff !important;
-    --bs-btn-disabled-bg: #fff !important;
-    --bs-btn-disabled-border-color: #ffffff !important;
-    --bs-gradient: none !important;
+	--bs-btn-color: #000000 !important;
+	--bs-btn-border-color: #000000 !important;
+	--bs-btn-hover-color: #000 !important;
+	--bs-btn-hover-bg: #ffffff !important;
+	--bs-btn-hover-border-color: #ffffff !important;
+	--bs-btn-focus-shadow-rgb: 248, 249, 250 !important;
+	--bs-btn-active-color: #000 !important;
+	--bs-btn-active-bg: #ffffff !important;
+	--bs-btn-active-border-color: #ffffff !important;
+	--bs-btn-active-shadow: inset 0 3px 2px rgb(0, 0, 0) !important;
+	--bs-btn-disabled-color: #ffffff !important;
+	--bs-btn-disabled-bg: #fff !important;
+	--bs-btn-disabled-border-color: #ffffff !important;
+	--bs-gradient: none !important;
 }
 
 h4 {
-    color: #000000;
+	color: #000000;
 }
 
-/* From Uiverse.io by vinodjangid07 */ 
+/* From Uiverse.io by vinodjangid07 */
 .bin-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 45px;
-    height: 45px;
-    border-radius: 15px;
-    background-color: #cab177;
-    cursor: pointer;
-    border: 3px solid #cab17765;
-    transition-duration: 0.3s;
-  }
-  .bin-bottom {
-    width: 10px;
-  }
-  .bin-top {
-    width: 15px;
-    transform-origin: right;
-    transition-duration: 0.3s;
-  }
-  .bin-button:hover .bin-top {
-    transform: rotate(45deg);
-  }
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 45px;
+	height: 45px;
+	border-radius: 15px;
+	background-color: #cab177;
+	cursor: pointer;
+	border: 3px solid #cab17765;
+	transition-duration: 0.3s;
+}
+.bin-bottom {
+	width: 10px;
+}
+.bin-top {
+	width: 15px;
+	transform-origin: right;
+	transition-duration: 0.3s;
+}
+.bin-button:hover .bin-top {
+	transform: rotate(45deg);
+}
 
-  .bin-button:active {
-    transform: scale(0.9);
-  }
-  
+.bin-button:active {
+	transform: scale(0.9);
+}
 
 
 
@@ -130,36 +125,35 @@ h4 {
 	}
 }
 
-
 /* Nasconde il testo e mostra le icone a partire da 992px (tablet più grandi e PC ristretti) */
 @media screen and (max-width: 992px) {
-    .nav-link span {
-        display: none;
-    }
-    .nav-link i {
-        display: inline-block;
-    }
+	.nav-link span {
+		display: none;
+	}
+	.nav-link i {
+		display: inline-block;
+	}
 }
 
 /* Mostra il testo e nasconde le icone sopra i 992px */
 @media screen and (min-width: 991px) {
-    .nav-link span {
-        display: inline;
-    }
-    .nav-link i {
-        display: none;
-    }
+	.nav-link span {
+		display: inline;
+	}
+	.nav-link i {
+		display: none;
+	}
 
-    .gestione .card {
-        margin-bottom: 0;
-    }
+	.gestione .card {
+		margin-bottom: 0;
+	}
 }
 
 @media screen and (max-width: 768px) {
-    .evento-img {
-        width: 100%;
-        height: auto;
-        padding: 0;
+	.evento-img {
+		width: 100%;
+		height: auto;
+		padding: 0;
 		margin: 0;
-    }
+	}
 }

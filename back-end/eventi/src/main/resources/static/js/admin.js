@@ -147,7 +147,7 @@ fetch("http://localhost:8080/api/eventi")
 	})
 	.then(data =>{
 		const divEventiDaAccettare = document.getElementById("priv-ordini");
-
+		const divEventiRifiutati = document.getElementById("priv-storico");
 
 		data.forEach(element =>{
 			const eventDate = new Date(element.dataEvento);
@@ -167,15 +167,39 @@ fetch("http://localhost:8080/api/eventi")
 									month: "long",
 									year: "numeric",
 								})}</p>
-                                <p><strong>Luogo:</strong>${element.luogoEvento}</p>
+                                <p><strong>Luogo: </strong>${element.luogoEvento}</p>
                                 <p>${element.descrizione}</p>
                                  <div class="d-flex gap-4 si-no">
-                                    <button class="btn btn-accetta popup-trigger accept d-flex align-items-center justify-content-center"><i class="fa-solid fa-check check accetta"></i></button>
-                                    <button class="btn btn-rifiuta popup-trigger reject d-flex align-items-center justify-content-center"><i class="fa-solid fa-xmark check rifiuta"></i></button>
+                                    <button class="btn btn-accetta popup-trigger accept d-flex align-items-center justify-content-center" onclick="approvaEvento('${element.id}')"><i class="fa-solid fa-check check accetta"></i></button>
+                                    <button class="btn btn-rifiuta popup-trigger reject d-flex align-items-center justify-content-center" onclick="disapprovaEvento('${element.id}')"><i class="fa-solid fa-xmark check rifiuta"></i></button>
                                 </div>
                             </div>
                         </div>
                     </div>`;
+			}
+
+			if(element.approvazione == "SCARTATO"){
+				divEventiRifiutati.innerHTML += `
+					<div class="evento evento-fittizio">
+                        <div class="row align-items-center">
+                            <div class="col-lg-5 col-md-12 mb-3 mb-lg-0">
+                                <img src="${element.url}" class="img-fluid event-img" alt="${element.nome}">
+                            </div>
+                            <div class="col-lg-7 col-md-12">
+                                <a href="">
+                                    <h4>${element.nome}</h4>
+                                </a>
+                                <p><strong>Data:</strong> ${eventDate.toLocaleDateString("it-IT", {
+									day: "2-digit",
+									month: "long",
+									year: "numeric",
+								})}</p>
+                                <p><strong>Luogo: </strong>${element.luogoEvento}</p>
+                                <p>${element.descrizione}</p>
+                            </div>
+                        </div>
+                    </div>
+				`
 			}
 		})
 	})
@@ -189,6 +213,23 @@ function approvaEvento(eventoId) {
 			throw new Error("Errore nella fetch");
 			
 		}
+	})
+	.catch(err =>{
+		console.log(err);
+	})
+}
+function disapprovaEvento(eventoId) {
+	fetch(`http://localhost:8080/api/eventi/${eventoId}/false`, {
+		method: "PUT",
+	})
+	.then(response =>{
+		if (!response.ok) {
+			throw new Error("Errore nella fetch");
+			
+		}
+	})
+	.catch(err =>{
+		console.log(err);
 	})
 }
 
