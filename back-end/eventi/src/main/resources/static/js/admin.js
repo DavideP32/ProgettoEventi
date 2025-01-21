@@ -1,3 +1,16 @@
+let utenteAutenticato = null
+document.addEventListener("DOMContentLoaded", async () => {
+	try {
+		utenteAutenticato = await verificaSessione()
+	} catch (err) {
+		alert("Non puoi accedere alla pagina admin senza essere autenticato.")
+		window.location.replace("http://localhost:8080/login.html")
+		return
+	}
+	console.log(utenteAutenticato)
+})
+
+
 function showConfirmation(e, checkboxId, nome) {
 	e.preventDefault() // Impedisce il comportamento predefinito della checkbox
 	const checkbox = document.getElementById(checkboxId)

@@ -58,28 +58,30 @@ function eseguiRicerca() {
                     risultati.style.display = "block";
                     data.forEach((element) => {
                         // risultati.innerHTML += `<p><a href="evento-selezionato.html" style="color: black" onclick=salvaEvento(${element})>${element.nome}</a></p>`;
+                        if(element.approvazione == 'APPROVATO'){
+                            const eventoItem = document.createElement("p");
+                            const link = document.createElement("a");
+    
+                            link.textContent = element.nome;
+                            link.href = "evento-selezionato.html";
+                            link.style.color = "black";
+                            link.setAttribute("data-evento", JSON.stringify(element));
+    
+                            link.addEventListener("click", (e) => {
+                                e.preventDefault();
+                                salvaEvento(JSON.parse(link.getAttribute("data-evento")));
+                                window.location.href = "evento-selezionato.html";
+                            });
+    
+                            eventoItem.appendChild(link);
+                            risultati.appendChild(eventoItem);
 
-                        const eventoItem = document.createElement("p");
-                        const link = document.createElement("a");
-
-                        link.textContent = element.nome;
-                        link.href = "evento-selezionato.html";
-                        link.style.color = "black";
-                        link.setAttribute("data-evento", JSON.stringify(element));
-
-                        link.addEventListener("click", (e) => {
-                            e.preventDefault();
-                            salvaEvento(JSON.parse(link.getAttribute("data-evento")));
-                            window.location.href = "evento-selezionato.html";
-                        });
-
-                        eventoItem.appendChild(link);
-                        risultati.appendChild(eventoItem);
+                        }else {
+                            risultati.style.display = "block";
+                            risultati.innerHTML = "<p>Questo evento non esiste ancora... Crealo tu!</p>";
+                        }
                     });
-                } else {
-                    risultati.style.display = "block";
-                    risultati.innerHTML = "<p>Nessun evento trovato.</p>";
-                }
+                } 
             })
             .catch((err) => {
                 console.error("Errore durante la fetch:", err);

@@ -30,7 +30,7 @@ fetch("http://localhost:8080/api/eventi")
                         year: 'numeric'
                     })}</p>
                     <p><strong>Luogo:</strong> ${element.luogoEvento}</p>
-                    <p>${element.descrizione}</p>
+                    <p>${element.motto}</p>
                     <p class="d-none"><strong>Prezzo:</strong>${element.prezzo}</p>
                     <p class="d-none"><strong>Ora:</strong> 20:00</p>
                     <p class="d-none"><strong>Mini Motto:</strong> Musica che emoziona e ispira.</p>

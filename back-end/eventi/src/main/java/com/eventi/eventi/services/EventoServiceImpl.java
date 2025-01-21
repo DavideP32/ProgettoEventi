@@ -29,7 +29,7 @@ public class EventoServiceImpl implements EventoService {
     @Autowired
     EventoRepository eventoRepository;
 
-    /* -------------------------------------------------------------------------- */
+ /* -------------------------------------------------------------------------- */
  /*                                     ALL                                    */
  /* -------------------------------------------------------------------------- */
     @Override
@@ -39,7 +39,7 @@ public class EventoServiceImpl implements EventoService {
         return eventi;
     }
 
-    /* -------------------------------------------------------------------------- */
+ /* -------------------------------------------------------------------------- */
  /*                                  GET BY ID                                 */
  /* -------------------------------------------------------------------------- */
     @Override
@@ -87,6 +87,7 @@ public class EventoServiceImpl implements EventoService {
         trovato.setCaratteristiche(evento.getCaratteristiche());
         trovato.setApprovazione(evento.getApprovazione());
         trovato.setDescrizione(evento.getDescrizione());
+        trovato.setMotto(evento.getMotto());
         trovato.setLuogoEvento(evento.getLuogoEvento());
         trovato.setCoordinateGPS(evento.getCoordinateGPS());
         trovato.setPosti(evento.getPosti());

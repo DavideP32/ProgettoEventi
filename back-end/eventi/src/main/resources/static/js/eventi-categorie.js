@@ -69,7 +69,7 @@ function updateHtml(data, tipologia) {
 							year: "numeric",
 						})}</p>
 						<p><strong>Luogo:</strong> ${element.luogoEvento}</p>
-						<p>${element.descrizione}</p>
+						<p>${element.motto}</p>
 						<p class="d-none"><strong>Prezzo:</strong> ${element.prezzo}</p>
 						<p class="d-none"><strong>Data:</strong> 10:00</p>
 						<p class="d-none"><strong>Mini Motto:</strong> Scopri l'arte contemporanea nel cuore di Milano.</p>

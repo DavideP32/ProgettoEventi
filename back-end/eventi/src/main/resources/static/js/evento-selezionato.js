@@ -69,11 +69,12 @@ function EventoSelezionatoUI(eventoSelezionato) {
     const prezzo = document.getElementById('prezzo-evento');
     const email = document.getElementById('email-evento');
     const linkMappe = document.getElementById("mappa");
+    const descrizioneLunga = document.getElementById("descrizione-lunga");
 
     const dataEvent = new Date(`${eventoSelezionato.dataEvento}`);
 
     titolo.textContent = `${eventoSelezionato.nome}`;
-    descrizione.textContent = `${eventoSelezionato.descrizione}`;
+    descrizione.textContent = `${eventoSelezionato.motto}`;
     data.textContent = `${dataEvent.toLocaleDateString('it-IT', {
         day: '2-digit',
         month: 'long',
@@ -81,6 +82,7 @@ function EventoSelezionatoUI(eventoSelezionato) {
     })}`;
     luogo.textContent = `${eventoSelezionato.luogoEvento}`;
     posti.textContent = `Affrettati! Rimangono solo ${eventoSelezionato.posti} posti`;
+    descrizioneLunga.textContent = `${eventoSelezionato.descrizione}`;
     immagine.style.background = `url(${eventoSelezionato.url}) center/cover no-repeat`;
     if(Number(eventoSelezionato.prezzo) > 0){
         prezzo.textContent = `Prezzo: ${eventoSelezionato.prezzo}€ a persona`;

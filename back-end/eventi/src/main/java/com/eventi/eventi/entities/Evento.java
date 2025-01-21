@@ -52,6 +52,9 @@ public class Evento {
     @Column(length=255)
     private String descrizione;
 
+    @Column(length=255)
+    private String motto;
+
     @Column(name="luogo_evento", length=255)
     private String luogoEvento;
 
@@ -101,6 +104,7 @@ public class Evento {
         // return "/" + UploadImg.IMG_URL_PATH + "/" + id + "/" + percorso;
         return "img/" + percorso;
     }
+    
     
 
     public List<Prenotazione> getPrenotazioni() {
@@ -221,6 +225,14 @@ public class Evento {
 
     public void setApprovazione(Approvazione approvazione) {
         this.approvazione = approvazione;
+    }
+
+    public String getMotto() {
+        return motto;
+    }
+
+    public void setMotto(String motto) {
+        this.motto = motto;
     }
 
 

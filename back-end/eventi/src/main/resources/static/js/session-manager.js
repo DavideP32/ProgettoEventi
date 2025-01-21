@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
 	verificaSessione()
 		.then((utenteData) => {
-			updateUI(utenteData)
-			if(utenteData.ruolo == 'RUOLO_UTENTE' && window.location.pathname == '/admin.html'){
-				alert('non puoi accedere alla pagina admin, sei solo un utente');
-				window.location.replace("http://localhost:8080/index.html");
+			if (utenteData.ruolo == "RUOLO_UTENTE" && window.location.pathname == "/admin.html") {
+				// alert('non puoi accedere alla pagina admin, sei solo un utente');
+				window.location.replace("http://localhost:8080/error.html")
 			}
+			updateUI(utenteData)
 		})
 		.catch((error) => {
 			console.log("Utente non autenticato", error)
@@ -51,30 +51,29 @@ function updateUI(utenteLoggato) {
 	const bollino = document.getElementById("bollino-profilo")
 	const loginText = document.querySelector(".text-end")
 	const inizialeNome = document.querySelectorAll(".idUtente")
-	
+
 	// console.log(typeof utenteLoggato.ruolo)
-	console.log(inizialeNome);
-	
+	console.log(inizialeNome)
+
 	if (utenteLoggato) {
 		loginText.classList.add("d-none")
 		bollino.classList.remove("d-none")
-		
-		console.log(utenteLoggato);
+
+		console.log(utenteLoggato)
 
 		const linkProfilo = document.querySelector(".linkProfilo")
-		if (utenteLoggato.ruolo === 'RUOLO_UTENTE') {
+		if (utenteLoggato.ruolo === "RUOLO_UTENTE") {
 			linkProfilo.innerHTML = `<a class="dropdown-item" href="profilo.html">Profilo</a>`
-		}else if (utenteLoggato.ruolo === 'RUOLO_ADMIN') {
+		} else if (utenteLoggato.ruolo === "RUOLO_ADMIN") {
 			linkProfilo.innerHTML = `<a class="dropdown-item" href="admin.html">Pannello</a>`
 		}
-		
 
 		const dataNasc = new Date(`${utenteLoggato.dataNascita}`)
 
 		console.log(utenteLoggato.nome)
 
 		inizialeNome.forEach((element) => {
-			element.textContent = `${utenteLoggato.nome[0].toUpperCase()}`;
+			element.textContent = `${utenteLoggato.nome[0].toUpperCase()}`
 		})
 
 		if (window.location.pathname == "/profilo.html" || window.location.pathname == "/admin.html") {
@@ -84,14 +83,13 @@ function updateUI(utenteLoggato) {
 			// const email = document.getElementById("email")
 			const dataDiNascita = document.querySelectorAll(".dataNascita")
 			const paypalDi = document.querySelectorAll(".paypal-di-chi")
-			
 
 			paypalDi.forEach((element) => {
 				element.innerHTML = `
 				<b class="mx-2 text-muted">
 				<i class="fa-brands fa-cc-paypal"></i>
 				</b>
-				PayPal di ${utenteLoggato.nome}`;
+				PayPal di ${utenteLoggato.nome}`
 			})
 
 			nomeUtente.forEach((element) => {
@@ -136,7 +134,6 @@ function logout() {
 			window.location.replace("http://localhost:8080/login.html")
 		})
 		.catch((error) => {
-			console.error("Errore durante il logout:", error)
+			// window.location.replace("http://localhost:8080/error.html");
 		})
 }
-
