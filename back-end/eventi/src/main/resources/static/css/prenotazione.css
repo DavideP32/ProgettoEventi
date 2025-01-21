@@ -32,11 +32,12 @@
 .booking-image {
     flex: 1;
     max-width: 50%;
-    min-height: 100vh;
-    background: url('../img/eventoJazz.jpg') no-repeat center center;
-    background-size: cover;
-    background-position: center;
+    background-image: url('../img/eventoJazz.jpg');
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
 }
+
 
 .popup-prenotazioni {
     margin-top: 15rem;
